@@ -1,0 +1,16 @@
+﻿(****************************)
+(*                          *)
+(*     GLOBAL VARIABLES     *)
+(*                          *)
+(****************************)
+
+VAR_GLOBAL
+{G:"Variables"}
+SNeCOCLBRUC 	AT %IX0.0 	: BOOL;
+SNeVENTBRUC 	AT %IX0.1 	: BOOL;
+CTuCOCLBRUC 	AT %QX0.0 	: BOOL;
+cntTmCiclo 	AT %MW0.100 	: INT;
+cntTmOn 	AT %MW0.100 	: INT;
+
+END_VAR
+

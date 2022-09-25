@@ -1,0 +1,33 @@
+﻿(************************)
+(*                      *)
+(*      STRUCTURES      *)
+(*                      *)
+(************************)
+
+TYPE
+
+	t_ph : STRUCT 
+	ptr : INT;
+	oldPtr : INT;
+	dbg : INT;
+	tmIn : UDINT;
+	TMcElap : UDINT;
+	END_STRUCT;
+
+END_TYPE
+
+TYPE
+
+	t_pwm : STRUCT 
+		Percent	: REAL;	
+		PeriodS : REAL;
+		ph      : T_ph;
+		tmcOn   : INT ;
+		tmcOff  : INT ;
+		appOut  : BOOL;
+		Enable  : BOOL;
+		Out     : BOOL;
+	END_STRUCT;
+
+END_TYPE
+

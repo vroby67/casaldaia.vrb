@@ -1,0 +1,53 @@
+﻿FUNCTION "pwm" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      a : "t_pwm";
+   END_VAR
+
+
+BEGIN
+	//gestore tempo permanenza in fase
+	IF #a.#ph.ptr <> #a.#ph.oldPtr THEN
+	  #a.#ph.oldPtr := #a.#ph.ptr;
+	  #a.#ph.tmIn := "k".TMcAlive;
+	END_IF;
+	#a.#ph.TMcElap := "k".TMcAlive - #a.#ph.tmIn;
+	//========================================================================
+	//inizializzazione per warning compilazione
+	#a.#Out := false;
+	
+	CASE #a.#ph.ptr OF
+	  0:
+	    IF #a.#Enable THEN
+	      #a.#ph.ptr := 10;
+	    END_IF;
+	    
+	  10:
+	    #a.#tmcOn := REAL_TO_INT(#a.#PeriodS * #a.#Percent);
+	    #a.#tmcOff := REAL_TO_INT(#a.#PeriodS * (100 - #a.#Percent));
+	    #a.#ph.ptr := 20;
+	    
+	  20:
+	    IF #a.#ph.TMcElap < #a.#tmcOn THEN
+	      #a.#appOut := TRUE;
+	    END_IF;
+	    
+	    IF #a.#ph.TMcElap >= #a.#tmcOn THEN
+	      #a.#ph.ptr := 30;
+	    END_IF;
+	    
+	  30:
+	    IF #a.#ph.TMcElap < #a.#tmcOff THEN
+	      #a.#appOut := FALSE;
+	    END_IF;
+	    
+	    IF #a.#ph.TMcElap >= #a.#tmcOff THEN
+	      #a.#ph.ptr := 0;
+	    END_IF;
+	    
+	END_CASE;
+	
+	#a.#Out := #a.#appOut AND #a.#Enable;
+END_FUNCTION
+
