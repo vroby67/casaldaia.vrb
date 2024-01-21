@@ -1,0 +1,15 @@
+﻿	(******************************)
+	(*                            *)
+	(*     EXPORTED VARIABLES     *)
+	(*                            *)
+	(******************************)
+
+        VAR_GLOBAL
+	{G:"Variables"}
+cntTmCiclo AT %MD100.100 : UDINT;
+cntTmOn AT %MD100.104 : UDINT;
+CTuCOCLBRUC AT %QX255.0 : BOOL;
+SNeCOCLBRUC AT %IX255.0 : BOOL;
+SNeVENTBRUC AT %IX255.1 : BOOL;
+	END_VAR
+

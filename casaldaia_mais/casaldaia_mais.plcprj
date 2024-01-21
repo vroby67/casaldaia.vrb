@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<plcProject caseSensitive="true" useCustomWorkspace="true" debugMode="false" extcheck="true" SFCControl="false" strictPointerCheck="true" strictEnumsCheck="true" copyWarningThreshold="200" version="2.4" useLD2="true" useXPLCFiles="false" useFBMethods="false">
+<plcProject caseSensitive="true" extendedIdNames="false" useCustomWorkspace="true" debugMode="false" extcheck="true" SFCControl="false" strictPointerCheck="true" verboseWarningMode="false" iecTypeConversionRules="false" PNContactsOnEachNetwork="false" LocalVarsFBAccess="false" strictEnumsCheck="true" copyWarningThreshold="200" version="2.11" useLD2="true" useXPLCFiles="false" useFBMethods="false" customSortOfProjectTree="false" autoDerefPointers="false">
 	<image>casaldaia_mais.imgx</image>
-	<commSettings>ModbusTCP:255,1000,M#TCPIP:192.168.1.122/502,5000</commSettings>
+	<commSettings>ModbusTCP:255,1000,M#TCPIP:192.168.2.122/502,5000</commSettings>
 	<sources>
 		<main>
-			<resources/>
+			<resources>
+				<resource name="ELS20" processor="ARM9">
+					<task name="Fast" interval="t#1000us" priority="0" type="cyclic" hidden="false" dynamic="false" descr=""/>
+					<task name="Slow" interval="t#10000us" priority="1" type="cyclic" hidden="false" dynamic="false" descr=""/>
+					<task name="Boot" interval="t#0us" priority="2" type="cyclic" hidden="false" dynamic="false" descr=""/>
+					<task name="Back" interval="t#100000us" priority="3" type="cyclic" hidden="false" dynamic="false" descr=""/>
+				</resource>
+			</resources>
 			<tasks>
 				<task name="Slow">
 					<program>timing</program>
@@ -14,7 +21,7 @@
 				</task>
 			</tasks>
 			<globalVars>
-				<group name="Variables">
+				<group name="Variables" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="" version="1.0.0">
 					<var name="cntTmCiclo" type="UDINT">
 						<address type="M" typeVar="D" index="100" subIndex="100"/>
 					</var>
@@ -36,7 +43,7 @@
 				</group>
 			</globalVars>
 			<retainVars>
-				<group name="Variables">
+				<group name="Variables" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="" version="1.0.0">
 					<var name="spTCiclo" type="REAL"/>
 					<var name="spTimeOutOff" type="REAL"/>
 					<var name="spTimeOutOn" type="REAL"/>
@@ -44,16 +51,14 @@
 					<var name="spFattPerc" type="REAL"/>
 				</group>
 			</retainVars>
-			<constantVars>
-				<group name="Variables"/>
-			</constantVars>
+			<constantVars/>
 			<iecVarsDeclaration>
 				<group name="Variables">
 					<iecDeclaration active="FALSE"/>
 				</group>
 			</iecVarsDeclaration>
 			<functions>
-				<function name="pwm" version="1.0.0" creationDate="1664122366" lastModifiedDate="1664124601">
+				<function name="pwm" version="1.0.0" creationDate="1664122366" lastModifiedDate="1664124601" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<returnValue>BOOL</returnValue>
 					<vars>
 						<inputVars>
@@ -112,7 +117,7 @@
 			</functions>
 			<functionBlocks/>
 			<programs>
-				<program name="timing" version="1.0.0" creationDate="1664120060" lastModifiedDate="1664141749">
+				<program name="timing" version="1.0.0" creationDate="1664120060" lastModifiedDate="1664141749" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -178,12 +183,12 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="boot" version="1.0.0" creationDate="1664123469" lastModifiedDate="1666355880">
+				<program name="boot" version="1.0.0" creationDate="1664123469" lastModifiedDate="1705850595" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars/>
 					<iecDeclaration active="FALSE"/>
 					<sourceCode type="ST">
 						<![CDATA[spTCiclo := 7.0;
-spFattPerc := 22.0;
+spFattPerc := 75.0;
 spTimeOutOff := 35.0;
 spTmCarico := 84.0;
 spTimeOutOn :=30.0;
@@ -196,7 +201,7 @@ ptrTm.tmIn:=0;
 			</programs>
 			<macros/>
 			<structs>
-				<struct name="t_ph" version="1.0.0">
+				<struct name="t_ph" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<var name="ptr" type="INT"/>
 						<var name="oldPtr" type="INT"/>
@@ -204,8 +209,9 @@ ptrTm.tmIn:=0;
 						<var name="tmIn" type="UDINT"/>
 						<var name="TMcElap" type="UDINT"/>
 					</vars>
+					<iecDeclaration active="FALSE"/>
 				</struct>
-				<struct name="t_pwm" version="1.0.0">
+				<struct name="t_pwm" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<var name="Percent" type="REAL"/>
 						<var name="PeriodS" type="REAL"/>
@@ -216,6 +222,7 @@ ptrTm.tmIn:=0;
 						<var name="Enable" type="BOOL"/>
 						<var name="Out" type="BOOL"/>
 					</vars>
+					<iecDeclaration active="FALSE"/>
 				</struct>
 			</structs>
 			<typedefs/>
@@ -2488,7 +2495,7 @@ END_FUNCTION
 			</src>
 		</aux>
 		<workspace>
-			<root name="casaldaia_mais" nextID="884">
+			<root name="casaldaia_mais" nextID="900">
 				<folder name="POUs" id="1">
 					<Pou name="timing" id="68"/>
 					<Pou name="pwm" id="342"/>
@@ -2505,11 +2512,10 @@ END_FUNCTION
 			</root>
 		</workspace>
 	</sources>
-	<codegen crossReference="false" crossReferenceOptions="0x3000001D" listing="true" hideSourceCodeInListing="true" saveEXPFile="true" saveEXPFileLibraries="false" saveTargetFiles="false" warningEnable="true" symMap="true" checkIndexType="true" waitExtension="false" allocateUnusedVariables="false" checkArrayBounds="false" checkDivisionByZero="false" checkPointers="false" checkReferences="false" checkInterfaces="false" ioVarsAsReferences="false" customTargetBINFileName="casaldaia_mais.bin" customTargetTSCFileName="casaldaia_mais_source.bin" customTargetTDSFileName="casaldaia_mais_debug.bin" generateCustomFilesName="false">
+	<codegen crossReference="false" crossReferenceOptions="0x3000001D" listing="true" unusedObjs="false" saveEXPFile="true" saveEXPFileLibraries="false" saveTargetFiles="false" warningEnable="true" symMap="true" checkIndexType="true" waitExtension="false" allocateUnusedVariables="false" checkArrayBounds="false" checkDivisionByZero="false" checkPointers="1" checkReferences="false" checkInterfaces="false" ioVarsAsReferences="false" customTargetBINFileName="casaldaia_mais.bin" customTargetTSCFileName="casaldaia_mais_source.bin" customTargetTDSFileName="casaldaia_mais_debug.bin" generateCustomFilesName="false" initFunVarsWithZero="false" enablePreprocessDirectives="false">
 		<disabledWarnings/>
 		<applicationDataBlocks/>
 	</codegen>
-	<simWorkspaces/>
 	<debug watchRefresh="20" watchVarRefresh="0" watchMaxArray="20" autoSaveWatchList="true" watchFBLocalVars="true"/>
 	<editor useOldGridSize="false"/>
 	<userDef>
