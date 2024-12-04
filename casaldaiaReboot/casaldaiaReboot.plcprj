@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <plcProject caseSensitive="true" extendedIdNames="false" useCustomWorkspace="true" debugMode="false" extcheck="true" SFCControl="false" strictPointerCheck="true" verboseWarningMode="true" iecTypeConversionRules="false" PNContactsOnEachNetwork="false" LocalVarsFBAccess="false" strictEnumsCheck="true" copyWarningThreshold="200" version="2.11" useLD2="false" useXPLCFiles="false" useFBMethods="true" customSortOfProjectTree="false" autoDerefPointers="false">
 	<image>casaldaiaReboot.imgx</image>
-	<commSettings>ModbusTCP:255,1000,M#TCPIP:10.0.0.138/502,5000</commSettings>
+	<commSettings>ModbusTCP:255,1000,M#TCPIP:192.168.1.138/502,5000</commSettings>
 	<sources>
 		<main>
 			<resources>
@@ -19,26 +19,25 @@
 				<task name="Slow">
 					<program>diRd</program>
 					<program>aiRd</program>
-					<program>gesAllIst</program>
-					<program>gesAll</program>
 					<program>logiGen</program>
-					<program>gesLamp</program>
 					<program>mainCycle</program>
 					<program>flameStatus</program>
 					<program>doWr</program>
 					<program>refill</program>
 					<program>gesMand</program>
+					<program>gesAll</program>
+					<program>gesAllIst</program>
 				</task>
 				<task name="Boot">
 					<program>init</program>
 				</task>
 				<task name="Back">
-					<program>gesCom2hmi</program>
 					<program>gesCom2plc</program>
 					<program>tarana</program>
-					<program>bkCalc</program>
-					<program>ManInit</program>
 					<program>mbMasterRtu</program>
+					<program>ManInit</program>
+					<program>bkCalc</program>
+					<program>gesCom2hmi</program>
 				</task>
 			</tasks>
 			<globalVars>
@@ -616,77 +615,68 @@
 						<descr>immagine output per hmi</descr>
 						<address type="M" typeVar="W" index="100" subIndex="208"/>
 					</var>
-					<var name="aipTGas_ic" type="INT">
-						<descr>lettura pressione gas</descr>
+					<var name="pvTCaldaia" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="212"/>
 					</var>
-					<var name="aipTLiq_ic" type="INT">
-						<descr>lettura pressione liquida</descr>
+					<var name="pvTFumi" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="214"/>
 					</var>
-					<var name="aipVeic_ic" type="INT">
-						<descr>lettura pressione veicolo</descr>
+					<var name="pvTMandata" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="216"/>
 					</var>
-					<var name="aiTTank_ic" type="INT">
-						<descr>lettura temp. bombola</descr>
+					<var name="pvTRitorno" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="218"/>
 					</var>
-					<var name="ai4_ris" type="INT">
-						<descr>lettura riserva CH4</descr>
+					<var name="pvTEsterna" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="220"/>
 					</var>
-					<var name="aiTAmb_ic" type="INT">
-						<descr>lettura temp. ambiente</descr>
+					<var name="pvTInterna" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="222"/>
 					</var>
-					<var name="aiTHLow_ic" type="INT">
-						<descr>lettura temp. risc. bomb. basso</descr>
+					<var name="pvTAriaComb" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="224"/>
 					</var>
-					<var name="aiTHHig1_ic" type="INT">
-						<descr>lettura temp. risc. bomb alto1</descr>
+					<var name="pvTCaldaia2" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="226"/>
 					</var>
-					<var name="aiTHHig2_ic" type="INT">
-						<descr>lettura temp. risc. bomb alto2</descr>
+					<var name="pvPFiamma" type="INT">
 						<address type="M" typeVar="W" index="100" subIndex="228"/>
 					</var>
-					<var name="ai9_ris" type="INT">
-						<descr>lettura tensione batteria mod. veicolo</descr>
+					<var name="phMaCy" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="230"/>
 					</var>
-					<var name="wsErogato_dg" type="DINT">
-						<descr>netto erogato decigrammi</descr>
+					<var name="phMaCyT" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="232"/>
 					</var>
-					<var name="wsNetIniEr_dg" type="DINT">
-						<descr>netto inizio erogazione decigrammi</descr>
+					<var name="phFlSt" type="UINT">
+						<address type="M" typeVar="W" index="100" subIndex="234"/>
+					</var>
+					<var name="phFlStT" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="236"/>
 					</var>
-					<var name="wsLordAgg_dg" type="DINT">
-						<descr>ultimo lordo valido decigrammi</descr>
+					<var name="phCari" type="UINT">
+						<address type="M" typeVar="W" index="100" subIndex="238"/>
+					</var>
+					<var name="phCariT" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="240"/>
 					</var>
-					<var name="tsLordAgg" type="UDINT">
-						<descr>timeStamp ultima pesata valida</descr>
+					<var name="phRefi" type="UINT">
+						<address type="M" typeVar="W" index="100" subIndex="242"/>
+					</var>
+					<var name="phRefiT" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="244"/>
 					</var>
-					<var name="xHmiPTeoTnk_cB" type="INT">
-						<descr>pressione teorica f(PLiq) cBar</descr>
+					<var name="phGeMa" type="UINT">
+						<address type="M" typeVar="W" index="100" subIndex="246"/>
+					</var>
+					<var name="phGeMaT" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="248"/>
 					</var>
-					<var name="xHmiPTeoAmb_cB" type="INT">
-						<descr>pressione teorica f(PGas) cBar</descr>
+					<var name="ventDuty" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="250"/>
 					</var>
-					<var name="xHmiTTeoTnk_cB" type="INT">
-						<descr>temperatura teorica f(TTank) d°C</descr>
+					<var name="PellDuty" type="UINT">
 						<address type="M" typeVar="W" index="100" subIndex="252"/>
-					</var>
-					<var name="xHmiTTeoAmb_cB" type="INT">
-						<descr>pressione teorica f(TTank) d°C</descr>
-						<address type="M" typeVar="W" index="100" subIndex="254"/>
 					</var>
 					<var name="alarms" type="DINT">
 						<descr>allarmi</descr>
@@ -704,62 +694,6 @@
 						<descr>Allarme sonda in corto alta 1</descr>
 						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="1"/>
 					</var>
-					<var name="TTaSOC_TH2_" type="BOOL">
-						<descr>Allarme sonda in corto alta 2</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="2"/>
-					</var>
-					<var name="TTaSOC_TL1_" type="BOOL">
-						<descr>Allarme sonda in corto bassa 1</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="3"/>
-					</var>
-					<var name="TTaSOC_TTNK" type="BOOL">
-						<descr>Allarme sonda in corto serbatoio</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="4"/>
-					</var>
-					<var name="TSaPROBHIGH" type="BOOL">
-						<descr>Allarme parità sonde alte</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="5"/>
-					</var>
-					<var name="TSaPROBHILO" type="BOOL">
-						<descr>Allarme parità sonde alte/bassa</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="6"/>
-					</var>
-					<var name="TSaPROBPRTE" type="BOOL">
-						<descr>Allarme parità sonde temp./press.</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="7"/>
-					</var>
-					<var name="TSaHIGHTEMP" type="BOOL">
-						<descr>Warning alta temperatura</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="8"/>
-					</var>
-					<var name="TSaOVERTEMP" type="BOOL">
-						<descr>Allarme alta temperatura</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="9"/>
-					</var>
-					<var name="PWaLOWVVEBO" type="BOOL">
-						<descr>Warning low voltage vehicle box</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="10"/>
-					</var>
-					<var name="WSaNOT_REDY" type="BOOL">
-						<descr>Allarme bilancia non disponibile</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="11"/>
-					</var>
-					<var name="SYaVEBOUNRC" type="BOOL">
-						<descr>Allarme vehicle box not reachable</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="12"/>
-					</var>
-					<var name="PWaLOWVMAIN" type="BOOL">
-						<descr>Warning low voltage main rack</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="13"/>
-					</var>
-					<var name="LDaWARNING_" type="BOOL">
-						<descr>Warning leak detector warning</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="14"/>
-					</var>
-					<var name="LDaALLARME_" type="BOOL">
-						<descr>Allarme leak detector alarm</descr>
-						<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="15"/>
-					</var>
 					<var name="alarms1" type="INT">
 						<descr>allarmi</descr>
 						<address type="M" typeVar="W" index="100" subIndex="258"/>
@@ -768,93 +702,29 @@
 						<descr>Allarme trasd. press. gas</descr>
 						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="0"/>
 					</var>
-					<var name="PTaPLIQFAIL" type="BOOL">
-						<descr>Allarme trasd. press. liquida</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="1"/>
+					<var name="mbCnNAvviamen" type="UDINT">
+						<descr>contatore avviamenti</descr>
+						<address type="M" typeVar="X" index="100" subIndex="260"/>
 					</var>
-					<var name="PTaPVEIFAIL" type="BOOL">
-						<descr>Allarme trasd. press. veicolo</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="2"/>
+					<var name="mbCnNCariEste" type="UDINT">
+						<descr>contatore caricamenti esterni</descr>
+						<address type="M" typeVar="X" index="100" subIndex="264"/>
 					</var>
-					<var name="WSa_FAULTS_" type="BOOL">
-						<descr>Allarme weighing scale generic</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="3"/>
+					<var name="mbCnNCariBruc" type="UDINT">
+						<descr>contatore caricamenti bruciatore</descr>
+						<address type="M" typeVar="X" index="100" subIndex="268"/>
 					</var>
-					<var name="FCaRIPOBILA" type="BOOL">
-						<descr>Allarme ritorno rip. bilancia</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="4"/>
+					<var name="mbCnMFunzMini" type="UDINT">
+						<descr>contatore funzionamento minimo</descr>
+						<address type="M" typeVar="X" index="100" subIndex="272"/>
 					</var>
-					<var name="FCaLAVOBILA" type="BOOL">
-						<descr>Allarme sollevamento bilancia</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="5"/>
+					<var name="mbCnMFunzMedi" type="UDINT">
+						<descr>contatore funzionamento medio</descr>
+						<address type="M" typeVar="X" index="100" subIndex="276"/>
 					</var>
-					<var name="PSaMANCARIA" type="BOOL">
-						<descr>Allarme mancanza aria compr.</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="6"/>
-					</var>
-					<var name="PWaNET_FAUL" type="BOOL">
-						<descr>Allarme alimentazione da rete</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="7"/>
-					</var>
-					<var name="WSaLOW_LEVL" type="BOOL">
-						<descr>Warning disponibilità gas</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="8"/>
-					</var>
-					<var name="WDaMBPCSERV" type="BOOL">
-						<descr>Allarme watch dog comunicazione server</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="9"/>
-					</var>
-					<var name="WDaMBMODRAD" type="BOOL">
-						<descr>Allarme watch dog comunicazione mod. radio</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="10"/>
-					</var>
-					<var name="TSaSYSTNRDY" type="BOOL">
-						<descr>Allarme sistema non pronto ad erogare</descr>
-						<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="11"/>
-					</var>
-					<var name="xHmiPGasPt" type="INT">
-						<descr>lettura press. gas punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="260"/>
-					</var>
-					<var name="xHmiPLiqPt" type="INT">
-						<descr>lettura press. liq. punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="262"/>
-					</var>
-					<var name="xHmiPVeiPt" type="INT">
-						<descr>lettura press. veic. punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="264"/>
-					</var>
-					<var name="xHmiTBomPt" type="INT">
-						<descr>lettura temp. bombola punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="266"/>
-					</var>
-					<var name="xHmiRis4" type="INT">
-						<descr>CJC I banco</descr>
-						<address type="M" typeVar="W" index="100" subIndex="268"/>
-					</var>
-					<var name="xHmiTAmbPt" type="INT">
-						<descr>lettura temp. ambiente punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="270"/>
-					</var>
-					<var name="xHmiTRLoPt" type="INT">
-						<descr>lettura temp. risc. basso punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="272"/>
-					</var>
-					<var name="xHmiTRH1Pt" type="INT">
-						<descr>lettura temp. risc. alto1 punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="274"/>
-					</var>
-					<var name="xHmiTRH2Pt" type="INT">
-						<descr>lettura temp. risc. alto2 punti</descr>
-						<address type="M" typeVar="W" index="100" subIndex="276"/>
-					</var>
-					<var name="xHmiRis9" type="INT">
-						<descr>CJC II banco</descr>
-						<address type="M" typeVar="W" index="100" subIndex="278"/>
-					</var>
-					<var name="xHmiPtrPhGe" type="INT">
-						<descr>Puntatore fase ciclo principale (erogazione)</descr>
-						<address type="M" typeVar="W" index="100" subIndex="280"/>
+					<var name="mbCnMFunzMaxi" type="UDINT">
+						<descr>contatore funzionamento massimo</descr>
+						<address type="M" typeVar="X" index="100" subIndex="280"/>
 					</var>
 				</group>
 				<group name="vGlobal" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="" version="1.0.0">
@@ -1146,6 +1016,10 @@
 						<descr>sp tempo accensione ventilata iniziale</descr>
 						<address type="M" typeVar="X" index="100" subIndex="2342"/>
 					</var>
+					<var name="spKMaxErrMa_cK" type="UINT">
+						<descr>sp tempo accensione ventilata iniziale</descr>
+						<address type="M" typeVar="X" index="100" subIndex="2344"/>
+					</var>
 					<var name="cnNAvviamen" type="UDINT">
 						<descr>contatore avviamenti</descr>
 						<address type="M" typeVar="X" index="100" subIndex="2376"/>
@@ -1423,37 +1297,41 @@
 						<descr>Selezione livello potenza</descr>
 						<initValue>35</initValue>
 					</const>
+					<const name="mcPrsStabBurn" type="INT">
+						<descr>Accesso diretto alla combustione stabile</descr>
+						<initValue>40</initValue>
+					</const>
 					<const name="mcStableBurn" type="INT">
 						<descr>Combustione stabile</descr>
-						<initValue>40</initValue>
+						<initValue>45</initValue>
 					</const>
 					<const name="mcAshRemoval" type="INT">
 						<descr>Rimozione periodica cenere</descr>
-						<initValue>45</initValue>
+						<initValue>50</initValue>
 					</const>
 					<const name="mcIdleFire" type="INT">
 						<descr>Mantenimento statico fiamma (in temperatura)</descr>
-						<initValue>50</initValue>
+						<initValue>55</initValue>
 					</const>
 					<const name="mcBurnResume" type="INT">
 						<descr>Ripresa fiamma dopo idlefire</descr>
-						<initValue>55</initValue>
+						<initValue>60</initValue>
 					</const>
 					<const name="mcVentStart" type="INT">
 						<descr>Avvio ventilazione per ripresa</descr>
-						<initValue>60</initValue>
+						<initValue>65</initValue>
 					</const>
 					<const name="mcPelletFeed" type="INT">
 						<descr>Alimentazione pellet per ripristino</descr>
-						<initValue>65</initValue>
+						<initValue>70</initValue>
 					</const>
 					<const name="mcVentHold" type="INT">
 						<descr>Mantenimento ventilazione</descr>
-						<initValue>70</initValue>
+						<initValue>75</initValue>
 					</const>
 					<const name="mcIdleReturn" type="INT">
 						<descr>Ritorno alla quiete</descr>
-						<initValue>75</initValue>
+						<initValue>80</initValue>
 					</const>
 					<const name="mcANotRdy" type="INT">
 						<descr>Anomalia da attesa iniziale</descr>
@@ -1487,41 +1365,45 @@
 						<descr>Anomalia da selezione livello potenza</descr>
 						<initValue>135</initValue>
 					</const>
+					<const name="mcAPrsStabBurn" type="INT">
+						<descr>Anomalia da accesso diretto alla combustione stabile</descr>
+						<initValue>140</initValue>
+					</const>
 					<const name="mcAStableBurn" type="INT">
 						<descr>Anomalia da combustione stabile</descr>
-						<initValue>140</initValue>
+						<initValue>145</initValue>
 					</const>
 					<const name="mcAAshRemoval" type="INT">
 						<descr>Anomalia da rimozione periodica cenere</descr>
-						<initValue>145</initValue>
+						<initValue>150</initValue>
 					</const>
 					<const name="mcAIdleFire" type="INT">
 						<descr>Anomalia da mantenimento statico fiamma</descr>
-						<initValue>150</initValue>
+						<initValue>155</initValue>
 					</const>
 					<const name="mcABurnResume" type="INT">
 						<descr>Anomalia da ripresa fiamma</descr>
-						<initValue>155</initValue>
+						<initValue>160</initValue>
 					</const>
 					<const name="mcAVentStart" type="INT">
 						<descr>Anomalia da avvio ventilazione</descr>
-						<initValue>160</initValue>
+						<initValue>165</initValue>
 					</const>
 					<const name="mcAPelletFeed" type="INT">
 						<descr>Anomalia da alimentazione pellet</descr>
-						<initValue>165</initValue>
+						<initValue>170</initValue>
 					</const>
 					<const name="mcAVentHold" type="INT">
 						<descr>Anomalia da mantenimento ventilazione</descr>
-						<initValue>170</initValue>
+						<initValue>175</initValue>
 					</const>
 					<const name="mcAIdleReturn" type="INT">
 						<descr>Anomalia da ritorno alla quiete</descr>
-						<initValue>175</initValue>
+						<initValue>180</initValue>
 					</const>
 					<const name="mcAResTot" type="INT">
 						<descr>Anomalia generale totale</descr>
-						<initValue>180</initValue>
+						<initValue>185</initValue>
 					</const>
 					<const name="mcAnomRec" type="INT">
 						<descr>Stato di recupero anomalie</descr>
@@ -2030,72 +1912,49 @@ END_VAR
 
 	diImg	AT %MW100.204	: UDINT;	(* immagine input per hmi *)
 	doImg	AT %MW100.208	: UDINT;	(* immagine output per hmi *)
-	
-	aipTGas_ic	AT %MW100.212	: INT;	(* lettura pressione gas *)
-	aipTLiq_ic	AT %MW100.214	: INT;	(* lettura pressione liquida *)
-	aipVeic_ic	AT %MW100.216	: INT;	(* lettura pressione veicolo *)
-	aiTTank_ic	AT %MW100.218	: INT;	(* lettura temp. bombola *)
-	ai4_ris	AT %MW100.220	: INT;	(* lettura riserva CH4 *)
-	aiTAmb_ic	AT %MW100.222	: INT;	(* lettura temp. ambiente *)
-	aiTHLow_ic	AT %MW100.224	: INT;	(* lettura temp. risc. bomb. basso *)
-	aiTHHig1_ic	AT %MW100.226	: INT;	(* lettura temp. risc. bomb alto1 *)
-	aiTHHig2_ic	AT %MW100.228	: INT;	(* lettura temp. risc. bomb alto2 *)
-	ai9_ris	AT %MW100.230	: INT;	(* lettura tensione batteria mod. veicolo *)
-	
-	wsErogato_dg	AT %MW100.232	: DINT; 	(* netto erogato decigrammi *)
-	wsNetIniEr_dg	AT %MW100.236	: DINT;	(* netto inizio erogazione decigrammi *)
-	wsLordAgg_dg	AT %MW100.240	: DINT;	(* ultimo lordo valido decigrammi *)
-	tsLordAgg	AT %MW100.244	: UDINT;	(* timeStamp ultima pesata valida *)
 
-	xHmiPTeoTnk_cB	AT %MW100.248	: INT;	(* pressione teorica f(PLiq) cBar *)
-	xHmiPTeoAmb_cB	AT %MW100.250	: INT;	(* pressione teorica f(PGas) cBar *)
-	xHmiTTeoTnk_cB	AT %MW100.252	: INT;	(* temperatura teorica f(TTank) d°C *)
-	xHmiTTeoAmb_cB	AT %MW100.254	: INT;	(* pressione teorica f(TTank) d°C *)
-
+	pvTCaldaia	AT	%MW100.212	: INT;	(*  *)
+	pvTFumi		AT	%MW100.214	: INT;	(*  *)
+	pvTMandata	AT	%MW100.216	: INT;	(*  *)
+	pvTRitorno	AT	%MW100.218	: INT;	(*  *)
+	pvTEsterna	AT	%MW100.220	: INT;	(*  *)
+	pvTInterna	AT	%MW100.222	: INT;	(*  *)
+	pvTAriaComb	AT	%MW100.224	: INT;	(*  *)
+	pvTCaldaia2	AT	%MW100.226	: INT;	(*  *)
+	pvPFiamma	AT	%MW100.228	: INT;	(*  *)
+	phMaCy		AT	%MW100.230	: UINT;	(*  *)
+	phMaCyT		AT	%MW100.232	: UINT;	(*  *)
+	phFlSt		AT	%MW100.234	: UINT;	(*  *)
+	phFlStT		AT	%MW100.236	: UINT;	(*  *)
+	phCari		AT	%MW100.238	: UINT;	(*  *)
+	phCariT		AT	%MW100.240	: UINT;	(*  *)
+	phRefi		AT	%MW100.242	: UINT;	(*  *)
+	phRefiT		AT	%MW100.244	: UINT;	(*  *)
+	phGeMa		AT	%MW100.246	: UINT;	(*  *)
+	phGeMaT		AT	%MW100.248	: UINT;	(*  *)
+	ventDuty	AT	%MW100.250	: UINT;	(*  *)
+	PellDuty	AT	%MW100.252	: UINT;	(*  *)
+                             
+	                         
+                             
 	alarms	AT %MW100.256	: DINT;	(* allarmi *)
+
 	alarms0	AT %MW100.256	: INT;	(* allarmi *)
 	SIaTUTTONOK	AT %MW100.256.0	: BOOL;	(* Allarme ausiliari non inseriti *)
 	TTaSOC_TH1_	AT %MW100.256.1	: BOOL;	(* Allarme sonda in corto alta 1 *)
-	TTaSOC_TH2_	AT %MW100.256.2	: BOOL;	(* Allarme sonda in corto alta 2 *)
-	TTaSOC_TL1_	AT %MW100.256.3	: BOOL;	(* Allarme sonda in corto bassa 1 *)
-	TTaSOC_TTNK	AT %MW100.256.4	: BOOL;	(* Allarme sonda in corto serbatoio *)
-	TSaPROBHIGH	AT %MW100.256.5	: BOOL;	(* Allarme parità sonde alte *)
-	TSaPROBHILO	AT %MW100.256.6	: BOOL;	(* Allarme parità sonde alte/bassa *)
-	TSaPROBPRTE	AT %MW100.256.7	: BOOL;	(* Allarme parità sonde temp./press. *)
-	TSaHIGHTEMP	AT %MW100.256.8	: BOOL;	(* Warning alta temperatura *)
-	TSaOVERTEMP	AT %MW100.256.9	: BOOL;	(* Allarme alta temperatura *)
-	PWaLOWVVEBO	AT %MW100.256.10	: BOOL;	(* Warning low voltage vehicle box *)
-	WSaNOT_REDY	AT %MW100.256.11	: BOOL;	(* Allarme bilancia non disponibile *)
-	SYaVEBOUNRC	AT %MW100.256.12	: BOOL;	(* Allarme vehicle box not reachable *)
-	PWaLOWVMAIN	AT %MW100.256.13	: BOOL;	(* Warning low voltage main rack *)
-	LDaWARNING_	AT %MW100.256.14	: BOOL;	(* Warning leak detector warning *)
-	LDaALLARME_	AT %MW100.256.15	: BOOL;	(* Allarme leak detector alarm *)
+
 	alarms1	AT %MW100.258	: INT;	(* allarmi *)
 	PTaPGASFAIL	AT %MW100.258.0	: BOOL;	(* Allarme trasd. press. gas *)
-	PTaPLIQFAIL	AT %MW100.258.1	: BOOL;	(* Allarme trasd. press. liquida *)
-	PTaPVEIFAIL	AT %MW100.258.2	: BOOL;	(* Allarme trasd. press. veicolo *)
-	WSa_FAULTS_	AT %MW100.258.3	: BOOL;	(* Allarme weighing scale generic *)
-	FCaRIPOBILA	AT %MW100.258.4	: BOOL;	(* Allarme ritorno rip. bilancia *)
-	FCaLAVOBILA	AT %MW100.258.5	: BOOL;	(* Allarme sollevamento bilancia *)
-	PSaMANCARIA	AT %MW100.258.6	: BOOL;	(* Allarme mancanza aria compr. *)
-	PWaNET_FAUL	AT %MW100.258.7	: BOOL;	(* Allarme alimentazione da rete *)
-	WSaLOW_LEVL	AT %MW100.258.8	: BOOL;	(* Warning disponibilità gas *)
-	WDaMBPCSERV	AT %MW100.258.9	: BOOL;	(* Allarme watch dog comunicazione server *)
-	WDaMBMODRAD	AT %MW100.258.10	: BOOL;	(* Allarme watch dog comunicazione mod. radio *)
-	TSaSYSTNRDY	AT %MW100.258.11	: BOOL;	(* Allarme sistema non pronto ad erogare *)
 	
-	xHmiPGasPt	AT %MW100.260	: INT;	(* lettura press. gas punti *)
-	xHmiPLiqPt	AT %MW100.262	: INT;	(* lettura press. liq. punti *)
-	xHmiPVeiPt	AT %MW100.264	: INT;	(* lettura press. veic. punti *)
-	xHmiTBomPt	AT %MW100.266	: INT;	(* lettura temp. bombola punti *)
-	xHmiRis4  	AT %MW100.268	: INT;	(* CJC I banco *)
-	xHmiTAmbPt	AT %MW100.270	: INT;	(* lettura temp. ambiente punti *)
-	xHmiTRLoPt	AT %MW100.272	: INT;	(* lettura temp. risc. basso punti *)
-	xHmiTRH1Pt	AT %MW100.274	: INT;	(* lettura temp. risc. alto1 punti *)
-	xHmiTRH2Pt	AT %MW100.276	: INT;	(* lettura temp. risc. alto2 punti *)
-	xHmiRis9  	AT %MW100.278	: INT;	(* CJC II banco *)
-	xHmiPtrPhGe	AT %MW100.280	: INT;	(* Puntatore fase ciclo principale (erogazione) *)
-	                              
+	mbCnNAvviamen		AT 	%MX100.260 	: 	UDINT;	(* contatore avviamenti *)
+	mbCnNCariEste		AT 	%MX100.264 	: 	UDINT;	(* contatore caricamenti esterni *)
+	mbCnNCariBruc		AT 	%MX100.268 	: 	UDINT;	(* contatore caricamenti bruciatore *)
+	mbCnMFunzMini		AT 	%MX100.272 	: 	UDINT;	(* contatore funzionamento minimo *)
+	mbCnMFunzMedi		AT 	%MX100.276 	: 	UDINT;	(* contatore funzionamento medio *)
+	mbCnMFunzMaxi		AT 	%MX100.280 	: 	UDINT;	(* contatore funzionamento massimo *)
+
+
+	
                                                   
 END_VAR
 
@@ -2198,6 +2057,7 @@ VAR_GLOBAL RETAIN
 	
 	spTMandRisc_dC		AT 	%MX100.2340 	: 	UINT;	(* sp temperatura mandata riscaldamento *)
 	spTVentInBu_pc		AT 	%MX100.2342 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
+	spKMaxErrMa_cK		AT 	%MX100.2344 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
 	
 //###################################################################
 //
@@ -2389,14 +2249,15 @@ END_VAR
 	mcNoVentIgn		: INT := 	25 ;   // Propagazione fiamma s/ventilazione
 	mcVentRstrt 	: INT := 	30 ;   // Ripresa ventilazione
 	mcPwrSel	 	: INT := 	35 ;   // Selezione livello potenza
-	mcStableBurn 	: INT := 	40 ;   // Combustione stabile
-	mcAshRemoval	: INT := 	45 ;   // Rimozione periodica cenere
-	mcIdleFire	 	: INT := 	50 ;   // Mantenimento statico fiamma (in temperatura)
-	mcBurnResume 	: INT := 	55 ;   // Ripresa fiamma dopo idlefire
-	mcVentStart   	: INT := 	60 ;   // Avvio ventilazione per ripresa
-	mcPelletFeed  	: INT := 	65 ;   // Alimentazione pellet per ripristino
-	mcVentHold    	: INT := 	70 ;   // Mantenimento ventilazione
-	mcIdleReturn  	: INT := 	75 ;   // Ritorno alla quiete
+	mcPrsStabBurn 	: INT := 	40 ;   // Accesso diretto alla combustione stabile
+	mcStableBurn 	: INT := 	45 ;   // Combustione stabile
+	mcAshRemoval	: INT := 	50 ;   // Rimozione periodica cenere
+	mcIdleFire	 	: INT := 	55 ;   // Mantenimento statico fiamma (in temperatura)
+	mcBurnResume 	: INT := 	60 ;   // Ripresa fiamma dopo idlefire
+	mcVentStart   	: INT := 	65 ;   // Avvio ventilazione per ripresa
+	mcPelletFeed  	: INT := 	70 ;   // Alimentazione pellet per ripristino
+	mcVentHold    	: INT := 	75 ;   // Mantenimento ventilazione
+	mcIdleReturn  	: INT := 	80 ;   // Ritorno alla quiete
 
 	mcANotRdy  		: INT := 	100 ;  // Anomalia da attesa iniziale
 	mcACmdWait 		: INT := 	105 ;  // Anomalia da attesa comando
@@ -2406,16 +2267,17 @@ END_VAR
 	mcANoVentIgn	: INT := 	125 ;  // Anomalia da propagazione fiamma s/ventilazione
 	mcAVentRstrt 	: INT := 	130 ;  // Anomalia da ripresa ventilazione
 	mcAPwrSel	 	: INT := 	135 ;  // Anomalia da selezione livello potenza
-	mcAStableBurn	: INT := 	140 ;  // Anomalia da combustione stabile
-	mcAAshRemoval	: INT := 	145 ;  // Anomalia da rimozione periodica cenere
-	mcAIdleFire	 	: INT := 	150 ;  // Anomalia da mantenimento statico fiamma
-	mcABurnResume 	: INT := 	155 ;  // Anomalia da ripresa fiamma
-	mcAVentStart  	: INT := 	160 ;  // Anomalia da avvio ventilazione
-	mcAPelletFeed 	: INT := 	165 ;  // Anomalia da alimentazione pellet
-	mcAVentHold   	: INT := 	170 ;  // Anomalia da mantenimento ventilazione
-	mcAIdleReturn 	: INT := 	175 ;  // Anomalia da ritorno alla quiete
+	mcAPrsStabBurn	: INT := 	140 ;  // Anomalia da accesso diretto alla combustione stabile
+	mcAStableBurn	: INT := 	145 ;  // Anomalia da combustione stabile
+	mcAAshRemoval	: INT := 	150 ;  // Anomalia da rimozione periodica cenere
+	mcAIdleFire	 	: INT := 	155 ;  // Anomalia da mantenimento statico fiamma
+	mcABurnResume 	: INT := 	160 ;  // Anomalia da ripresa fiamma
+	mcAVentStart  	: INT := 	165 ;  // Anomalia da avvio ventilazione
+	mcAPelletFeed 	: INT := 	170 ;  // Anomalia da alimentazione pellet
+	mcAVentHold   	: INT := 	175 ;  // Anomalia da mantenimento ventilazione
+	mcAIdleReturn 	: INT := 	180 ;  // Anomalia da ritorno alla quiete
 
-	mcAResTot 		: INT := 	180 ;  // Anomalia generale totale
+	mcAResTot 		: INT := 	185 ;  // Anomalia generale totale
 
 	mcAnomRec 		: INT := 	200 ;  // Stato di recupero anomalie
 END_VAR
@@ -3015,7 +2877,7 @@ END_FOR;
 ]]>
 					</sourceCode>
 				</function>
-				<function name="pwrMgr" version="1.0.0" creationDate="1731357969" lastModifiedDate="1731430636" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<function name="pwrMgr" version="1.0.0" creationDate="1731357969" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<returnValue>BOOL</returnValue>
 					<vars>
 						<localVars>
@@ -3056,6 +2918,9 @@ END_FOR;
 							<var name="cpLoop" type="INT">
 								<descr>Riciclo</descr>
 							</var>
+							<var name="cnNCariBruc" type="UDINT">
+								<descr>contatore tempo carica bruciatore</descr>
+							</var>
 						</externalVars>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
@@ -3084,7 +2949,7 @@ VAR_EXTERNAL
 	cpPause 		:	INT;   // Pausa carico
 	cpLoad 			:	INT;   // Caricamento attivo
 	cpLoop 			:	INT;   // Riciclo
-
+	cnNCariBruc		:	UDINT;	//contatore tempo carica bruciatore
 END_VAR
 
 ]]>
@@ -3129,6 +2994,7 @@ CASE @ph.ptr OF
 		IF @ph.tmmElap > TO_UDINT(spTPeriCocl_ds) * 
 					TO_UDINT(b.tr.regPar.pelletPerc)  THEN
 			CTuBrnAuger_v := FALSE;
+			cnNCariBruc := cnNCariBruc + @ph.tmmElap / 10;
 			ptSet(ph, cpLoop);
 		END_IF;
 
@@ -3287,7 +3153,7 @@ END_FOR;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1731361407" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="n" type="INT"/>
@@ -3475,12 +3341,20 @@ END_FOR;
 
 b.ai[rFiamma].status := 1;
 
+// Ripristino contatori da tamponata
+cnNAvviamen := mbCnNAvviamen;
+cnNCariEste := mbCnNCariEste;
+cnNCariBruc := mbCnNCariBruc;
+cnMFunzMini := mbCnMFunzMini;
+cnMFunzMedi := mbCnMFunzMedi;
+cnMFunzMaxi := mbCnMFunzMaxi;
+
 null:=SysSetTaskLpTime(ID_TASK_FAST, 1000); //Task Fast is executed every 500uS
 null:=SysSetTaskLpTime(ID_TASK_SLOW, 5000); //Task Slow is executed every 5mS
 ]]>
 					</sourceCode>
 				</program>
-				<program name="gesCom2hmi" version="1.0.0" creationDate="1681979160" lastModifiedDate="1731361534" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="gesCom2hmi" version="1.0.0" creationDate="1681979160" lastModifiedDate="1732989059" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars/>
 					<iecDeclaration active="FALSE"/>
 					<sourceCode type="ST">
@@ -3489,19 +3363,37 @@ null:=SysSetTaskLpTime(ID_TASK_SLOW, 5000); //Task Slow is executed every 5mS
 //doImg := appWuh;
 
 //Copia allarmi
-alarms := 0;
-FOR b.bk.i := 0 TO 27 DO
-	alarms := alarms OR SHL(TO_DINT(b.al.a[b.bk.i].b.mem),b.bk.i);
-END_FOR;
+//alarms := 0;
+//FOR b.bk.i := 0 TO 27 DO
+//	alarms := alarms OR SHL(TO_DINT(b.al.a[b.bk.i].b.mem),b.bk.i);
+//END_FOR;
 //alarms := result;
 
 
 
-//aipTGas_ic := TO_INT(aiCh[pTGas].anVal * TO_REAL(aiChCfg[pTGas].kEng));
+	pvTCaldaia	:=  TO_INT(b.pv.tCaldaia * 10.0);	(*  *)
+	pvTFumi		:=  TO_INT(b.pv.tFumi	 * 10.0);	(*  *)
+	pvTMandata	:=  TO_INT(b.pv.tMandata * 10.0);	(*  *)
+	pvTRitorno	:=  TO_INT(b.pv.tRitorno * 10.0);	(*  *)
+	pvTEsterna	:=  TO_INT(b.pv.tEsterna * 10.0);	(*  *)
+	pvTInterna	:=  TO_INT(b.pv.tInterna * 10.0);	(*  *)
+	pvTAriaComb	:=  TO_INT(b.pv.tAriaComb * 10.0);	(*  *)
+	pvTCaldaia2	:=  TO_INT(b.pv.tCaldaia2 * 10.0);	(*  *)
+	pvPFiamma	:= TO_INT(b.pv.pFiamma	 * 10.0);	(*  *)
+	phMaCy		:= TO_UINT(b.bp.phMaCy.ptr);	(*  *)
+	phMaCyT		:= TO_UINT(b.bp.phMaCy.tmmElap);	(*  *)
+	phFlSt		:= TO_UINT(b.bp.phFlSt.ptr);	(*  *)
+	phFlStT		:= TO_UINT(b.bp.phFlSt.tmmElap);	(*  *)
+	phCari		:= TO_UINT(b.bp.phCari.ptr);	(*  *)
+	phCariT		:= TO_UINT(b.bp.phCari.tmmElap);	(*  *)
+	phRefi		:= TO_UINT(b.bp.phRefi.ptr);	(*  *)
+	phRefiT		:= TO_UINT(b.bp.phRefi.tmmElap);	(*  *)
+	phGeMa		:= TO_UINT(b.gm.ph.ptr);	(*  *)
+	phGeMaT		:= TO_UINT(b.gm.ph.tmmElap);	(*  *)
+	ventDuty	:= TO_UINT(b.tr.regPar.ventPerc);	(*  *)
+	PellDuty	:= TO_UINT(b.tr.regPar.pelletPerc);	(*  *)
 
-//xHmiPGasPt  := TO_INT(aiCh[pTGas  ].valInp  * TO_REAL(aiChCfg[pTGas  ].kInp));
-
-
+	
 ]]>
 					</sourceCode>
 				</program>
@@ -3578,7 +3470,7 @@ parziale pulizia
 ]]>
 					</sourceCode>
 				</program>
-				<program name="gesCom2plc" version="1.0.0" creationDate="1681979160" lastModifiedDate="1731447092" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="gesCom2plc" version="1.0.0" creationDate="1681979160" lastModifiedDate="1732988966" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="result" type="INT"/>
@@ -3618,9 +3510,9 @@ IF wDog2plc > 32000 THEN
 END_IF;
 *)
 //passaggio parametri termoregolazione
-b.tr.pidRisc.P 	:= TO_REAL(spTRisP_d	) / 10.0;
+(*b.tr.pidRisc.P 	:= TO_REAL(spTRisP_d	) / 10.0;
 b.tr.pidRisc.I	:= TO_REAL(spTRisI_c	) / 100.0;
-b.tr.pidRisc.D	:= TO_REAL(spTRisD_c	) / 100.0;
+b.tr.pidRisc.D	:= TO_REAL(spTRisD_c	) / 100.0;*)
 
 // warning e allarme sovratemperatura assoluta
 //b.tr.spTAlWOvert_c := TO_REAL(spTAlWOvert_dC) / 10.0;
@@ -4028,26 +3920,39 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="bkCalc" version="1.0.0" creationDate="1691316530" lastModifiedDate="1731098759" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="bkCalc" version="1.0.0" creationDate="1691316530" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
-							<var name="done" type="BOOL"/>
+							<var name="ph" type="@t_ph"/>
 						</localVars>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[PROGRAM bkCalc
 
 VAR
-done : BOOL;
+	ph : @t_ph;
 END_VAR
 ]]>
 					</iecDeclaration>
 					<sourceCode type="ST">
 						<![CDATA[//se lavoro con 134:
+ph := ?b.au.phSD;
+ptTm(ph, SysTime);
 
-
-
-
+CASE @ph.ptr OF
+	0: // 0 - pausa
+		IF @ph.tmmElap >= 60000 THEN
+			ptSet(ph, 10);
+		END_IF;
+	10: // 10 - salva dati in tamponata
+		mbCnNAvviamen := cnNAvviamen;
+		mbCnNCariEste := cnNCariEste;
+		mbCnNCariBruc := cnNCariBruc;
+		mbCnMFunzMini := cnMFunzMini;
+		mbCnMFunzMedi := cnMFunzMedi;
+		mbCnMFunzMaxi := cnMFunzMaxi;
+		ptSet(ph, 0);
+END_CASE;
 ]]>
 					</sourceCode>
 				</program>
@@ -4420,7 +4325,7 @@ END_VAR
 ]]>
 					</sourceCode>
 				</program>
-				<program name="mainCycle" version="1.0.0" creationDate="1730720729" lastModifiedDate="1731446706" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="mainCycle" version="1.0.0" creationDate="1730720729" lastModifiedDate="1733143959" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -4463,6 +4368,12 @@ IF 	((NOT b.cm.ru0nRisc
 	OR b.al.SIaTUTTONOK) 
 	AND @ph.ptr > mcCmdWait THEN
 		ptSet(ph, mcNotRdy);
+END_IF;
+
+// Salto a combustione normale (usato durante sviluppo/trasmissione SW)
+IF b.cm.mcStblBurn THEN
+	ptSet(ph, mcAPrsStabBurn);
+	b.cm.mcStblBurn := FALSE;
 END_IF;
 
 CASE @ph.ptr OF
@@ -4536,18 +4447,26 @@ CASE @ph.ptr OF
 			ptSet(ph, mcStableBurn);
 		END_IF;
 
+	mcPrsStabBurn: // 40 - accesso diretto alla combustione stabile
+		CTuIgnHeatr_v := FALSE;
+		CTuBrnAuger_v := FALSE;
+		CTuVentCmd_v := TRUE;
+		ptSet(ph, mcStableBurn);
+
 	mcStableBurn: // 40 - Combustione stabile
 		
 		pwrMgr();
 		//set point raggiunto
 		IF b.pv.tCaldaia > TO_REAL(spKTempCald_dC) / 10.0 THEN
 			b.bp.ventDuty := TO_INT(spQIdleBurn_pc);
+			CTuBrnAuger_v := FALSE;
 			ptSet(ph, mcIdleFire);
 		END_IF;
 		
 		//Ciclo pulizia da fare
 		IF @ph.tmmElap > TO_UDINT(spTVentPuli_s) * 1000 THEN
 			b.bp.ventDuty := TO_INT(spQVentPuli_pc);
+			CTuBrnAuger_v := FALSE;
 			ptSet(ph, mcAshRemoval);
 		END_IF;
 
@@ -4669,7 +4588,7 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="refill" version="1.0.0" creationDate="1731400532" lastModifiedDate="1731417613" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="refill" version="1.0.0" creationDate="1731400532" lastModifiedDate="1733143805" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -4698,19 +4617,20 @@ CASE @ph.ptr OF
 				ptSet(ph, rfWaitEmpt);
 		END_IF;
 
-	rfWaitEmpt: // 5 - Attesa comandi
+	rfWaitEmpt: // 5 - Attesa segnale vuoto
 		IF NOT SNePltLevOK_v THEN
 			CTuExtAuger_v := TRUE;
 			ptSet(ph, rfLoad);
 		END_IF;
 
-	rfLoad: // 5 - Attesa comandi
+	rfLoad: // 5 - Carica a tempo
 		IF @ph.tmmElap > TO_UDINT(spTCariCExt_s) * 1000 THEN
 			CTuExtAuger_v := FALSE;
+			cnNCariEste := cnNCariEste  + 1;
 			ptSet(ph, rfCkFull);
 		END_IF;
 
-	rfCkFull: // 5 - Attesa comandi
+	rfCkFull: // 5 - Controllo riempimento riuscito
 		IF SNePltLevOK_v THEN
 			ptSet(ph, rfWaitEmpt);
 		ELSE
@@ -4721,7 +4641,7 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="gesMand" version="1.0.0" creationDate="1731428838" lastModifiedDate="1731447556" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="gesMand" version="1.0.0" creationDate="1731428838" lastModifiedDate="1731536734" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -4759,13 +4679,13 @@ CASE @ph.ptr OF
 			
 	mgTempEval:
 		//se la mandata è bassa di oltre x °C		
-		IF b.gm.errTMand < -1.0 THEN
+		IF b.gm.errTMand < -b.gm.spMaxErr THEN
 			FCuMixVOpen_v := TRUE;			
 			ptSet(ph, mgOpenProp);
 		END_IF;
 		
 		//se la mandata è alta di oltre x °C		
-		IF b.gm.errTMand > 1.0 THEN
+		IF b.gm.errTMand > b.gm.spMaxErr THEN
 			FCuMixVClse_v := TRUE;			
 			ptSet(ph, mgClosProp);
 		END_IF;
@@ -4788,6 +4708,158 @@ CASE @ph.ptr OF
 		ptSet(ph, mgCmdWait);
 
 END_CASE;
+]]>
+					</sourceCode>
+				</program>
+				<program name="gesMqtt" version="1.0.0" creationDate="1732986854" lastModifiedDate="1732989308" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+					<vars>
+						<localVars>
+							<var name="Publish" type="BOOL">
+								<descr>Publish command</descr>
+							</var>
+							<var name="TCPClient" type="SysTCPClient">
+								<descr>TCP client management</descr>
+							</var>
+							<var name="FIFO" type="FIFOFile_v1">
+								<descr>FIFO on file</descr>
+							</var>
+							<var name="MQTT" type="MQTTClient_v3">
+								<descr>MQTT client FB</descr>
+							</var>
+							<var name="retVal" type="BOOL"/>
+							<var name="trig1" type="BOOL"/>
+							<var name="Encode" type="BOOL">
+								<descr>Encode command</descr>
+							</var>
+							<var name="JSONObject" type="STRING" length="128">
+								<descr>JSON object</descr>
+							</var>
+							<var name="ENr" type="USINT" dim0="3">
+								<descr>Error number</descr>
+							</var>
+						</localVars>
+					</vars>
+					<iecDeclaration active="TRUE" valid="TRUE">
+						<![CDATA[PROGRAM gesMQTT
+VAR
+    Publish : BOOL; (* Publish command *)
+//    BOOLValue : ARRAY[0..1] OF BOOL := [true, false]; (* BOOL value [Tx][Rx] *)
+//    REALValue : ARRAY[0..1] OF REAL := [10.0, 0.0]; (* REAL value [Tx][Rx] *)
+//    STRINGValue : ARRAY[0..1] OF STRING[ 16 ]; (* STRING value [Rx] *)
+//    SPData : ARRAY[0..2] OF MQTT_TS_DATA; (* MQTT topic subscribe data *)
+    TCPClient : SysTCPClient; (* TCP client management *)
+    FIFO : FIFOFile_v1; (* FIFO on file *)
+    MQTT : MQTTClient_v3; (* MQTT client FB *)
+    retVal	: BOOL;
+    trig1	: BOOL;
+    
+    
+    
+    Encode 		: BOOL; 					(* Encode command *)
+    JSONObject 	: STRING[ 128 ]; 			(* JSON object *)
+    ENr : ARRAY[0..2] OF USINT; 			(* Error number *)
+END_VAR
+]]>
+					</iecDeclaration>
+					<sourceCode type="ST">
+						<![CDATA[// *****************************************************************************
+// PROGRAM "ST_MQTTClient"
+// *****************************************************************************
+// This program connects to a free broker, it shows how to subscribe and
+// publish topics on it.
+// -----------------------------------------------------------------------------
+
+    // -------------------------------------------------------------------------
+    // INITIALIZATION
+    // -------------------------------------------------------------------------
+    // Initialize the FBs parameters.
+
+    IF (SysFirstLoop) THEN
+
+        // Set FIFO parameters.
+
+        FIFO.FIFOFilename:=eNULL; //Path and name of FIFO file
+        FIFO.FIFOSize:=2048; //FIFO file size
+        FIFO.FIFOIDx:=eNULL; //FIFO indexes
+
+        // Set TCPClient parameters.
+
+        TCPClient.PeerAdd:=ADR('10.0.0.107'); //Peer address
+        TCPClient.PeerPort:=1883; //Peer port
+        TCPClient.LocalAdd:=ADR('0.0.0.0'); //Local address
+        TCPClient.LocalPort:=0; //Local port
+        TCPClient.FlushTm:=0; //Flush time (mS)
+        TCPClient.LifeTm:=90; //Life time (S)
+        TCPClient.RxSize:=512; //Rx buffer size
+        TCPClient.TxSize:=512; //Tx buffer size
+
+        // Set MQTTClient parameters.
+
+        MQTT.SpyOn:=TRUE; //Spy active
+        MQTT.FIFOFile:=ADR(FIFO); //FIFO on file
+        MQTT.CFlags:=16#02; //Clean session
+        MQTT.Username:=eNULL; //Broker username
+        MQTT.Password:=eNULL; //Broker password
+        MQTT.ClientID:=eNULL; //Client identifier
+        MQTT.KeepAlive:=T#90s; //Keep alive time
+        MQTT.Delay:=T#50ms; //Send delay time
+        MQTT.Timeout:=T#2s; //Execution timeout
+
+        // Topic subscribe definitions.
+
+        //MQTT.TSData:=ADR(SPData); //Topic subscribe data
+        //MQTT.TSNumber:=SIZEOF(SPData)/SIZEOF(SPData[0]); //Topic subscribe number
+
+        //retVal := MQTT.Subscribe(0, ADR('plc/dati'), ADR(BOOLValue[1]), SIZEOF(BOOLValue[1]), 0);
+    END_IF;
+
+
+	IF b.cm.flCdataLog AND trig1 <> SysClock100 THEN
+		trig1 := SysClock100;
+		Publish := TRUE;
+	END_IF;
+	
+    // -------------------------------------------------------------------------
+    // MQTT MANAGEMENT
+    // -------------------------------------------------------------------------
+    // FBs management.
+
+    TCPClient(Connect:=MQTT.Connect); //TCPClient management
+    MQTT(Enable:=TRUE, File:=TCPClient.File); //MQTTClient management
+
+    // To publish topics set by debug the "Publish" variable.
+
+    IF NOT(Publish) THEN RETURN; END_IF;
+    Publish:=FALSE; //Publish command
+//    retVal := TO_BOOL(MQTT.Publish(ADR('ElsistTest/BOOLValue'), ADR(BOOLValue[0]), SIZEOF(BOOLValue[0]), FALSE, 1));
+//    retVal := MQTT.Publish(ADR('ElsistTest/REALValue'), ADR(REALValue[0]), SIZEOF(REALValue[0]), FALSE, 1);
+
+    // ------------------------------------------------------------------------
+    // CREATE JSON OBJECT
+    // ------------------------------------------------------------------------
+    // Create a JSON object.
+
+
+    retVal := TO_BOOL(Sysmemset(ADR(JSONObject), 0, SIZEOF(JSONObject))); //Initialize the JSON object
+
+    ENr[0]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tCaldaia'), REAL_TYPE, ADR(b.pv.tCaldaia), 1);
+    ENr[1]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tFumi'), REAL_TYPE, ADR(b.pv.tFumi), 1);
+    ENr[2]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tMandata'), REAL_TYPE, ADR(b.pv.tMandata), 1);
+(*    ENr[3]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tRitorno'), REAL_TYPE, ADR(b.pv.tRitorno), 1);
+    ENr[4]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tEsterna'), REAL_TYPE, ADR(b.pv.tEsterna), 1);
+    ENr[5]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tInterna'), REAL_TYPE, ADR(b.pv.tInterna), 1);
+    ENr[6]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('tCaldaia2'), REAL_TYPE, ADR(b.pv.tCaldaia2), 1);
+    ENr[7]:=JSONEncoder(ADR(JSONObject), SIZEOF(JSONObject), ADR('pFiamma'), REAL_TYPE, ADR(b.pv.pFiamma), 1);
+*)
+    retVal := TO_BOOL(SysWrSpyData(SPY_ASCII, 0, 16#00000001, ADR('ST_JSONEncode'), ADR(JSONObject)));
+    
+    
+    
+    
+    
+    //Di nuovo MQTT
+    //retVal := TO_BOOL(SysVsnprintf(ADR(STRINGValue[0]), 16, ADR('%.3f'), REAL_TYPE, ADR(REALValue[0])));
+    retVal := MQTT.Publish(ADR('plc/dati'), ADR(JSONObject), LEN(JSONObject), FALSE, 1);
 ]]>
 					</sourceCode>
 				</program>
@@ -5517,12 +5589,14 @@ END_STRUCT;
 						<var name="flAbilSpInit" type="BOOL"/>
 						<var name="ptrChCfg" type="INT"/>
 						<var name="disWd" type="UINT"/>
+						<var name="phSD" type="t_ph"/>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[t_auxGen: STRUCT
 	flAbilSpInit	: BOOL;
 	ptrChCfg	:	INT;
 	disWd : UINT;
+	phSD	:	t_ph;
 END_STRUCT;
 
 ]]>
@@ -5658,9 +5732,9 @@ END_STRUCT;
 						<var name="ma9nVenBru" type="BOOL"/>
 						<var name="xxAxxxxxxx" type="BOOL"/>
 						<var name="xxBxxxxxxx" type="BOOL"/>
-						<var name="xxCxxxxxxx" type="BOOL"/>
+						<var name="flCdataLog" type="BOOL"/>
 						<var name="xxDxxxxxxx" type="BOOL"/>
-						<var name="xxExxxxxxx" type="BOOL"/>
+						<var name="mcStblBurn" type="BOOL"/>
 						<var name="mcFNextStp" type="BOOL"/>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
@@ -5680,9 +5754,9 @@ END_STRUCT;
 	xxAxxxxxxx	:	BOOL;
 	xxBxxxxxxx	:	BOOL;
 
-	xxCxxxxxxx	:	BOOL;
+	flCdataLog	:	BOOL;
 	xxDxxxxxxx	:	BOOL;
-	xxExxxxxxx	:	BOOL;
+	mcStblBurn	:	BOOL;
 	mcFNextStp	:	BOOL;
 END_STRUCT;
 
@@ -5714,6 +5788,7 @@ END_STRUCT;
 						<var name="tmCiclo" type="REAL"/>
 						<var name="tMandReqMax" type="REAL"/>
 						<var name="errTMand" type="REAL"/>
+						<var name="spMaxErr" type="REAL"/>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[t_gesMand: STRUCT
@@ -5724,6 +5799,7 @@ END_STRUCT;
 	tmCiclo		:	REAL;
 	tMandReqMax	:	REAL;
 	errTMand	:	REAL;
+	spMaxErr	:	REAL;
 		
 
 END_STRUCT;
@@ -5810,8 +5886,7 @@ END_VAR
 		</targetXML>
 		<libraries/>
 		<libdirectories>
-			<libdirectory>C:\Program Files (x86)\Elsist\LogicLab\Libraries\Pck055a03_</libdirectory>
-			<libdirectory>C:\Program Files (x86)\Elsist\LogicLab\LogicLab5\..\Libraries\Pck055a000</libdirectory>
+			<libdirectory>C:\Program Files (x86)\Elsist\LogicLab\Libraries\Pck055a030</libdirectory>
 		</libdirectories>
 		<aux>
 			<src fullXml="false" name="ElsistInit.PLC" order="-1" hidden="true">
@@ -5837,7 +5912,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="casaldaiaReboot" nextID="58522">
+			<root name="casaldaiaReboot" nextID="60761">
 				<folder name="Programs" id="1">
 					<folder name="Ciclo" id="26149">
 						<Pou name="aiRd" id="4246"/>
@@ -5864,6 +5939,7 @@ END_PROGRAM
 						<Pou name="gesCom2plc" id="11845"/>
 						<Pou name="gesCom2hmi" id="8792"/>
 						<Pou name="mbMasterRtu" id="48212"/>
+						<Pou name="gesMqtt" id="59912"/>
 					</folder>
 				</folder>
 				<folder name="Function blocks" id="3"/>
