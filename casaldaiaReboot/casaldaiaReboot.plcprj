@@ -714,6 +714,10 @@
 						<descr>contatore caricamenti bruciatore</descr>
 						<address type="M" typeVar="X" index="100" subIndex="268"/>
 					</var>
+					<var name="mbCnMFunz" type="UDINT" dim0="3">
+						<descr>contatore funzionamento minimo</descr>
+						<address type="M" typeVar="X" index="100" subIndex="272"/>
+					</var>
 					<var name="mbCnMFunzMini" type="UDINT">
 						<descr>contatore funzionamento minimo</descr>
 						<address type="M" typeVar="X" index="100" subIndex="272"/>
@@ -1633,19 +1637,27 @@
 					</const>
 					<const name="rfWaitEmpt" type="INT">
 						<descr>Attesa richiesta rifornimento</descr>
-						<initValue>5</initValue>
+						<initValue>10</initValue>
+					</const>
+					<const name="rfChekEmpt" type="INT">
+						<descr>Verifica reale mancanza pellet</descr>
+						<initValue>20</initValue>
 					</const>
 					<const name="rfLoad" type="INT">
 						<descr>Caricamento attivo</descr>
-						<initValue>10</initValue>
+						<initValue>30</initValue>
 					</const>
 					<const name="rfCkFull" type="INT">
 						<descr>Controllo rifornimento avvenuto</descr>
-						<initValue>15</initValue>
+						<initValue>40</initValue>
+					</const>
+					<const name="rfCkNoPlt" type="INT">
+						<descr>Controllo che davvero sia fallito il carico</descr>
+						<initValue>50</initValue>
 					</const>
 					<const name="rfLoop" type="INT">
 						<descr>Ricicla</descr>
-						<initValue>20</initValue>
+						<initValue>60</initValue>
 					</const>
 					<const name="rfANotRdy" type="INT">
 						<descr>Anomalia da Attesa approntamento</descr>
@@ -1653,27 +1665,35 @@
 					</const>
 					<const name="rfAWaitEmpt" type="INT">
 						<descr>Anomalia da Attesa richiesta rifornimento</descr>
-						<initValue>105</initValue>
+						<initValue>110</initValue>
+					</const>
+					<const name="rfAChekEmpt" type="INT">
+						<descr>Anomalia da Verifica reale mancanza pellet</descr>
+						<initValue>120</initValue>
 					</const>
 					<const name="rfALoad" type="INT">
 						<descr>Anomalia da Caricamento attivo</descr>
-						<initValue>110</initValue>
+						<initValue>130</initValue>
 					</const>
 					<const name="rfACkFull" type="INT">
 						<descr>Anomalia da Controllo rifornimento avvenuto</descr>
-						<initValue>115</initValue>
+						<initValue>140</initValue>
+					</const>
+					<const name="rfACkNoPlt" type="INT">
+						<descr>Anomalia da Controllo che davvero sia fallito il carico</descr>
+						<initValue>150</initValue>
 					</const>
 					<const name="rfALoop" type="INT">
 						<descr>Anomalia da Ricicla</descr>
-						<initValue>120</initValue>
+						<initValue>160</initValue>
 					</const>
 					<const name="rfAResTot" type="INT">
 						<descr>Anomalia generale totale</descr>
-						<initValue>180</initValue>
+						<initValue>200</initValue>
 					</const>
 					<const name="rfAnomRec" type="INT">
 						<descr>Stato di recupero anomalie</descr>
-						<initValue>200</initValue>
+						<initValue>210</initValue>
 					</const>
 				</group>
 				<group name="kPhGesMand" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="" version="1.0.0">
@@ -1949,6 +1969,7 @@ END_VAR
 	mbCnNAvviamen		AT 	%MX100.260 	: 	UDINT;	(* contatore avviamenti *)
 	mbCnNCariEste		AT 	%MX100.264 	: 	UDINT;	(* contatore caricamenti esterni *)
 	mbCnNCariBruc		AT 	%MX100.268 	: 	UDINT;	(* contatore caricamenti bruciatore *)
+	mbCnMFunz		AT 	%MX100.272 	: 	ARRAY[0..2] OF UDINT;	(* contatore funzionamento minimo *)
 	mbCnMFunzMini		AT 	%MX100.272 	: 	UDINT;	(* contatore funzionamento minimo *)
 	mbCnMFunzMedi		AT 	%MX100.276 	: 	UDINT;	(* contatore funzionamento medio *)
 	mbCnMFunzMaxi		AT 	%MX100.280 	: 	UDINT;	(* contatore funzionamento massimo *)
@@ -2321,38 +2342,38 @@ END_VAR
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[VAR_GLOBAL CONSTANT
 	cpNotRdy  		: INT := 	 0 ;   // Attesa approntamento
-	cpPause 			: INT := 	 5 ;   // Pausa carico
-	cpLoad 				: INT := 	10 ;   // Caricamento attivo
-	cpLoop 				: INT := 	15 ;   // Riciclo
+	cpPause 		: INT := 	 5 ;   // Pausa carico
+	cpLoad 			: INT := 	10 ;   // Caricamento attivo
+	cpLoop 			: INT := 	15 ;   // Riciclo
 	cpInitBurn 		: INT := 	20 ;   // 
 	cpNoVentIgn		: INT := 	25 ;   // 
 	cpVentRstrt 	: INT := 	30 ;   // 
-	cpPwrSel	 		: INT := 	35 ;   // 
+	cpPwrSel	 	: INT := 	35 ;   // 
 	cpStableBurn 	: INT := 	40 ;   // 
 	cpAshRemoval	: INT := 	45 ;   // 
 	cpIdleFire	 	: INT := 	50 ;   // 
 	cpBurnResume 	: INT := 	55 ;   // 
-	cpVentStart   : INT := 	60 ;   // 
-	cpPelletFeed  : INT := 	65 ;   // 
-	cpVentHold    : INT := 	70 ;   // 
-	cpIdleReturn  : INT := 	75 ;   // 
+	cpVentStart   	: INT := 	60 ;   // 
+	cpPelletFeed  	: INT := 	65 ;   // 
+	cpVentHold    	: INT := 	70 ;   // 
+	cpIdleReturn  	: INT := 	75 ;   // 
 
 	cpANotRdy  		: INT := 	100 ;  // Anomalia da Attesa approntamento
-	cpAPause	 		: INT := 	105 ;  // Anomalia da Pausa carico
-	cpALoad 			: INT := 	110 ;  // Anomalia da Caricamento attivo
-	cpALoop				: INT := 	115 ;  // Anomalia da Riciclo
+	cpAPause	 	: INT := 	105 ;  // Anomalia da Pausa carico
+	cpALoad 		: INT := 	110 ;  // Anomalia da Caricamento attivo
+	cpALoop			: INT := 	115 ;  // Anomalia da Riciclo
 	cpAInitBurn 	: INT := 	120 ;  // Anomalia da 
 	cpANoVentIgn	: INT := 	125 ;  // Anomalia da 
 	cpAVentRstrt 	: INT := 	130 ;  // Anomalia da 
-	cpAPwrSel	 		: INT := 	135 ;  // Anomalia da 
+	cpAPwrSel	 	: INT := 	135 ;  // Anomalia da 
 	cpAStableBurn	: INT := 	140 ;  // Anomalia da 
 	cpAAshRemoval	: INT := 	145 ;  // Anomalia da 
 	cpAIdleFire	 	: INT := 	150 ;  // Anomalia da 
-	cpABurnResume : INT := 	155 ;  // Anomalia da 
-	cpAVentStart  : INT := 	160 ;  // Anomalia da 
-	cpAPelletFeed : INT := 	165 ;  // Anomalia da 
-	cpAVentHold   : INT := 	170 ;  // Anomalia da 
-	cpAIdleReturn : INT := 	175 ;  // Anomalia da 
+	cpABurnResume 	: INT := 	155 ;  // Anomalia da 
+	cpAVentStart  	: INT := 	160 ;  // Anomalia da 
+	cpAPelletFeed 	: INT := 	165 ;  // Anomalia da 
+	cpAVentHold   	: INT := 	170 ;  // Anomalia da 
+	cpAIdleReturn 	: INT := 	175 ;  // Anomalia da 
 
 	cpAResTot 		: INT := 	180 ;  // Anomalia generale totale
 
@@ -2364,21 +2385,25 @@ END_VAR
 				<group name="kPhRefill">
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[VAR_GLOBAL CONSTANT
-	rfNotRdy  		: INT := 	 0 ;   (* Attesa approntamento*)
-	rfWaitEmpt 		: INT := 	 5 ;   (* Attesa richiesta rifornimento*)
-	rfLoad 				: INT := 	10 ;   (* Caricamento attivo*)
-	rfCkFull 			: INT := 	15 ;   (* Controllo rifornimento avvenuto*)
-	rfLoop 				: INT := 	20 ;   (* Ricicla*)
+	rfNotRdy        : INT :=      0 ;   (* Attesa approntamento*)
+	rfWaitEmpt      : INT :=     10 ;   (* Attesa richiesta rifornimento*)
+	rfChekEmpt      : INT :=     20 ;   (* Verifica reale mancanza pellet*)
+	rfLoad          : INT :=     30 ;   (* Caricamento attivo*)
+	rfCkFull        : INT :=     40 ;   (* Controllo rifornimento avvenuto*)
+	rfCkNoPlt       : INT :=     50 ;   (* Controllo che davvero sia fallito il carico*)
+	rfLoop          : INT :=     60 ;   (* Ricicla*)
 
-	rfANotRdy  		: INT := 	100 ;  (* Anomalia da Attesa approntamento*)
-	rfAWaitEmpt 		: INT := 	105 ;  (* Anomalia da Attesa richiesta rifornimento*)
-	rfALoad 				: INT := 	110 ;  (* Anomalia da Caricamento attivo*)
-	rfACkFull 			: INT := 	115 ;  (* Anomalia da Controllo rifornimento avvenuto*)
-	rfALoop 				: INT := 	120 ;  (* Anomalia da Ricicla*)
+	rfANotRdy       : INT :=    100 ;  (* Anomalia da Attesa approntamento*)
+	rfAWaitEmpt     : INT :=    110 ;  (* Anomalia da Attesa richiesta rifornimento*)
+	rfAChekEmpt     : INT :=    120 ;  (* Anomalia da Verifica reale mancanza pellet*)
+	rfALoad         : INT :=    130 ;  (* Anomalia da Caricamento attivo*)
+	rfACkFull       : INT :=    140 ;  (* Anomalia da Controllo rifornimento avvenuto*)
+	rfACkNoPlt      : INT :=    150 ;  (* Anomalia da Controllo che davvero sia fallito il carico*)
+	rfALoop         : INT :=    160 ;  (* Anomalia da Ricicla*)
 
-	rfAResTot 		: INT := 	180 ;  (* Anomalia generale totale*)
+	rfAResTot       : INT :=    200 ;  (* Anomalia generale totale*)
 
-	rfAnomRec 		: INT := 	200 ;  (* Stato di recupero anomalie*)
+	rfAnomRec       : INT :=    210 ;  (* Stato di recupero anomalie*)
 END_VAR
 ]]>
 					</iecDeclaration>
@@ -2877,7 +2902,7 @@ END_FOR;
 ]]>
 					</sourceCode>
 				</function>
-				<function name="pwrMgr" version="1.0.0" creationDate="1731357969" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<function name="pwrMgr" version="1.0.0" creationDate="1731357969" lastModifiedDate="1734290170" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<returnValue>BOOL</returnValue>
 					<vars>
 						<localVars>
@@ -2918,8 +2943,11 @@ END_FOR;
 							<var name="cpLoop" type="INT">
 								<descr>Riciclo</descr>
 							</var>
-							<var name="cnNCariBruc" type="UDINT">
+							<var name="mbCnNCariBruc" type="UDINT">
 								<descr>contatore tempo carica bruciatore</descr>
+							</var>
+							<var name="mbCnMFunz" type="UDINT" dim0="3">
+								<descr>contatori tempi di funzionamento</descr>
 							</var>
 						</externalVars>
 					</vars>
@@ -2949,7 +2977,8 @@ VAR_EXTERNAL
 	cpPause 		:	INT;   // Pausa carico
 	cpLoad 			:	INT;   // Caricamento attivo
 	cpLoop 			:	INT;   // Riciclo
-	cnNCariBruc		:	UDINT;	//contatore tempo carica bruciatore
+	mbCnNCariBruc	:	UDINT;	//contatore tempo carica bruciatore
+	mbCnMFunz		: ARRAY[0..2] OF UDINT; //contatori tempi di funzionamento
 END_VAR
 
 ]]>
@@ -2994,12 +3023,13 @@ CASE @ph.ptr OF
 		IF @ph.tmmElap > TO_UDINT(spTPeriCocl_ds) * 
 					TO_UDINT(b.tr.regPar.pelletPerc)  THEN
 			CTuBrnAuger_v := FALSE;
-			cnNCariBruc := cnNCariBruc + @ph.tmmElap / 10;
+			mbCnNCariBruc := mbCnNCariBruc + @ph.tmmElap / 100;
 			ptSet(ph, cpLoop);
 		END_IF;
 
 
-	cpLoop: 	
+	cpLoop:
+		mbCnMFunz[2 - ptrPwrStep] := mbCnMFunz[2 - ptrPwrStep] + TO_UDINT(spTPeriCocl_ds / 10);
 		IF 	b.bp.phMaCy.ptr >= mcStableBurn OR   
 			b.bp.phMaCy.ptr <= mcStableBurn THEN
 				ptSet(ph, cpPause);
@@ -3153,7 +3183,7 @@ END_FOR;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1734288098" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="n" type="INT"/>
@@ -3342,12 +3372,12 @@ END_FOR;
 b.ai[rFiamma].status := 1;
 
 // Ripristino contatori da tamponata
-cnNAvviamen := mbCnNAvviamen;
-cnNCariEste := mbCnNCariEste;
-cnNCariBruc := mbCnNCariBruc;
-cnMFunzMini := mbCnMFunzMini;
-cnMFunzMedi := mbCnMFunzMedi;
-cnMFunzMaxi := mbCnMFunzMaxi;
+mbCnNAvviamen := cnNAvviamen;
+mbCnNCariEste := cnNCariEste;
+mbCnNCariBruc := cnNCariBruc;
+mbCnMFunzMini := cnMFunzMini;
+mbCnMFunzMedi := cnMFunzMedi;
+mbCnMFunzMaxi := cnMFunzMaxi;
 
 null:=SysSetTaskLpTime(ID_TASK_FAST, 1000); //Task Fast is executed every 500uS
 null:=SysSetTaskLpTime(ID_TASK_SLOW, 5000); //Task Slow is executed every 5mS
@@ -3920,7 +3950,7 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="bkCalc" version="1.0.0" creationDate="1691316530" lastModifiedDate="1733143632" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="bkCalc" version="1.0.0" creationDate="1691316530" lastModifiedDate="1734289426" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -3945,12 +3975,12 @@ CASE @ph.ptr OF
 			ptSet(ph, 10);
 		END_IF;
 	10: // 10 - salva dati in tamponata
-		mbCnNAvviamen := cnNAvviamen;
-		mbCnNCariEste := cnNCariEste;
-		mbCnNCariBruc := cnNCariBruc;
-		mbCnMFunzMini := cnMFunzMini;
-		mbCnMFunzMedi := cnMFunzMedi;
-		mbCnMFunzMaxi := cnMFunzMaxi;
+		cnNAvviamen := mbCnNAvviamen;
+		cnNCariEste := mbCnNCariEste;
+		cnNCariBruc := mbCnNCariBruc;
+		cnMFunzMini := mbCnMFunzMini;
+		cnMFunzMedi := mbCnMFunzMedi;
+		cnMFunzMaxi := mbCnMFunzMaxi;
 		ptSet(ph, 0);
 END_CASE;
 ]]>
@@ -4325,7 +4355,7 @@ END_VAR
 ]]>
 					</sourceCode>
 				</program>
-				<program name="mainCycle" version="1.0.0" creationDate="1730720729" lastModifiedDate="1733143959" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="mainCycle" version="1.0.0" creationDate="1730720729" lastModifiedDate="1734288450" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -4372,7 +4402,7 @@ END_IF;
 
 // Salto a combustione normale (usato durante sviluppo/trasmissione SW)
 IF b.cm.mcStblBurn THEN
-	ptSet(ph, mcAPrsStabBurn);
+	ptSet(ph, mcPrsStabBurn);
 	b.cm.mcStblBurn := FALSE;
 END_IF;
 
@@ -4417,7 +4447,7 @@ CASE @ph.ptr OF
 		IF b.pv.pFiamma > TO_REAL(spRPresFiam_pm) / 100.0 THEN
 			CTuIgnHeatr_v := FALSE;
 			b.bp.ventDuty := TO_INT(spQVentInBu_pc);
-			cnNAvviamen := cnNAvviamen + 1;
+			mbCnNAvviamen := mbCnNAvviamen + 1;
 			ptSet(ph, mcInitBurn);
 		END_IF;
 
@@ -4453,7 +4483,7 @@ CASE @ph.ptr OF
 		CTuVentCmd_v := TRUE;
 		ptSet(ph, mcStableBurn);
 
-	mcStableBurn: // 40 - Combustione stabile
+	mcStableBurn: // 45 - Combustione stabile
 		
 		pwrMgr();
 		//set point raggiunto
@@ -4470,13 +4500,13 @@ CASE @ph.ptr OF
 			ptSet(ph, mcAshRemoval);
 		END_IF;
 
-	mcAshRemoval: // 45 - Rimozione periodica cenere
+	mcAshRemoval: // 50 - Rimozione periodica cenere
 		IF @ph.tmmElap > TO_UDINT(spTDuraPuli_s) * 1000 THEN
 			b.bp.ventDuty := TO_INT(b.tr.regPar.ventPerc);	//Okkio
 			ptSet(ph, mcStableBurn);
 		END_IF;
 
-	mcIdleFire: // 50 - Mantenimento statico fiamma (in temperatura)
+	mcIdleFire: // 55 - Mantenimento statico fiamma (in temperatura)
 		IF @ph.tmmElap > TO_UDINT(spTVentIdle_s) * 1000 THEN
 			CTuVentCmd_v := FALSE;
 			b.bp.ventDuty := 100;
@@ -4486,7 +4516,7 @@ CASE @ph.ptr OF
 			ptSet(ph, mcBurnResume);
 		END_IF;
 
-	mcBurnResume: // 55 - Ripresa fiamma dopo idlefire
+	mcBurnResume: // 60 - Ripresa fiamma dopo idlefire
 		IF @ph.tmmElap > TO_UDINT(spQVentInBu_pc) * 1000 THEN
 			CTuVentCmd_v := TRUE;
 			b.bp.ventDuty := TO_INT(spQVentInBu_pc);
@@ -4498,22 +4528,22 @@ CASE @ph.ptr OF
 			ptSet(ph, mcVentStart);
 		END_IF;
 
-	mcVentStart: // 60 - Avvio ventilazione per ripresa
+	mcVentStart: // 65 - Avvio ventilazione per ripresa
 		IF @ph.tmmElap > 100 THEN
 			ptSet(ph, mcPelletFeed);
 		END_IF;
 
-	mcPelletFeed: // 65 - Alimentazione pellet per ripristino
+	mcPelletFeed: // 70 - Alimentazione pellet per ripristino
 		IF @ph.tmmElap > 100 THEN
 			ptSet(ph, mcVentHold);
 		END_IF;
 
-	mcVentHold: // 70 - Mantenimento ventilazione
+	mcVentHold: // 75 - Mantenimento ventilazione
 		IF @ph.tmmElap > TO_UDINT(spTFunzMinI_s) * 1000 THEN
 			ptSet(ph, mcIdleReturn);
 		END_IF;
 
-	mcIdleReturn: // 75 - Ritorno alla quiete
+	mcIdleReturn: // 80 - Ritorno alla quiete
 		IF @ph.tmmElap > 1000 THEN
 			ptSet(ph, mcPwrSel);
 		END_IF;
@@ -4588,10 +4618,11 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="refill" version="1.0.0" creationDate="1731400532" lastModifiedDate="1733143805" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="refill" version="1.0.0" creationDate="1731400532" lastModifiedDate="1734288450" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
+							<var name="retry" type="BOOL"/>
 						</localVars>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
@@ -4600,6 +4631,7 @@ END_CASE;
 
 VAR
 	ph : @t_ph;
+	retry	:	BOOL;
 END_VAR
 
 ]]>
@@ -4617,25 +4649,49 @@ CASE @ph.ptr OF
 				ptSet(ph, rfWaitEmpt);
 		END_IF;
 
-	rfWaitEmpt: // 5 - Attesa segnale vuoto
+	rfWaitEmpt: // 10 - Attesa segnale vuoto
 		IF NOT SNePltLevOK_v THEN
+			ptSet(ph, rfChekEmpt);
+		END_IF;
+
+	rfChekEmpt: // 20 - Controllo che resti a 0 10"
+		IF @ph.tmmElap > 10000 THEN
 			CTuExtAuger_v := TRUE;
 			ptSet(ph, rfLoad);
 		END_IF;
 
-	rfLoad: // 5 - Carica a tempo
+		//se era una falsa lettura, torno ad attendere
+		IF SNePltLevOK_v THEN
+			ptSet(ph, rfWaitEmpt);
+		END_IF;
+
+
+	rfLoad: // 30 - Carica a tempo
 		IF @ph.tmmElap > TO_UDINT(spTCariCExt_s) * 1000 THEN
 			CTuExtAuger_v := FALSE;
-			cnNCariEste := cnNCariEste  + 1;
+			mbCnNCariEste := mbCnNCariEste  + 1;
 			ptSet(ph, rfCkFull);
 		END_IF;
 
-	rfCkFull: // 5 - Controllo riempimento riuscito
+	rfCkFull: // 40 - Controllo riempimento riuscito
 		IF SNePltLevOK_v THEN
+			retry := FALSE;
 			ptSet(ph, rfWaitEmpt);
-		ELSE
-			ptSet(ph, rfACkFull);
 		END_IF;
+
+		IF @ph.tmmElap > 10000 THEN
+			IF NOT retry THEN
+				retry := TRUE;
+				ptSet(ph, rfWaitEmpt);
+			ELSE
+				ptSet(ph, rfACkFull);
+			END_IF;
+				
+		END_IF;
+
+//	rfCkNoPlt: // 50 - Controllo riempimento riuscito
+
+//	rfLoop: // 60 - Controllo riempimento riuscito
 
 END_CASE;
 ]]>
@@ -5912,7 +5968,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="casaldaiaReboot" nextID="60761">
+			<root name="casaldaiaReboot" nextID="62211">
 				<folder name="Programs" id="1">
 					<folder name="Ciclo" id="26149">
 						<Pou name="aiRd" id="4246"/>
