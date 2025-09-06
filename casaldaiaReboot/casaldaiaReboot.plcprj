@@ -1024,6 +1024,14 @@
 						<descr>sp tempo accensione ventilata iniziale</descr>
 						<address type="M" typeVar="X" index="100" subIndex="2344"/>
 					</var>
+					<var name="spTHtngPmp_dC" type="UINT">
+						<descr>####################################</descr>
+						<address type="M" typeVar="X" index="100" subIndex="2346"/>
+					</var>
+					<var name="spTDhwPump_dC" type="UINT">
+						<descr>####################################</descr>
+						<address type="M" typeVar="X" index="100" subIndex="2348"/>
+					</var>
 					<var name="cnNAvviamen" type="UDINT">
 						<descr>contatore avviamenti</descr>
 						<address type="M" typeVar="X" index="100" subIndex="2376"/>
@@ -2025,6 +2033,8 @@ VAR_GLOBAL RETAIN
 	spDtBt_dC AT %MX100.474 : UINT;	(* sp dT max tra sonde risc/bomb dC *)
 	spDpBtBp_dB AT %MX100.476 : UINT;	(* sp Dt misurata e teorica f(P) dB *)
 	spQRiserva_g	AT %MX100.478 : UINT;	(* #################################### *)
+	//spTHtngPmp_dC	AT %MX100.480 : UINT;	(* #################################### *)
+	//spTDhwPump_dC	AT %MX100.482 : UINT;	(* #################################### *)
 	
 	//geAnomRec	
 	aiCfg AT %MX100.2048 : ARRAY[0..9] OF t_tara; // 200 bytes
@@ -2079,6 +2089,9 @@ VAR_GLOBAL RETAIN
 	spTMandRisc_dC		AT 	%MX100.2340 	: 	UINT;	(* sp temperatura mandata riscaldamento *)
 	spTVentInBu_pc		AT 	%MX100.2342 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
 	spKMaxErrMa_cK		AT 	%MX100.2344 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
+
+	spTHtngPmp_dC	AT %MX100.2346 : UINT;	(* #################################### *)
+	spTDhwPump_dC	AT %MX100.2348 : UINT;	(* #################################### *)
 	
 //###################################################################
 //
@@ -3500,7 +3513,7 @@ parziale pulizia
 ]]>
 					</sourceCode>
 				</program>
-				<program name="gesCom2plc" version="1.0.0" creationDate="1681979160" lastModifiedDate="1732988966" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="gesCom2plc" version="1.0.0" creationDate="1681979160" lastModifiedDate="1757169959" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="result" type="INT"/>
@@ -3574,6 +3587,8 @@ FOR n := 0 TO 3 DO
 END_FOR;
 
 b.gm.tMandReq := TO_REAL(spTMandRisc_dC) / 10.0;
+b.gm.spTHtngPmp := TO_REAL(spTHtngPmp_dC) / 10.0;
+b.gm.spTDhwPump := TO_REAL(spTDhwPump_dC) / 10.0;
 
 ]]>
 					</sourceCode>
@@ -3886,7 +3901,7 @@ END_IF;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="logiGen" version="1.0.0" creationDate="1683565104" lastModifiedDate="1731446599" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="logiGen" version="1.0.0" creationDate="1683565104" lastModifiedDate="1757169959" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="phPw" type="t_ph"/>
@@ -3906,8 +3921,8 @@ END_IF;
 // Gestione tempo permanenza in fase
 ptTm(?phPw, SysTime);
 
-CTuHtngPump_v := b.pv.tCaldaia > 60.0 AND b.cm.ru0nRisc;
-CTuDhwPump_v := b.pv.tCaldaia > 50.0 AND b.cm.ru1nAcs;
+CTuHtngPump_v := b.pv.tCaldaia > b.gm.spTHtngPmp AND b.cm.ru0nRisc;
+CTuDhwPump_v := b.pv.tCaldaia >  b.gm.spTDhwPump AND b.cm.ru1nAcs;
 
 
 (*
@@ -5845,6 +5860,8 @@ END_STRUCT;
 						<var name="tMandReqMax" type="REAL"/>
 						<var name="errTMand" type="REAL"/>
 						<var name="spMaxErr" type="REAL"/>
+						<var name="spTHtngPmp" type="REAL"/>
+						<var name="spTDhwPump" type="REAL"/>
 					</vars>
 					<iecDeclaration active="TRUE" valid="TRUE">
 						<![CDATA[t_gesMand: STRUCT
@@ -5856,7 +5873,8 @@ END_STRUCT;
 	tMandReqMax	:	REAL;
 	errTMand	:	REAL;
 	spMaxErr	:	REAL;
-		
+	spTHtngPmp	:	REAL;
+	spTDhwPump	:	REAL;
 
 END_STRUCT;
 
@@ -5968,7 +5986,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="casaldaiaReboot" nextID="62211">
+			<root name="casaldaiaReboot" nextID="63309">
 				<folder name="Programs" id="1">
 					<folder name="Ciclo" id="26149">
 						<Pou name="aiRd" id="4246"/>
