@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--PLC Project workspace status-->
+<WorkspaceSettings version="1.0"><VariableEditors><VariableEditor type="GLOBAL_VAR_GROUP" name="vGlobal" firstRow="0"><Columns><Column dimension="120"/><Column dimension="100"/><Column dimension="70"/><Column dimension="0"/><Column dimension="100"/><Column dimension="70"/><Column dimension="90"/><Column dimension="300"/></Columns></VariableEditor><VariableEditor type="POU" name="gesAll" yDimension="65535" firstRow="0"><Columns><Column dimension="120"/><Column dimension="100"/><Column dimension="70"/><Column dimension="100"/><Column dimension="70"/><Column dimension="90"/><Column dimension="300"/></Columns></VariableEditor></VariableEditors><WatchList/>
+	<LastOpenDocumentsList><LastOpenDocument PLCLink="P:MAIN:gesAll"/><LastOpenDocument PLCLink="VG:MAIN:vGlobal"/></LastOpenDocumentsList><SimWorkspaces/></WorkspaceSettings>
