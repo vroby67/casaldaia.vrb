@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function name="ptTm" version="1.0.0" creationDate="1685866860" lastModifiedDate="1730920007" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<returnValue>BOOL</returnValue>
+	<vars>
+		<inputVars>
+			<var name="ph" type="@t_ph"/>
+			<var name="sysTime" type="UDINT"/>
+		</inputVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[FUNCTION ptTm: BOOL
+
+VAR_INPUT
+	ph : @t_ph;
+	sysTime : UDINT;
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[// Gestione tempo permanenza in fase
+IF @ph.ptr <> @ph.oldPtr THEN
+
+  @ph.ptrHist := @ph.ptrHist + 1;
+  @ph.ptrHist := MOD(@ph.ptrHist, 10);
+  @ph.hist[@ph.ptrHist].phNo := @ph.oldPtr;
+  @ph.hist[@ph.ptrHist].lasted := @ph.tmmElap;
+
+  @ph.oldPtr := @ph.ptr;
+  @ph.tmmIn := sysTime;
+END_IF;
+
+@ph.tmmElap := sysTime - @ph.tmmIn;
+  
+]]>
+	</sourceCode>
+</function>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_dev" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<var name="i" type="BOOL">
+			<descr>Input comando uscita</descr>
+		</var>
+		<var name="inh" type="BOOL">
+			<descr>Input disattivazione uscita (alto-&gt; out=0)</descr>
+		</var>
+		<var name="iFs" type="BOOL">
+			<descr>Stato forzatura</descr>
+		</var>
+		<var name="iFv" type="BOOL">
+			<descr>Valore forzatura</descr>
+		</var>
+		<var name="q" type="BOOL">
+			<descr>Uscita elaborata</descr>
+		</var>
+		<var name="appQ" type="BOOL">
+			<descr>Appoggio per conteggio n. start (RE)</descr>
+		</var>
+		<var name="appCk1s" type="BOOL">
+			<descr>Appoggio per conteggio Ton (RE ck1s)</descr>
+		</var>
+		<var name="tmsRun" type="UDINT">
+			<descr>Cont.re secondi uscita alta</descr>
+		</var>
+		<var name="cntStart" type="UDINT">
+			<descr>Cont.re n. accensioni</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+</struct>

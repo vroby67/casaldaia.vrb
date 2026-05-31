@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="gesVent" version="1.0.0" creationDate="1682871930" lastModifiedDate="1731340388" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<localVars>
+			<var name="DOut0" type="SysSetPhrDO">
+				<descr>Manage peripheral outputs</descr>
+			</var>
+			<var name="PWM0" type="PWMOut_v1">
+				<descr>PWM management</descr>
+			</var>
+		</localVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[PROGRAM gesVent
+
+VAR
+	//Out 	: BOOL;	(* Out signal *)
+	DOut0 	: SysSetPhrDO;	(* Manage peripheral outputs *)
+	PWM0 	: PWMOut_v1;	(* PWM management *)
+	
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[// *****************************************************************************
+// PROGRAM "ST_PWMOut_v1"
+// *****************************************************************************
+// Is managed a PWM out, the program is executed on the Fast task, so it's
+// executed at every 1 mS. This allows to have a maximum frequency of 10 Hz with
+// possibility to set the duty with a resolution of 1 %.
+// -----------------------------------------------------------------------------
+
+    // -------------------------------------------------------------------------
+    // INITIALIZATION
+    // -------------------------------------------------------------------------
+    // Initialize variables.
+
+    IF (SysFirstLoop) THEN
+
+        // Peripheral outputs settings.
+
+        DOut0.Address:=255; //CPU module address
+        DOut0.Mode:=DO_8_LL; //Management mode
+        DOut0.Mask:=16#00000001; //Mask output 0
+
+        // PWM out settings.
+
+        PWM0.Enable:=TRUE; //Enable
+        PWM0.Frequency:=10.0; //Frequency (Hz)
+        PWM0.TMin:=0.001; //Minimum output time
+
+    END_IF;
+
+    // -------------------------------------------------------------------------
+    // PWM OUT MANAGEMENT
+    // -------------------------------------------------------------------------
+    // Manage the PWM out.
+
+    PWM0(Duty := TO_REAL(b.bp.ventDuty)); //PWM management
+    //Out:=PWM0.Out; //Out signal
+
+    IF NOT(PWM0.Out) THEN
+        DOut0.Value:=DOut0.Value AND 16#FFFFFFFE; //Reset output
+    ELSE
+        DOut0.Value:=DOut0.Value OR 16#00000001; //Set output
+    END_IF;
+
+    DOut0(); //Manage peripheral outputs
+]]>
+	</sourceCode>
+</program>

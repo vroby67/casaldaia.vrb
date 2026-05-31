@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function name="pwrMgr" version="1.0.0" creationDate="1731357969" lastModifiedDate="1734290170" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<returnValue>BOOL</returnValue>
+	<vars>
+		<localVars>
+			<var name="ph" type="@t_ph"/>
+			<var name="ptrPwrStep" type="INT"/>
+		</localVars>
+		<externalVars>
+			<var name="b" type="t_cenTerm"/>
+			<var name="spKCampRidu_dk" type="UINT">
+				<descr>sp campo riduzione potenza</descr>
+			</var>
+			<var name="spKTempCald_dC" type="UINT">
+				<descr>sp temperatura caldaia</descr>
+			</var>
+			<var name="spTPeriCocl_ds" type="UINT">
+				<descr>sp tempo periodo PWM coclea</descr>
+			</var>
+			<var name="SysTime" type="UDINT"/>
+			<var name="SIeTutto_OK_v" type="BOOL">
+				<descr>Comandi inseriti</descr>
+			</var>
+			<var name="CTuBrnAuger_v" type="BOOL"/>
+			<var name="mcStableBurn" type="INT">
+				<descr>Combustione stabile</descr>
+			</var>
+			<var name="mcAshRemoval" type="INT">
+				<descr>Rimozione periodica cenere</descr>
+			</var>
+			<var name="cpNotRdy" type="INT">
+				<descr>Attesa approntamento</descr>
+			</var>
+			<var name="cpPause" type="INT">
+				<descr>Pausa carico</descr>
+			</var>
+			<var name="cpLoad" type="INT">
+				<descr>Caricamento attivo</descr>
+			</var>
+			<var name="cpLoop" type="INT">
+				<descr>Riciclo</descr>
+			</var>
+			<var name="mbCnNCariBruc" type="UDINT">
+				<descr>contatore tempo carica bruciatore</descr>
+			</var>
+			<var name="mbCnMFunz" type="UDINT" dim0="3">
+				<descr>contatori tempi di funzionamento</descr>
+			</var>
+		</externalVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[FUNCTION pwrMgr: BOOL
+
+VAR
+	ph : @t_ph;
+	ptrPwrStep		:	INT;
+END_VAR
+
+VAR_EXTERNAL
+	b 				:	t_cenTerm;
+	spKCampRidu_dk	:	UINT;	(* sp campo riduzione potenza *)
+	spKTempCald_dC	:	UINT;	(* sp temperatura caldaia *)
+	spTPeriCocl_ds	: 	UINT;	(* sp tempo periodo PWM coclea *)
+
+	SysTime			:	UDINT;
+	
+	SIeTutto_OK_v 	:	BOOL;	(* Comandi inseriti *)
+	CTuBrnAuger_v 	:	BOOL;
+	
+	mcStableBurn 	: 	INT;   // Combustione stabile
+	mcAshRemoval	: 	INT;   // Rimozione periodica cenere
+
+	cpNotRdy  		:	INT;   // Attesa approntamento
+	cpPause 		:	INT;   // Pausa carico
+	cpLoad 			:	INT;   // Caricamento attivo
+	cpLoop 			:	INT;   // Riciclo
+	mbCnNCariBruc	:	UDINT;	//contatore tempo carica bruciatore
+	mbCnMFunz		: ARRAY[0..2] OF UDINT; //contatori tempi di funzionamento
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[
+//massima potenza
+IF b.pv.tCaldaia < TO_REAL(spKTempCald_dC - spKCampRidu_dk) / 10.0 THEN
+	ptrPwrStep := 0;
+//media potenza
+ELSIF b.pv.tCaldaia < TO_REAL(spKTempCald_dC - spKCampRidu_dk / 2) / 10.0 THEN
+	 ptrPwrStep := 1;
+//bassa potenza
+ELSE
+	 ptrPwrStep := 2;
+END_IF;
+
+b.tr.regPar := b.bp.regPar[ptrPwrStep];
+
+ph := ?b.bp.phCari;
+ptTm(ph, SysTime);
+
+CASE @ph.ptr OF
+	cpNotRdy: // 0 - Attesa approntamento
+		IF SIeTutto_OK_v 
+			AND b.bp.phMaCy.ptr = mcStableBurn THEN
+
+			ptSet(ph, cpPause);
+		END_IF;
+
+
+	cpPause:
+		IF @ph.tmmElap > TO_UDINT(spTPeriCocl_ds) * 
+					(100 - TO_UDINT(b.tr.regPar.pelletPerc)) THEN
+					
+			CTuBrnAuger_v := TRUE;
+			b.bp.ventDuty := b.tr.regPar.ventPerc;
+			ptSet(ph, cpLoad);
+		END_IF;
+
+	cpLoad: 	
+		IF @ph.tmmElap > TO_UDINT(spTPeriCocl_ds) * 
+					TO_UDINT(b.tr.regPar.pelletPerc)  THEN
+			CTuBrnAuger_v := FALSE;
+			mbCnNCariBruc := mbCnNCariBruc + @ph.tmmElap / 100;
+			ptSet(ph, cpLoop);
+		END_IF;
+
+
+	cpLoop:
+		mbCnMFunz[2 - ptrPwrStep] := mbCnMFunz[2 - ptrPwrStep] + TO_UDINT(spTPeriCocl_ds / 10);
+		IF 	b.bp.phMaCy.ptr >= mcStableBurn OR   
+			b.bp.phMaCy.ptr <= mcStableBurn THEN
+				ptSet(ph, cpPause);
+		ELSE
+				ptSet(ph, cpNotRdy);
+		END_IF;
+END_CASE;	
+]]>
+	</sourceCode>
+</function>

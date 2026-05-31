@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_pwm" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<var name="Percent" type="REAL">
+			<descr>Percentuale di tempo uscita attiva</descr>
+		</var>
+		<var name="PeriodS" type="REAL">
+			<descr>Periodo in secondi del ciclo di comando</descr>
+		</var>
+		<var name="ph" type="t_ph">
+			<descr>Gestore fase PWM</descr>
+		</var>
+		<var name="tmcOn" type="UINT">
+			<descr>appoggio tempo attivazione</descr>
+		</var>
+		<var name="tmcOff" type="UINT">
+			<descr>appoggio tempo spegnimento</descr>
+		</var>
+		<var name="appOut" type="BOOL">
+			<descr>appoggio uscita (interno)</descr>
+		</var>
+		<var name="Enable" type="BOOL">
+			<descr>Abilitazione blocco (falso spegne uscita)</descr>
+		</var>
+		<var name="Out" type="BOOL">
+			<descr>Uscita di comando</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+</struct>

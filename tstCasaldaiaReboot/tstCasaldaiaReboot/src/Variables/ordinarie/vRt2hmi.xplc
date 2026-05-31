@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="vRt2hmi" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<var name="TmTimeStamp" type="UDINT">
+		<address type="M" typeVar="W" index="100" subIndex="200"/>
+	</var>
+	<var name="diImg" type="UDINT">
+		<descr>immagine input per hmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="204"/>
+	</var>
+	<var name="doImg" type="UDINT">
+		<descr>immagine output per hmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="208"/>
+	</var>
+	<var name="pvTCaldaia" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="212"/>
+	</var>
+	<var name="pvTFumi" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="214"/>
+	</var>
+	<var name="pvTMandata" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="216"/>
+	</var>
+	<var name="pvTRitorno" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="218"/>
+	</var>
+	<var name="pvTEsterna" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="220"/>
+	</var>
+	<var name="pvTInterna" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="222"/>
+	</var>
+	<var name="pvTAriaComb" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="224"/>
+	</var>
+	<var name="pvTCaldaia2" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="226"/>
+	</var>
+	<var name="pvPFiamma" type="INT">
+		<address type="M" typeVar="W" index="100" subIndex="228"/>
+	</var>
+	<var name="phMaCy" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="230"/>
+	</var>
+	<var name="phMaCyT" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="232"/>
+	</var>
+	<var name="phFlSt" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="234"/>
+	</var>
+	<var name="phFlStT" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="236"/>
+	</var>
+	<var name="phCari" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="238"/>
+	</var>
+	<var name="phCariT" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="240"/>
+	</var>
+	<var name="phRefi" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="242"/>
+	</var>
+	<var name="phRefiT" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="244"/>
+	</var>
+	<var name="phGeMa" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="246"/>
+	</var>
+	<var name="phGeMaT" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="248"/>
+	</var>
+	<var name="ventDuty" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="250"/>
+	</var>
+	<var name="PellDuty" type="UINT">
+		<address type="M" typeVar="W" index="100" subIndex="252"/>
+	</var>
+	<var name="alarms" type="DINT">
+		<descr>allarmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="256"/>
+	</var>
+	<var name="alarms0" type="INT">
+		<descr>allarmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="256"/>
+	</var>
+	<var name="SIaTUTTONOK" type="BOOL">
+		<descr>Allarme ausiliari non inseriti</descr>
+		<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="0"/>
+	</var>
+	<var name="TTaSOC_TH1_" type="BOOL">
+		<descr>Allarme sonda in corto alta 1</descr>
+		<address type="M" typeVar="W" index="100" subIndex="256" bitIndex="1"/>
+	</var>
+	<var name="alarms1" type="INT">
+		<descr>allarmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="258"/>
+	</var>
+	<var name="PTaPGASFAIL" type="BOOL">
+		<descr>Allarme trasd. press. gas</descr>
+		<address type="M" typeVar="W" index="100" subIndex="258" bitIndex="0"/>
+	</var>
+	<var name="mbCnNAvviamen" type="UDINT">
+		<descr>contatore avviamenti</descr>
+		<address type="M" typeVar="X" index="100" subIndex="260"/>
+	</var>
+	<var name="mbCnNCariEste" type="UDINT">
+		<descr>contatore caricamenti esterni</descr>
+		<address type="M" typeVar="X" index="100" subIndex="264"/>
+	</var>
+	<var name="mbCnNCariBruc" type="UDINT">
+		<descr>contatore caricamenti bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="268"/>
+	</var>
+	<var name="mbCnMFunz" type="UDINT" dim0="3">
+		<descr>contatore funzionamento minimo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="272"/>
+	</var>
+	<var name="mbCnMFunzMini" type="UDINT">
+		<descr>contatore funzionamento minimo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="272"/>
+	</var>
+	<var name="mbCnMFunzMedi" type="UDINT">
+		<descr>contatore funzionamento medio</descr>
+		<address type="M" typeVar="X" index="100" subIndex="276"/>
+	</var>
+	<var name="mbCnMFunzMaxi" type="UDINT">
+		<descr>contatore funzionamento massimo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="280"/>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL
+	TmTimeStamp	AT %MW100.200	: UDINT;
+
+	diImg	AT %MW100.204	: UDINT;	(* immagine input per hmi *)
+	doImg	AT %MW100.208	: UDINT;	(* immagine output per hmi *)
+
+	pvTCaldaia	AT	%MW100.212	: INT;	(*  *)
+	pvTFumi		AT	%MW100.214	: INT;	(*  *)
+	pvTMandata	AT	%MW100.216	: INT;	(*  *)
+	pvTRitorno	AT	%MW100.218	: INT;	(*  *)
+	pvTEsterna	AT	%MW100.220	: INT;	(*  *)
+	pvTInterna	AT	%MW100.222	: INT;	(*  *)
+	pvTAriaComb	AT	%MW100.224	: INT;	(*  *)
+	pvTCaldaia2	AT	%MW100.226	: INT;	(*  *)
+	pvPFiamma	AT	%MW100.228	: INT;	(*  *)
+	phMaCy		AT	%MW100.230	: UINT;	(*  *)
+	phMaCyT		AT	%MW100.232	: UINT;	(*  *)
+	phFlSt		AT	%MW100.234	: UINT;	(*  *)
+	phFlStT		AT	%MW100.236	: UINT;	(*  *)
+	phCari		AT	%MW100.238	: UINT;	(*  *)
+	phCariT		AT	%MW100.240	: UINT;	(*  *)
+	phRefi		AT	%MW100.242	: UINT;	(*  *)
+	phRefiT		AT	%MW100.244	: UINT;	(*  *)
+	phGeMa		AT	%MW100.246	: UINT;	(*  *)
+	phGeMaT		AT	%MW100.248	: UINT;	(*  *)
+	ventDuty	AT	%MW100.250	: UINT;	(*  *)
+	PellDuty	AT	%MW100.252	: UINT;	(*  *)
+                             
+	                         
+                             
+	alarms	AT %MW100.256	: DINT;	(* allarmi *)
+
+	alarms0	AT %MW100.256	: INT;	(* allarmi *)
+	SIaTUTTONOK	AT %MW100.256.0	: BOOL;	(* Allarme ausiliari non inseriti *)
+	TTaSOC_TH1_	AT %MW100.256.1	: BOOL;	(* Allarme sonda in corto alta 1 *)
+
+	alarms1	AT %MW100.258	: INT;	(* allarmi *)
+	PTaPGASFAIL	AT %MW100.258.0	: BOOL;	(* Allarme trasd. press. gas *)
+	
+	mbCnNAvviamen		AT 	%MX100.260 	: 	UDINT;	(* contatore avviamenti *)
+	mbCnNCariEste		AT 	%MX100.264 	: 	UDINT;	(* contatore caricamenti esterni *)
+	mbCnNCariBruc		AT 	%MX100.268 	: 	UDINT;	(* contatore caricamenti bruciatore *)
+	mbCnMFunz		AT 	%MX100.272 	: 	ARRAY[0..2] OF UDINT;	(* contatore funzionamento minimo *)
+	mbCnMFunzMini		AT 	%MX100.272 	: 	UDINT;	(* contatore funzionamento minimo *)
+	mbCnMFunzMedi		AT 	%MX100.276 	: 	UDINT;	(* contatore funzionamento medio *)
+	mbCnMFunzMaxi		AT 	%MX100.280 	: 	UDINT;	(* contatore funzionamento massimo *)
+
+
+	
+                                                  
+END_VAR
+
+]]>
+	</iecDeclaration>
+</group>

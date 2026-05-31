@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="kPhCaricoP" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<var name="cpNotRdy" type="INT" attribute="constant">
+		<descr>Attesa approntamento</descr>
+		<initValue>0</initValue>
+	</var>
+	<var name="cpPause" type="INT" attribute="constant">
+		<descr>Pausa carico</descr>
+		<initValue>5</initValue>
+	</var>
+	<var name="cpLoad" type="INT" attribute="constant">
+		<descr>Caricamento attivo</descr>
+		<initValue>10</initValue>
+	</var>
+	<var name="cpLoop" type="INT" attribute="constant">
+		<descr>Riciclo</descr>
+		<initValue>15</initValue>
+	</var>
+	<var name="cpInitBurn" type="INT" attribute="constant">
+		<initValue>20</initValue>
+	</var>
+	<var name="cpNoVentIgn" type="INT" attribute="constant">
+		<initValue>25</initValue>
+	</var>
+	<var name="cpVentRstrt" type="INT" attribute="constant">
+		<initValue>30</initValue>
+	</var>
+	<var name="cpPwrSel" type="INT" attribute="constant">
+		<initValue>35</initValue>
+	</var>
+	<var name="cpStableBurn" type="INT" attribute="constant">
+		<initValue>40</initValue>
+	</var>
+	<var name="cpAshRemoval" type="INT" attribute="constant">
+		<initValue>45</initValue>
+	</var>
+	<var name="cpIdleFire" type="INT" attribute="constant">
+		<initValue>50</initValue>
+	</var>
+	<var name="cpBurnResume" type="INT" attribute="constant">
+		<initValue>55</initValue>
+	</var>
+	<var name="cpVentStart" type="INT" attribute="constant">
+		<initValue>60</initValue>
+	</var>
+	<var name="cpPelletFeed" type="INT" attribute="constant">
+		<initValue>65</initValue>
+	</var>
+	<var name="cpVentHold" type="INT" attribute="constant">
+		<initValue>70</initValue>
+	</var>
+	<var name="cpIdleReturn" type="INT" attribute="constant">
+		<initValue>75</initValue>
+	</var>
+	<var name="cpANotRdy" type="INT" attribute="constant">
+		<descr>Anomalia da Attesa approntamento</descr>
+		<initValue>100</initValue>
+	</var>
+	<var name="cpAPause" type="INT" attribute="constant">
+		<descr>Anomalia da Pausa carico</descr>
+		<initValue>105</initValue>
+	</var>
+	<var name="cpALoad" type="INT" attribute="constant">
+		<descr>Anomalia da Caricamento attivo</descr>
+		<initValue>110</initValue>
+	</var>
+	<var name="cpALoop" type="INT" attribute="constant">
+		<descr>Anomalia da Riciclo</descr>
+		<initValue>115</initValue>
+	</var>
+	<var name="cpAInitBurn" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>120</initValue>
+	</var>
+	<var name="cpANoVentIgn" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>125</initValue>
+	</var>
+	<var name="cpAVentRstrt" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>130</initValue>
+	</var>
+	<var name="cpAPwrSel" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>135</initValue>
+	</var>
+	<var name="cpAStableBurn" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>140</initValue>
+	</var>
+	<var name="cpAAshRemoval" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>145</initValue>
+	</var>
+	<var name="cpAIdleFire" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>150</initValue>
+	</var>
+	<var name="cpABurnResume" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>155</initValue>
+	</var>
+	<var name="cpAVentStart" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>160</initValue>
+	</var>
+	<var name="cpAPelletFeed" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>165</initValue>
+	</var>
+	<var name="cpAVentHold" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>170</initValue>
+	</var>
+	<var name="cpAIdleReturn" type="INT" attribute="constant">
+		<descr>Anomalia da</descr>
+		<initValue>175</initValue>
+	</var>
+	<var name="cpAResTot" type="INT" attribute="constant">
+		<descr>Anomalia generale totale</descr>
+		<initValue>180</initValue>
+	</var>
+	<var name="cpAnomRec" type="INT" attribute="constant">
+		<descr>Stato di recupero anomalie</descr>
+		<initValue>200</initValue>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL CONSTANT
+	cpNotRdy  		: INT := 	 0 ;   // Attesa approntamento
+	cpPause 		: INT := 	 5 ;   // Pausa carico
+	cpLoad 			: INT := 	10 ;   // Caricamento attivo
+	cpLoop 			: INT := 	15 ;   // Riciclo
+	cpInitBurn 		: INT := 	20 ;   // 
+	cpNoVentIgn		: INT := 	25 ;   // 
+	cpVentRstrt 	: INT := 	30 ;   // 
+	cpPwrSel	 	: INT := 	35 ;   // 
+	cpStableBurn 	: INT := 	40 ;   // 
+	cpAshRemoval	: INT := 	45 ;   // 
+	cpIdleFire	 	: INT := 	50 ;   // 
+	cpBurnResume 	: INT := 	55 ;   // 
+	cpVentStart   	: INT := 	60 ;   // 
+	cpPelletFeed  	: INT := 	65 ;   // 
+	cpVentHold    	: INT := 	70 ;   // 
+	cpIdleReturn  	: INT := 	75 ;   // 
+
+	cpANotRdy  		: INT := 	100 ;  // Anomalia da Attesa approntamento
+	cpAPause	 	: INT := 	105 ;  // Anomalia da Pausa carico
+	cpALoad 		: INT := 	110 ;  // Anomalia da Caricamento attivo
+	cpALoop			: INT := 	115 ;  // Anomalia da Riciclo
+	cpAInitBurn 	: INT := 	120 ;  // Anomalia da 
+	cpANoVentIgn	: INT := 	125 ;  // Anomalia da 
+	cpAVentRstrt 	: INT := 	130 ;  // Anomalia da 
+	cpAPwrSel	 	: INT := 	135 ;  // Anomalia da 
+	cpAStableBurn	: INT := 	140 ;  // Anomalia da 
+	cpAAshRemoval	: INT := 	145 ;  // Anomalia da 
+	cpAIdleFire	 	: INT := 	150 ;  // Anomalia da 
+	cpABurnResume 	: INT := 	155 ;  // Anomalia da 
+	cpAVentStart  	: INT := 	160 ;  // Anomalia da 
+	cpAPelletFeed 	: INT := 	165 ;  // Anomalia da 
+	cpAVentHold   	: INT := 	170 ;  // Anomalia da 
+	cpAIdleReturn 	: INT := 	175 ;  // Anomalia da 
+
+	cpAResTot 		: INT := 	180 ;  // Anomalia generale totale
+
+	cpAnomRec 		: INT := 	200 ;  // Stato di recupero anomalie
+END_VAR
+]]>
+	</iecDeclaration>
+</group>

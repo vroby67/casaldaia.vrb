@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function name="fSoc" version="1.0.0" creationDate="1693406004" lastModifiedDate="1693407568" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<returnValue>BOOL</returnValue>
+	<vars>
+		<inputVars>
+			<var name="ch" type="@t_soc"/>
+			<var name="sysTime" type="UDINT"/>
+		</inputVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[ptTm(?@ch.ph, sysTime);
+
+
+CASE @ch.ph.ptr OF
+	5:
+		IF @ch.pvPwr > 95.0 THEN
+			@ch.oltTCurr := @ch.pvTCurr + @@ch.spTChange;
+			@ch.ph.ptr := 10;
+		END_IF;
+	  
+	10:
+		//se la potenza scende sotto la soglia di controllo...
+		//o se la temperatura cresce a sufficienza...
+		IF @ch.pvPwr <= 95.0 OR  @ch.pvTCurr > @ch.oltTCurr THEN
+			@ch.ph.ptr := 5;
+		END_IF;
+		
+		//se trascorre il tempo di controllo senza variazione
+		IF @ch.ph.tmmElap > TO_UINT(@ch.spTmChange * 100) THEN
+			@ch.soc := TRUE;
+			@ch.ph.ptr := 1000;
+		END_IF;
+	  
+	1000:
+	  //se viene richiesto il reset allarme (e controllo)
+		IF @ch.socRst THEN
+			@ch.soc := FALSE;
+			@ch.ph.ptr := 5;
+		END_IF;
+	  
+	ELSE
+	  @ch.ph.ptr := 5;
+    
+END_CASE;
+
+fSoc := @ch.soc;
+]]>
+	</sourceCode>
+</function>

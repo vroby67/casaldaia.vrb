@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_bkCalc" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<var name="i" type="INT">
+			<descr>Auxiliary variable</descr>
+		</var>
+		<var name="dtfRes" type="BOOL"/>
+		<var name="DtLocSec" type="UDINT"/>
+		<var name="DtMaxDiff" type="INT">
+			<initValue>3</initValue>
+		</var>
+		<var name="LDTS" type="LDATETIMESTRUCT">
+			<descr>Long Date/Time struct</descr>
+		</var>
+		<var name="dtDisable" type="BOOL"/>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_bkCalc: STRUCT
+	i : INT; (* Auxiliary variable *)
+	dtfRes	:	BOOL;
+	DtLocSec	: UDINT;
+	DtMaxDiff	:	INT	:= 3;
+    LDTS : LDATETIMESTRUCT; (* Long Date/Time struct *)
+    dtDisable	:	BOOL;
+
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

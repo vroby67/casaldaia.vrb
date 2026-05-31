@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function name="fPid" version="1.0.0" creationDate="1691589198" lastModifiedDate="1691681259" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<returnValue>BOOL</returnValue>
+	<vars>
+		<inputVars>
+			<var name="pid" type="@t_pidStr"/>
+		</inputVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[  IF @pid.Enb THEN
+    (*Annullamento parametro I*)
+    @pid.app_I := @pid.I;
+    IF @pid.app_I = 0.0 THEN
+      @pid.app_I := TO_REAL(10000000.0);
+    END_IF;
+    
+    @pid.DT_D := @pid.D + @pid.DeT;
+    
+    //ERRORE: se reverse inverte output (raffredda)
+    IF @pid.Reverse THEN
+      @pid.ERR := (@pid.SP - @pid.PV) * -1.0;
+    ELSE
+      @pid.ERR := @pid.SP - @pid.PV;
+    END_IF;
+    
+    
+    IF @pid.DT_D = 0.0 THEN
+      @pid.DT_D := 1.0;
+    END_IF;
+    
+    (*Calcolo derivativo*)
+    @pid.Y := @pid.Y +
+    @pid.DeT *
+    (@pid.PV - @pid.Y) /
+    (@pid.DeT + @pid.D / @pid.KD);
+    //recupero NaN su Y
+    IF NOT VarVCheck(ADR(@pid.Y), VR_TYPE#REAL_TYPE, VAR_CHECK#VCK_NORMAL) THEN
+      @pid.Y := 0.0;
+    END_IF;
+    
+    
+    (*calcolo proporzionale*)
+    @pid.Out := @pid.BIAS +
+    100.0 / @pid.P *
+    (@pid.ERR - @pid.KD *
+    (@pid.PV - @pid.Y));
+    
+    //controllo limiti uscita calcolata
+    @pid.Out := LIMIT (@pid.Out, 0.0, 100.0);
+
+    (*calcolo integrale*)
+    @pid.BIAS := @pid.BIAS +
+    @pid.DeT *
+    (@pid.Out - @pid.BIAS) /
+    (@pid.DeT + @pid.app_I);
+    
+    //recupero NaN su BIAS
+    IF @pid.BIAS <> @pid.BIAS THEN
+      @pid.BIAS := 0.0;
+    END_IF;
+    
+    //limita bias
+    //Se l'errore è oltre il valore P il bias è a 0 perchè l'uscita è a 100
+    IF @pid.ERR > @pid.P THEN
+      @pid.BIAS := 0.0;
+    END_IF;
+    
+  ELSE
+    @pid.Out := 0.0;
+    //pid.BIAS := 0.0;
+    //pid.Y := 0.0;
+  END_IF;
+  
+]]>
+	</sourceCode>
+</function>

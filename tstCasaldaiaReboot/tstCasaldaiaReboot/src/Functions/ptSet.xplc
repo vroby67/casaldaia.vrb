@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<function name="ptSet" version="1.0.0" creationDate="1685866035" lastModifiedDate="1730920007" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<returnValue>BOOL</returnValue>
+	<vars>
+		<inputVars>
+			<var name="ph" type="@t_ph"/>
+			<var name="caseTo" type="INT"/>
+		</inputVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[FUNCTION ptSet: BOOL
+
+VAR_INPUT
+	ph : @t_ph;
+	caseTo : INT;
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[@ph.ptr := caseTo + @ph.dbg;
+]]>
+	</sourceCode>
+</function>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_bitCfgAl" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<title>Bit per configurazione allarmi</title>
+	<vars>
+		<var name="reqd" type="BOOL">
+			<descr>stato richiesto non in allarme</descr>
+		</var>
+		<var name="rstMan" type="BOOL">
+			<descr>richiede reset manuale</descr>
+		</var>
+		<var name="audible" type="BOOL">
+			<descr>attiva cicalino</descr>
+		</var>
+		<var name="active" type="BOOL">
+			<descr>da elaborare</descr>
+		</var>
+		<var name="loPri" type="BOOL">
+			<descr>bassa priorità</descr>
+		</var>
+		<var name="blind" type="BOOL">
+			<descr>non luminoso</descr>
+		</var>
+		<var name="input" type="BOOL">
+			<descr>ingresso da controllare</descr>
+		</var>
+		<var name="live" type="BOOL">
+			<descr>attualmente attivo (in allarme)</descr>
+		</var>
+		<var name="liveRe" type="BOOL"/>
+		<var name="mem" type="BOOL">
+			<descr>richiede reset</descr>
+		</var>
+		<var name="piuPiu" type="BOOL">
+			<descr>uscita cicalino</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+</struct>

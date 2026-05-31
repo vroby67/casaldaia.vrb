@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_cmdReq" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<title>Comandi per il plc</title>
+	<vars>
+		<var name="ru0nRisc" type="BOOL"/>
+		<var name="ru1nAcs" type="BOOL"/>
+		<var name="ma2nCocExt" type="BOOL"/>
+		<var name="ma3nCocBru" type="BOOL"/>
+		<var name="ma4nResIgn" type="BOOL"/>
+		<var name="ma5nPomRis" type="BOOL"/>
+		<var name="ma6nPomAcs" type="BOOL"/>
+		<var name="ma7nApeVal" type="BOOL"/>
+		<var name="ma8nChiVal" type="BOOL"/>
+		<var name="ma9nVenBru" type="BOOL"/>
+		<var name="xxAxxxxxxx" type="BOOL"/>
+		<var name="xxBxxxxxxx" type="BOOL"/>
+		<var name="flCdataLog" type="BOOL"/>
+		<var name="xxDxxxxxxx" type="BOOL"/>
+		<var name="mcStblBurn" type="BOOL"/>
+		<var name="mcFNextStp" type="BOOL"/>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_cmdReq: STRUCT
+	ru0nRisc 	:	BOOL;
+	ru1nAcs 	:	BOOL;
+	ma2nCocExt	:	BOOL;
+	ma3nCocBru	:	BOOL;
+	
+	ma4nResIgn	:	BOOL;
+	ma5nPomRis	:	BOOL;
+	ma6nPomAcs	:	BOOL;
+	ma7nApeVal	:	BOOL;
+	
+	ma8nChiVal	:	BOOL;
+	ma9nVenBru	:	BOOL;
+	xxAxxxxxxx	:	BOOL;
+	xxBxxxxxxx	:	BOOL;
+
+	flCdataLog	:	BOOL;
+	xxDxxxxxxx	:	BOOL;
+	mcStblBurn	:	BOOL;
+	mcFNextStp	:	BOOL;
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

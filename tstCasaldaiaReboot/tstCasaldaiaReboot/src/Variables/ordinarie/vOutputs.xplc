@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="vOutputs" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<var name="SNuRis255_0h" type="BOOL">
+		<address type="Q" typeVar="X" index="255" subIndex="0"/>
+	</var>
+	<var name="SNuRis255_1h" type="BOOL">
+		<address type="Q" typeVar="X" index="255" subIndex="1"/>
+	</var>
+	<var name="do0h" type="BOOL" dim0="8">
+		<descr>Uscite fisiche, array bool</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="0"/>
+	</var>
+	<var name="CTuExtAuger_h" type="BOOL">
+		<descr>Contattore comando coclea esterna</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="0"/>
+	</var>
+	<var name="CTuBrnAuger_h" type="BOOL">
+		<descr>Contattore coclea bruciatore</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="1"/>
+	</var>
+	<var name="CTuIgnHeatr_h" type="BOOL">
+		<descr>Contattore resistenza (candeletta) accensione</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="2"/>
+	</var>
+	<var name="CTuHtngPump_h" type="BOOL">
+		<descr>Contattore pompa riscaldamento</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="3"/>
+	</var>
+	<var name="CTuDhwPump_h" type="BOOL">
+		<descr>Contattore pompa acqua calda sanitaria</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="4"/>
+	</var>
+	<var name="FCuMixVOpen_h" type="BOOL">
+		<descr>Apertura valvola miscelatrice</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="5"/>
+	</var>
+	<var name="FCuMixVClse_h" type="BOOL">
+		<descr>Chiusura valvola miscelatrice</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="6"/>
+	</var>
+	<var name="CTuVentCmd_h" type="BOOL">
+		<descr>Contattore ventilazione</descr>
+		<address type="Q" typeVar="X" index="2" subIndex="7"/>
+	</var>
+	<var name="do0v" type="BOOL" dim0="8">
+		<descr>Uscite virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3808"/>
+	</var>
+	<var name="CTuExtAuger_v" type="BOOL">
+		<descr>Contattore comando coclea esterna</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3808"/>
+	</var>
+	<var name="CTuBrnAuger_v" type="BOOL">
+		<descr>Contattore coclea bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3809"/>
+	</var>
+	<var name="CTuIgnHeatr_v" type="BOOL">
+		<descr>Contattore resistenza accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3810"/>
+	</var>
+	<var name="CTuHtngPump_v" type="BOOL">
+		<descr>Contattore pompa riscaldamento</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3811"/>
+	</var>
+	<var name="CTuDhwPump_v" type="BOOL">
+		<descr>Contattore pompa acqua calda sanitaria</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3812"/>
+	</var>
+	<var name="FCuMixVOpen_v" type="BOOL">
+		<descr>Apertura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3813"/>
+	</var>
+	<var name="FCuMixVClse_v" type="BOOL">
+		<descr>Chiusura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3814"/>
+	</var>
+	<var name="CTuVentCmd_v" type="BOOL">
+		<descr>Contattore ventilazione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3815"/>
+	</var>
+	<var name="do0f" type="BOOL" dim0="8">
+		<descr>Forzatura valore uscite virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3816"/>
+	</var>
+	<var name="CTuExtAuger_f" type="BOOL">
+		<descr>Contattore comando coclea esterna</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3816"/>
+	</var>
+	<var name="CTuBrnAuger_f" type="BOOL">
+		<descr>Contattore coclea bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3817"/>
+	</var>
+	<var name="CTuIgnHeatr_f" type="BOOL">
+		<descr>Contattore resistenza accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3818"/>
+	</var>
+	<var name="CTuHtngPump_f" type="BOOL">
+		<descr>Contattore pompa riscaldamento</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3819"/>
+	</var>
+	<var name="CTuDhwPump_f" type="BOOL">
+		<descr>Contattore pompa acqua calda sanitaria</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3820"/>
+	</var>
+	<var name="FCuMixVOpen_f" type="BOOL">
+		<descr>Apertura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3821"/>
+	</var>
+	<var name="FCuMixVClse_f" type="BOOL">
+		<descr>Chiusura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3822"/>
+	</var>
+	<var name="CTuVentCmd_f" type="BOOL">
+		<descr>Contattore ventilazione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3823"/>
+	</var>
+	<var name="do0m" type="BOOL" dim0="8">
+		<descr>Forzatura stato uscite virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3824"/>
+	</var>
+	<var name="CTuExtAuger_m" type="BOOL">
+		<descr>Contattore comando coclea esterna</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3824"/>
+	</var>
+	<var name="CTuBrnAuger_m" type="BOOL">
+		<descr>Contattore coclea bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3825"/>
+	</var>
+	<var name="CTuIgnHeatr_m" type="BOOL">
+		<descr>Contattore resistenza accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3826"/>
+	</var>
+	<var name="CTuHtngPump_m" type="BOOL">
+		<descr>Contattore pompa riscaldamento</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3827"/>
+	</var>
+	<var name="CTuDhwPump_m" type="BOOL">
+		<descr>Contattore pompa acqua calda sanitaria</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3828"/>
+	</var>
+	<var name="FCuMixVOpen_m" type="BOOL">
+		<descr>Apertura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3829"/>
+	</var>
+	<var name="FCuMixVClse_m" type="BOOL">
+		<descr>Chiusura valvola miscelatrice</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3830"/>
+	</var>
+	<var name="CTuVentCmd_m" type="BOOL">
+		<descr>Contattore ventilazione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3831"/>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL
+	SNuRis255_0h AT %QX255.0 : BOOL;
+	SNuRis255_1h AT %QX255.1 : BOOL;
+
+	do0h AT %QX2.0 : ARRAY[0..7] OF BOOL;	(* Uscite fisiche, array bool *)
+	CTuExtAuger_h 	AT %QX2.0 : BOOL;		(* Contattore comando coclea esterna *)
+	CTuBrnAuger_h 	AT %QX2.1 : BOOL;		(* Contattore coclea bruciatore *)
+	CTuIgnHeatr_h 	AT %QX2.2 : BOOL;		(* Contattore resistenza (candeletta) accensione *)
+	CTuHtngPump_h 	AT %QX2.3 : BOOL;		(* Contattore pompa riscaldamento *)
+	CTuDhwPump_h 		AT %QX2.4 : BOOL;		(* Contattore pompa acqua calda sanitaria *)
+	FCuMixVOpen_h 	AT %QX2.5 : BOOL;		(* Apertura valvola miscelatrice *)
+	FCuMixVClse_h 	AT %QX2.6 : BOOL;		(* Chiusura valvola miscelatrice *)
+	CTuVentCmd_h 		AT %QX2.7 : BOOL;		(* Contattore ventilazione *)
+
+	do0v AT %MX100.3808 : ARRAY[0..7] OF BOOL;	(* Uscite virtuali, array bool *)
+	CTuExtAuger_v 	AT %MX100.3808 : BOOL;	(* Contattore comando coclea esterna *)
+	CTuBrnAuger_v 	AT %MX100.3809 : BOOL;	(* Contattore coclea bruciatore *)
+	CTuIgnHeatr_v 	AT %MX100.3810 : BOOL;	(* Contattore resistenza accensione *)
+	CTuHtngPump_v 	AT %MX100.3811 : BOOL;	(* Contattore pompa riscaldamento *)
+	CTuDhwPump_v 		AT %MX100.3812 : BOOL;	(* Contattore pompa acqua calda sanitaria *)
+	FCuMixVOpen_v 	AT %MX100.3813 : BOOL;	(* Apertura valvola miscelatrice *)
+	FCuMixVClse_v 	AT %MX100.3814 : BOOL;	(* Chiusura valvola miscelatrice *)
+	CTuVentCmd_v 		AT %MX100.3815 : BOOL;	(* Contattore ventilazione *)
+
+	do0f AT %MX100.3816 : ARRAY[0..7] OF BOOL;	(* Forzatura valore uscite virtuali, array bool *)
+	CTuExtAuger_f 	AT %MX100.3816 : BOOL;	(* Contattore comando coclea esterna *)
+	CTuBrnAuger_f 	AT %MX100.3817 : BOOL;	(* Contattore coclea bruciatore *)
+	CTuIgnHeatr_f 	AT %MX100.3818 : BOOL;	(* Contattore resistenza accensione *)
+	CTuHtngPump_f 	AT %MX100.3819 : BOOL;	(* Contattore pompa riscaldamento *)
+	CTuDhwPump_f 		AT %MX100.3820 : BOOL;	(* Contattore pompa acqua calda sanitaria *)
+	FCuMixVOpen_f 	AT %MX100.3821 : BOOL;	(* Apertura valvola miscelatrice *)
+	FCuMixVClse_f 	AT %MX100.3822 : BOOL;	(* Chiusura valvola miscelatrice *)
+	CTuVentCmd_f 		AT %MX100.3823 : BOOL;	(* Contattore ventilazione *)
+
+	do0m AT %MX100.3824 : ARRAY[0..7] OF BOOL;	(* Forzatura stato uscite virtuali, array bool *)
+	CTuExtAuger_m 	AT %MX100.3824 : BOOL;	(* Contattore comando coclea esterna *)
+	CTuBrnAuger_m 	AT %MX100.3825 : BOOL;	(* Contattore coclea bruciatore *)
+	CTuIgnHeatr_m 	AT %MX100.3826 : BOOL;	(* Contattore resistenza accensione *)
+	CTuHtngPump_m 	AT %MX100.3827 : BOOL;	(* Contattore pompa riscaldamento *)
+	CTuDhwPump_m 		AT %MX100.3828 : BOOL;	(* Contattore pompa acqua calda sanitaria *)
+	FCuMixVOpen_m 	AT %MX100.3829 : BOOL;	(* Apertura valvola miscelatrice *)
+	FCuMixVClse_m 	AT %MX100.3830 : BOOL;	(* Chiusura valvola miscelatrice *)
+	CTuVentCmd_m 		AT %MX100.3831 : BOOL;	(* Contattore ventilazione *)
+
+//	appWuSeq AT %MX100.3872 : UDINT;	(* Uscite virtuali, array bool *)
+//	appWuv AT %MX100.3876 : UDINT;	(* appoggio intermedio dei bool out virt *)
+//	appWuh AT %MX100.3880 : UDINT;	(* appoggio intermedio dei bool out virt *)
+END_VAR
+
+]]>
+	</iecDeclaration>
+</group>

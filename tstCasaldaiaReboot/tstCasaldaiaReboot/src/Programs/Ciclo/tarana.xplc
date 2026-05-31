@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="tarana" version="1.0.0" creationDate="1682954577" lastModifiedDate="1731361221" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<localVars>
+			<var name="trig" type="R_TRIG"/>
+			<var name="n" type="INT"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[trig(CLK := SysClock100);
+
+//eseguito ogni 200 mS
+IF trig.Q THEN
+	b.au.ptrChCfg := b.au.ptrChCfg + 1;
+	IF b.au.ptrChCfg > 9 THEN
+			b.au.ptrChCfg := 0;
+	END_IF;
+		// prevenzione div0 prima di aggiornare tarature canale
+	n := b.au.ptrChCfg;
+	IF 	aiCfg[n].kInp > 0 AND aiCfg[n].kEng > 0 THEN
+		//limiti punti lettura (campo scheda: 0..10, 4..20, -170..480...)
+		b.ai[n].tmist := TO_REAL(aiCfg[n].tmist) / TO_REAL(aiCfg[n].kInp);
+		b.ai[n].tmast := TO_REAL(aiCfg[n].tmast) / TO_REAL(aiCfg[n].kInp);
+		//limiti campo input "sano"
+		b.ai[n].tmiFlt := TO_REAL(aiCfg[n].tmiFlt) / TO_REAL(aiCfg[n].kInp);
+		b.ai[n].tmaFlt := TO_REAL(aiCfg[n].tmaFlt) / TO_REAL(aiCfg[n].kInp);
+		//limiti campo scala (ingegneristico)
+		b.ai[n].itmist := TO_REAL(aiCfg[n].itmist) / TO_REAL(aiCfg[n].kEng);
+		b.ai[n].itmast := TO_REAL(aiCfg[n].itmast) / TO_REAL(aiCfg[n].kEng);
+
+		//Calcolo e controllo range 0..1 del filtro	
+		b.ai[n].kNuovo := LIMIT(TO_REAL(aiCfg[n].kNuovo) / 10000.0, 
+								0.001, 
+								0.999999);
+	END_IF;
+
+END_IF;
+]]>
+	</sourceCode>
+</program>

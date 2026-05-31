@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_pidStr" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<var name="Enb" type="BOOL">
+			<descr>False, azzera Bias, output e Y</descr>
+		</var>
+		<var name="Reverse" type="BOOL">
+			<descr>Vero raffredda(?)</descr>
+		</var>
+		<var name="SP" type="REAL">
+			<descr>Set point (ingegneristico)</descr>
+		</var>
+		<var name="PV" type="REAL">
+			<descr>Process value (ingegneristico)</descr>
+		</var>
+		<var name="Out" type="REAL">
+			<descr>Uscita potenza (percentuale)</descr>
+		</var>
+		<var name="P" type="REAL">
+			<descr>Banda proporzionale (piccola, brusco)</descr>
+			<initValue>1.0</initValue>
+		</var>
+		<var name="I" type="REAL">
+			<descr>Tempo integrale (piccolo = potente; 0 escluso)</descr>
+		</var>
+		<var name="D" type="REAL">
+			<descr>Tempo derivativo</descr>
+		</var>
+		<var name="KD" type="REAL">
+			<descr>Costante regolazione (15 default)</descr>
+			<initValue>15.0</initValue>
+		</var>
+		<var name="app_I" type="REAL">
+			<descr>Integrale di calcolo; diventa enorme se I=0</descr>
+		</var>
+		<var name="DT_D" type="REAL">
+			<descr>Appoggio calcolo tempo interno</descr>
+		</var>
+		<var name="DeT" type="REAL">
+			<descr>Tempo elaborazione</descr>
+			<initValue>0.1</initValue>
+		</var>
+		<var name="ERR" type="REAL">
+			<descr>SP-PV (viceversa per reverse=true)</descr>
+		</var>
+		<var name="Y" type="REAL">
+			<descr>Correzione incrementale derivativa</descr>
+		</var>
+		<var name="BIAS" type="REAL">
+			<descr>Correzione incrementale integrale</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+</struct>

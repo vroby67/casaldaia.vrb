@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="doWr" version="1.0.0" creationDate="1681466982" lastModifiedDate="1731277997" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<vars>
+		<localVars>
+			<var name="tmpInt" type="INT"/>
+			<var name="n" type="INT"/>
+			<var name="iv" type="INT"/>
+			<var name="res" type="BOOL"/>
+			<var name="appB" type="PVOID"/>
+			<var name="propOut" type="BOOL" dim0="16"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[PROGRAM doWr
+
+VAR
+	tmpInt : INT;
+	n : INT;
+	iv	:	INT;
+	res	:	BOOL;
+	appB	: 	PVOID;
+	propOut	:	ARRAY[0..15] OF BOOL;
+	
+
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[
+//LSuPRESANOMv := LSuPRESANOMv OR dbAIs.flSpiaOn OR dbAIs.flSpiaBlink;
+
+
+
+//##################################################################
+// scrittura fisica uscite 
+
+(* trasporta bit virtuali su word*)
+//appWuv := 0;
+
+//passa array di bool a int
+//FOR n := 0 TO 23 DO
+//	appWuv := appWuv + SHL(TO_UDINT(do0v[n]), n);
+//END_FOR;
+
+//appWuv := appWuv OR appWuSeq OR doImgV;
+
+(* Applica condizioni di forzatura o passaggio libero tra INT*)
+//appWuh := (appWuv OR (doImgFf AND doImgFm)) AND NOT (NOT doImgFf AND doImgFm);
+
+//doImg := appWuh;
+//res	:=	boolArrToInt(b.cm, ?iv);
+appB := ?b.cm.ma2nCocExt;
+
+(* Scrive risultati sulle uscite fisiche BOOL*)
+FOR n := 0 TO 7 DO
+	propOut[n] := do0v[n] OR TO_BOOL(eGetBYTE(appB + TO_UDINT(n)));
+	do0h[n] := (propOut[n] OR (do0f[n] AND do0m[n])) AND NOT (NOT do0f[n] AND do0m[n]);
+END_FOR;
+
+]]>
+	</sourceCode>
+</program>

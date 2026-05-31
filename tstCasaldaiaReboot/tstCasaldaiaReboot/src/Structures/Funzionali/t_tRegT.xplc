@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_tRegT" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<title>Var. termoregolazione bombola</title>
+	<vars>
+		<var name="phT" type="t_ph"/>
+		<var name="pidRisc" type="t_pidStr"/>
+		<var name="pwmRisc" type="t_pwm"/>
+		<var name="tcTH1" type="t_soc"/>
+		<var name="regPar" type="t_pwrStep"/>
+		<var name="spTAlWOvert_c" type="REAL">
+			<descr>sp temper. massima avviso</descr>
+		</var>
+		<var name="spTAlAOvert_c" type="REAL">
+			<descr>sp temper. massima allarme</descr>
+		</var>
+		<var name="spTSoc_C" type="REAL">
+			<descr>sp temper. analisi SOC</descr>
+		</var>
+		<var name="spTmSoc_s" type="REAL">
+			<descr>sp tempo analisi SOC</descr>
+		</var>
+		<var name="flAlWOvert" type="BOOL">
+			<descr>Flag warn. sovratemp.</descr>
+		</var>
+		<var name="flAlAOvert" type="BOOL">
+			<descr>Flag all. sovratemp.</descr>
+		</var>
+		<var name="flSysRdy" type="BOOL">
+			<descr>Flag sistema pronto con isteresi</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_tRegT: STRUCT
+	phT : t_ph;
+	pidRisc : t_pidStr;
+	pwmRisc : t_pwm;
+	tcTH1 : t_soc;
+	regPar	:	t_pwrStep;
+	
+	spTAlWOvert_c	:	REAL;	(* sp temper. massima avviso *)
+	spTAlAOvert_c	:	REAL;	(* sp temper. massima allarme *)
+	spTSoc_C : REAL;	(* sp temper. analisi SOC *)
+	spTmSoc_s : REAL;	(* sp tempo analisi SOC *)
+	flAlWOvert 	: BOOL;	(* Flag warn. sovratemp. *)
+	flAlAOvert 	: BOOL;	(* Flag all. sovratemp. *)
+	flSysRdy	: BOOL;	(* Flag sistema pronto con isteresi *)
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

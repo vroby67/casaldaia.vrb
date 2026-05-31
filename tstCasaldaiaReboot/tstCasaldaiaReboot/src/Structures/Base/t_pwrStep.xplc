@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_pwrStep" version="1.0.0" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<title>Impostazioni di parametri di livello potenza</title>
+	<vars>
+		<var name="ventPerc" type="INT">
+			<descr>Percentuale ventilazione</descr>
+		</var>
+		<var name="pelletPerc" type="INT">
+			<descr>Percentuale carico pellet</descr>
+		</var>
+		<var name="tmIn" type="UDINT">
+			<descr>Momento d'ingresso in fase</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_pwrStep: STRUCT
+	ventPerc : INT;	(* Percentuale ventilazione *)
+	pelletPerc : INT;	(* Percentuale carico pellet *)
+	tmIn : UDINT;	(* Momento d'ingresso in fase *)
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

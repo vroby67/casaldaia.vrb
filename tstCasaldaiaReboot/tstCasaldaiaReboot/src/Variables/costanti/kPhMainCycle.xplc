@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="kPhMainCycle" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+	<var name="mcNotRdy" type="INT" attribute="constant">
+		<descr>Attesa approntamento</descr>
+		<initValue>0</initValue>
+	</var>
+	<var name="mcCmdWait" type="INT" attribute="constant">
+		<descr>Attesa comandi</descr>
+		<initValue>5</initValue>
+	</var>
+	<var name="mcInitLoad" type="INT" attribute="constant">
+		<descr>Caricamento iniziale</descr>
+		<initValue>10</initValue>
+	</var>
+	<var name="mcFlameWait" type="INT" attribute="constant">
+		<descr>Attesa segnale rilevatore fiamma</descr>
+		<initValue>15</initValue>
+	</var>
+	<var name="mcInitBurn" type="INT" attribute="constant">
+		<descr>Combustione iniziale</descr>
+		<initValue>20</initValue>
+	</var>
+	<var name="mcNoVentIgn" type="INT" attribute="constant">
+		<descr>Propagazione fiamma s/ventilazione</descr>
+		<initValue>25</initValue>
+	</var>
+	<var name="mcVentRstrt" type="INT" attribute="constant">
+		<descr>Ripresa ventilazione</descr>
+		<initValue>30</initValue>
+	</var>
+	<var name="mcPwrSel" type="INT" attribute="constant">
+		<descr>Selezione livello potenza</descr>
+		<initValue>35</initValue>
+	</var>
+	<var name="mcPrsStabBurn" type="INT" attribute="constant">
+		<descr>Accesso diretto alla combustione stabile</descr>
+		<initValue>40</initValue>
+	</var>
+	<var name="mcStableBurn" type="INT" attribute="constant">
+		<descr>Combustione stabile</descr>
+		<initValue>45</initValue>
+	</var>
+	<var name="mcAshRemoval" type="INT" attribute="constant">
+		<descr>Rimozione periodica cenere</descr>
+		<initValue>50</initValue>
+	</var>
+	<var name="mcIdleFire" type="INT" attribute="constant">
+		<descr>Mantenimento statico fiamma (in temperatura)</descr>
+		<initValue>55</initValue>
+	</var>
+	<var name="mcBurnResume" type="INT" attribute="constant">
+		<descr>Ripresa fiamma dopo idlefire</descr>
+		<initValue>60</initValue>
+	</var>
+	<var name="mcVentStart" type="INT" attribute="constant">
+		<descr>Avvio ventilazione per ripresa</descr>
+		<initValue>65</initValue>
+	</var>
+	<var name="mcPelletFeed" type="INT" attribute="constant">
+		<descr>Alimentazione pellet per ripristino</descr>
+		<initValue>70</initValue>
+	</var>
+	<var name="mcVentHold" type="INT" attribute="constant">
+		<descr>Mantenimento ventilazione</descr>
+		<initValue>75</initValue>
+	</var>
+	<var name="mcIdleReturn" type="INT" attribute="constant">
+		<descr>Ritorno alla quiete</descr>
+		<initValue>80</initValue>
+	</var>
+	<var name="mcANotRdy" type="INT" attribute="constant">
+		<descr>Anomalia da attesa iniziale</descr>
+		<initValue>100</initValue>
+	</var>
+	<var name="mcACmdWait" type="INT" attribute="constant">
+		<descr>Anomalia da attesa comando</descr>
+		<initValue>105</initValue>
+	</var>
+	<var name="mcAInitLoad" type="INT" attribute="constant">
+		<descr>Anomalia da caricamento iniziale</descr>
+		<initValue>110</initValue>
+	</var>
+	<var name="mcAFlameWait" type="INT" attribute="constant">
+		<descr>Anomalia da attesa rilevatore fiamma</descr>
+		<initValue>115</initValue>
+	</var>
+	<var name="mcAInitBurn" type="INT" attribute="constant">
+		<descr>Anomalia da combustione iniziale</descr>
+		<initValue>120</initValue>
+	</var>
+	<var name="mcANoVentIgn" type="INT" attribute="constant">
+		<descr>Anomalia da propagazione fiamma s/ventilazione</descr>
+		<initValue>125</initValue>
+	</var>
+	<var name="mcAVentRstrt" type="INT" attribute="constant">
+		<descr>Anomalia da ripresa ventilazione</descr>
+		<initValue>130</initValue>
+	</var>
+	<var name="mcAPwrSel" type="INT" attribute="constant">
+		<descr>Anomalia da selezione livello potenza</descr>
+		<initValue>135</initValue>
+	</var>
+	<var name="mcAPrsStabBurn" type="INT" attribute="constant">
+		<descr>Anomalia da accesso diretto alla combustione stabile</descr>
+		<initValue>140</initValue>
+	</var>
+	<var name="mcAStableBurn" type="INT" attribute="constant">
+		<descr>Anomalia da combustione stabile</descr>
+		<initValue>145</initValue>
+	</var>
+	<var name="mcAAshRemoval" type="INT" attribute="constant">
+		<descr>Anomalia da rimozione periodica cenere</descr>
+		<initValue>150</initValue>
+	</var>
+	<var name="mcAIdleFire" type="INT" attribute="constant">
+		<descr>Anomalia da mantenimento statico fiamma</descr>
+		<initValue>155</initValue>
+	</var>
+	<var name="mcABurnResume" type="INT" attribute="constant">
+		<descr>Anomalia da ripresa fiamma</descr>
+		<initValue>160</initValue>
+	</var>
+	<var name="mcAVentStart" type="INT" attribute="constant">
+		<descr>Anomalia da avvio ventilazione</descr>
+		<initValue>165</initValue>
+	</var>
+	<var name="mcAPelletFeed" type="INT" attribute="constant">
+		<descr>Anomalia da alimentazione pellet</descr>
+		<initValue>170</initValue>
+	</var>
+	<var name="mcAVentHold" type="INT" attribute="constant">
+		<descr>Anomalia da mantenimento ventilazione</descr>
+		<initValue>175</initValue>
+	</var>
+	<var name="mcAIdleReturn" type="INT" attribute="constant">
+		<descr>Anomalia da ritorno alla quiete</descr>
+		<initValue>180</initValue>
+	</var>
+	<var name="mcAResTot" type="INT" attribute="constant">
+		<descr>Anomalia generale totale</descr>
+		<initValue>185</initValue>
+	</var>
+	<var name="mcAnomRec" type="INT" attribute="constant">
+		<descr>Stato di recupero anomalie</descr>
+		<initValue>200</initValue>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL CONSTANT
+	mcNotRdy  		: INT := 	 0 ;   // Attesa approntamento
+	mcCmdWait 		: INT := 	 5 ;   // Attesa comandi
+	mcInitLoad 		: INT := 	10 ;   // Caricamento iniziale
+	mcFlameWait 	: INT := 	15 ;   // Attesa segnale rilevatore fiamma
+	mcInitBurn 		: INT := 	20 ;   // Combustione iniziale
+	mcNoVentIgn		: INT := 	25 ;   // Propagazione fiamma s/ventilazione
+	mcVentRstrt 	: INT := 	30 ;   // Ripresa ventilazione
+	mcPwrSel	 	: INT := 	35 ;   // Selezione livello potenza
+	mcPrsStabBurn 	: INT := 	40 ;   // Accesso diretto alla combustione stabile
+	mcStableBurn 	: INT := 	45 ;   // Combustione stabile
+	mcAshRemoval	: INT := 	50 ;   // Rimozione periodica cenere
+	mcIdleFire	 	: INT := 	55 ;   // Mantenimento statico fiamma (in temperatura)
+	mcBurnResume 	: INT := 	60 ;   // Ripresa fiamma dopo idlefire
+	mcVentStart   	: INT := 	65 ;   // Avvio ventilazione per ripresa
+	mcPelletFeed  	: INT := 	70 ;   // Alimentazione pellet per ripristino
+	mcVentHold    	: INT := 	75 ;   // Mantenimento ventilazione
+	mcIdleReturn  	: INT := 	80 ;   // Ritorno alla quiete
+
+	mcANotRdy  		: INT := 	100 ;  // Anomalia da attesa iniziale
+	mcACmdWait 		: INT := 	105 ;  // Anomalia da attesa comando
+	mcAInitLoad 	: INT := 	110 ;  // Anomalia da caricamento iniziale
+	mcAFlameWait 	: INT := 	115 ;  // Anomalia da attesa rilevatore fiamma
+	mcAInitBurn 	: INT := 	120 ;  // Anomalia da combustione iniziale
+	mcANoVentIgn	: INT := 	125 ;  // Anomalia da propagazione fiamma s/ventilazione
+	mcAVentRstrt 	: INT := 	130 ;  // Anomalia da ripresa ventilazione
+	mcAPwrSel	 	: INT := 	135 ;  // Anomalia da selezione livello potenza
+	mcAPrsStabBurn	: INT := 	140 ;  // Anomalia da accesso diretto alla combustione stabile
+	mcAStableBurn	: INT := 	145 ;  // Anomalia da combustione stabile
+	mcAAshRemoval	: INT := 	150 ;  // Anomalia da rimozione periodica cenere
+	mcAIdleFire	 	: INT := 	155 ;  // Anomalia da mantenimento statico fiamma
+	mcABurnResume 	: INT := 	160 ;  // Anomalia da ripresa fiamma
+	mcAVentStart  	: INT := 	165 ;  // Anomalia da avvio ventilazione
+	mcAPelletFeed 	: INT := 	170 ;  // Anomalia da alimentazione pellet
+	mcAVentHold   	: INT := 	175 ;  // Anomalia da mantenimento ventilazione
+	mcAIdleReturn 	: INT := 	180 ;  // Anomalia da ritorno alla quiete
+
+	mcAResTot 		: INT := 	185 ;  // Anomalia generale totale
+
+	mcAnomRec 		: INT := 	200 ;  // Stato di recupero anomalie
+END_VAR
+]]>
+	</iecDeclaration>
+</group>
