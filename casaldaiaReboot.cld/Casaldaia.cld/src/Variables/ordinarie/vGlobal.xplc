@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="vGlobal" version="1.0.0">
+	<var name="b" type="t_cenTerm"/>
+	<var name="aiCh" type="t_aiCh" dim0="11"/>
+	<var name="WHRegs" type="WORD" dim0="16">
+		<descr>Holding registers (Write)</descr>
+	</var>
+	<var name="RHRegs" type="WORD" dim0="2" dim1="4">
+		<descr>Holding registers (Read)</descr>
+		<address type="M" typeVar="W" index="100" subIndex="800"/>
+	</var>
+	<var name="RHRegsInt" type="INT" dim0="16">
+		<address type="M" typeVar="W" index="100" subIndex="800"/>
+	</var>
+	<iecDeclaration active="FALSE"/>
+</group>

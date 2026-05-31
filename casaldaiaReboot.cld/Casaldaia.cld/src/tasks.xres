@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tasks>
+	<task name="Fast" interval="t#1000us" priority="0" type="cyclic" hidden="false" dynamic="false" descr="Fast task">
+		<program>gesVent</program>
+	</task>
+	<task name="Slow" interval="t#10000us" priority="1" type="cyclic" hidden="false" dynamic="false" descr="Slow task">
+		<program>diRd</program>
+		<program>aiRd</program>
+		<program>logiGen</program>
+		<program>mainCycle</program>
+		<program>flameStatus</program>
+		<program>doWr</program>
+		<program>refill</program>
+		<program>gesMand</program>
+		<program>gesAll</program>
+		<program>gesAllIst</program>
+	</task>
+	<task name="Boot" interval="t#0us" priority="2" type="single" hidden="false" dynamic="false" descr="Boot task">
+		<program>init</program>
+	</task>
+	<task name="Back" interval="t#100000us" priority="3" type="cyclic" hidden="false" dynamic="false" descr="Background task">
+		<program>gesCom2plc</program>
+		<program>tarana</program>
+		<program>mbMasterRtu</program>
+		<program>ManInit</program>
+		<program>bkCalc</program>
+		<program>gesCom2hmi</program>
+	</task>
+</tasks>

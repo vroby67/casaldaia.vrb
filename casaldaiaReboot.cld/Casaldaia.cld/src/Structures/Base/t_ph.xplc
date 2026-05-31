@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_ph" version="1.0.0">
+	<title>Dati gestione fase switch</title>
+	<vars>
+		<var name="ptr" type="INT">
+			<descr>Puntatore fase corrente</descr>
+		</var>
+		<var name="oldPtr" type="INT">
+			<descr>Puntatore fase di provenienza</descr>
+		</var>
+		<var name="dbg" type="INT">
+			<descr>Usato in debug, sfasa i salti</descr>
+		</var>
+		<var name="tmmIn" type="UDINT">
+			<descr>Istante assoluto entrata in fase</descr>
+		</var>
+		<var name="tmmElap" type="UDINT">
+			<descr>Tempo trascorso dall'entrata in fase</descr>
+		</var>
+		<var name="hist" type="t_phHiStep" dim0="11">
+			<descr>Ultimi passaggi</descr>
+		</var>
+		<var name="ptrHist" type="INT">
+			<descr>Puntatore passaggi</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_ph: STRUCT
+	ptr : INT;	(* Puntatore fase corrente *)
+	oldPtr : INT;	(* Puntatore fase di provenienza *)
+	dbg : INT;	(* Usato in debug, sfasa i salti *)
+	tmmIn : UDINT;	(* Istante assoluto entrata in fase *)
+	tmmElap : UDINT;	(* Tempo trascorso dall'entrata in fase *)
+	hist : ARRAY[0..10] OF t_phHiStep;	(* Ultimi passaggi *)
+	ptrHist : INT;	(* Puntatore passaggi *)
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

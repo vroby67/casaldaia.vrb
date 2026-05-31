@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="vRt2plc" version="1.0.0">
+	<var name="diImgFf" type="UDINT">
+		<descr>valore forzatura input</descr>
+		<address type="M" typeVar="W" index="100" subIndex="400"/>
+	</var>
+	<var name="diImgFm" type="UDINT">
+		<descr>stato forzatura input</descr>
+		<address type="M" typeVar="W" index="100" subIndex="404"/>
+	</var>
+	<var name="doImgFf" type="UDINT">
+		<descr>valore forzatura output</descr>
+		<address type="M" typeVar="W" index="100" subIndex="408"/>
+	</var>
+	<var name="doImgFm" type="UDINT">
+		<descr>stato forzatura output</descr>
+		<address type="M" typeVar="W" index="100" subIndex="412"/>
+	</var>
+	<var name="doImgV" type="UDINT">
+		<descr>proposta output</descr>
+		<address type="M" typeVar="W" index="100" subIndex="416"/>
+	</var>
+	<var name="TS2plc_sec" type="UDINT">
+		<descr>ora UTC in secondi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="432"/>
+	</var>
+	<var name="wDog2plc" type="UINT">
+		<descr>watch dog dal server al PLC</descr>
+		<address type="M" typeVar="W" index="100" subIndex="436"/>
+	</var>
+	<var name="spTAlWOvert_dC" type="UINT" attribute="retain">
+		<descr>sp surrisc warning dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="440"/>
+	</var>
+	<var name="spTAlAOvert_dC" type="UINT" attribute="retain">
+		<descr>sp surrisc allarme dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="442"/>
+	</var>
+	<var name="spTmVent_s" type="UINT" attribute="retain">
+		<descr>sp ritardo spegn. ventilazione sec.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="444"/>
+	</var>
+	<var name="xpTLock_dC" type="UINT" attribute="retain">
+		<descr>sp temp blocco scarica dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="446"/>
+	</var>
+	<var name="spTmWdog_mS" type="UINT" attribute="retain">
+		<descr>sp tempo insens. watchDog com mS</descr>
+		<address type="M" typeVar="X" index="100" subIndex="448"/>
+	</var>
+	<var name="spTBomSP_dC" type="UINT" attribute="retain">
+		<descr>sp temp. gas (bombola) dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="450"/>
+	</var>
+	<var name="spTBomP_d" type="UINT" attribute="retain">
+		<descr>sp P bombola dec.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="452"/>
+	</var>
+	<var name="spTBomI_c" type="UINT" attribute="retain">
+		<descr>sp I bombola cent.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="454"/>
+	</var>
+	<var name="spTBomD_c" type="UINT" attribute="retain">
+		<descr>sp D bombola cent.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="456"/>
+	</var>
+	<var name="spTRisSP_dC" type="UINT" attribute="retain">
+		<descr>sp fs sovratemp riscald. dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="458"/>
+	</var>
+	<var name="spTRisP_d" type="UINT" attribute="retain">
+		<descr>sp P riscald. dec.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="460"/>
+	</var>
+	<var name="spTRisI_c" type="UINT" attribute="retain">
+		<descr>sp I riscald. cent.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="462"/>
+	</var>
+	<var name="spTRisD_c" type="UINT" attribute="retain">
+		<descr>sp D riscald. cent.</descr>
+		<address type="M" typeVar="X" index="100" subIndex="464"/>
+	</var>
+	<var name="spQCar_dg" type="UINT" attribute="retain">
+		<descr>sp grammi da caricare (td) dg</descr>
+		<address type="M" typeVar="X" index="100" subIndex="466"/>
+	</var>
+	<var name="spNUtil468" type="UINT" attribute="retain">
+		<descr>sp durata imp. fisso erogazione mS</descr>
+		<address type="M" typeVar="X" index="100" subIndex="468"/>
+	</var>
+	<var name="spTSoc_dC" type="UINT" attribute="retain">
+		<descr>sp temper. variaz. minima nel tempo, dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="470"/>
+	</var>
+	<var name="spTmSoc_s" type="UINT" attribute="retain">
+		<descr>sp tempo analisi cambio temper., Sec</descr>
+		<address type="M" typeVar="X" index="100" subIndex="472"/>
+	</var>
+	<var name="spDtBt_dC" type="UINT" attribute="retain">
+		<descr>sp dT max tra sonde risc/bomb dC</descr>
+		<address type="M" typeVar="X" index="100" subIndex="474"/>
+	</var>
+	<var name="spDpBtBp_dB" type="UINT" attribute="retain">
+		<descr>sp Dt misurata e teorica f(P) dB</descr>
+		<address type="M" typeVar="X" index="100" subIndex="476"/>
+	</var>
+	<var name="spQRiserva_g" type="UINT" attribute="retain">
+		<descr>####################################</descr>
+		<address type="M" typeVar="X" index="100" subIndex="478"/>
+	</var>
+	<var name="aiCfg" type="t_tara" dim0="10" attribute="retain">
+		<descr>200 bytes</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2048"/>
+	</var>
+	<var name="spTCariFred_s" type="UINT" attribute="retain">
+		<descr>sp tempo caric. pellet per acc. fredda</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2248"/>
+	</var>
+	<var name="spTRiVeIgni_s" type="UINT" attribute="retain">
+		<descr>sp tempo ritardo ventilazione e ignitore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2250"/>
+	</var>
+	<var name="spQVentIgni_pc" type="UINT" attribute="retain">
+		<descr>sp portata ventilazione in accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2252"/>
+	</var>
+	<var name="spQVentInBu_pc" type="UINT" attribute="retain">
+		<descr>sp ventilazione iniziale propagazione fiamma</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2254"/>
+	</var>
+	<var name="spTVentIdle_s" type="UINT" attribute="retain">
+		<descr>sp tempo vent. prep. idle focolare</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2256"/>
+	</var>
+	<var name="spQIdleBurn_pc" type="UINT" attribute="retain">
+		<descr>sp ventilazione in fase di messa a riposo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2258"/>
+	</var>
+	<var name="spTCariRipr_s" type="UINT" attribute="retain">
+		<descr>sp tempo caric. pellet per ripresa focolare</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2260"/>
+	</var>
+	<var name="spTVentRipr_s" type="UINT" attribute="retain">
+		<descr>sp tempo ventilazione per ripresa focolare</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2262"/>
+	</var>
+	<var name="spQVentRipr_pc" type="UINT" attribute="retain">
+		<descr>sp portata ventilazione per ripresa focolare</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2264"/>
+	</var>
+	<var name="spTPeriCocl_ds" type="UINT" attribute="retain">
+		<descr>sp tempo periodo PWM coclea</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2266"/>
+	</var>
+	<var name="spTToutFiam_s" type="UINT" attribute="retain">
+		<descr>sp tempo timeout manc. fiamma</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2268"/>
+	</var>
+	<var name="spTMancAcce_s" type="UINT" attribute="retain">
+		<descr>sp tempo timeout manc. accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2270"/>
+	</var>
+	<var name="spTVentAcce_s" type="UINT" attribute="retain">
+		<descr>sp tempo preventilazione accensione</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2272"/>
+	</var>
+	<var name="spTPropFiam_s" type="UINT" attribute="retain">
+		<descr>sp tempo pausa propagazione fiamma</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2274"/>
+	</var>
+	<var name="spTFunzMinI_s" type="UINT" attribute="retain">
+		<descr>sp tempo funz. al minimo prima di run pieno</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2276"/>
+	</var>
+	<var name="spTVeSpInTe_s" type="UINT" attribute="retain">
+		<descr>sp tempo vent. per spegn se in temperatura</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2278"/>
+	</var>
+	<var name="spTVentPuli_s" type="UINT" attribute="retain">
+		<descr>sp tempo pausa ventilazione di pulizia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2280"/>
+	</var>
+	<var name="spQVentPuli_pc" type="UINT" attribute="retain">
+		<descr>sp portata ventilazione durante pulizia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2282"/>
+	</var>
+	<var name="spTDuraPuli_s" type="UINT" attribute="retain">
+		<descr>sp tempo durata ventilazione di pulizia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2284"/>
+	</var>
+	<var name="spTDuraLava_ds" type="UINT" attribute="retain">
+		<descr>sp tempo durata lavaggio per sovratemp</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2286"/>
+	</var>
+	<var name="spTCariCExt_s" type="UINT" attribute="retain">
+		<descr>sp tempo carico coclea esterna</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2288"/>
+	</var>
+	<var name="spKTempCald_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura caldaia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2290"/>
+	</var>
+	<var name="spKIsteCald_dK" type="UINT" attribute="retain">
+		<descr>sp isteresi ripartenza bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2292"/>
+	</var>
+	<var name="spKLavTCald_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura lavaggio caldaia (pompa riscald.)</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2294"/>
+	</var>
+	<var name="spKMaxTCald_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura massima caldaia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2296"/>
+	</var>
+	<var name="spKMaxTFumi_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura max fumi</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2298"/>
+	</var>
+	<var name="spKMinTFumi_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura minima fumi in funzionamento</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2300"/>
+	</var>
+	<var name="spKMxDeTCal_dK" type="UINT" attribute="retain">
+		<descr>sp delta T max tra sonde caldaia</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2302"/>
+	</var>
+	<var name="spKMinTMand_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura minima mandata (climatica)</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2304"/>
+	</var>
+	<var name="spKMaxTMand_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura massima mandata (climatica)</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2306"/>
+	</var>
+	<var name="spKMaxTExtr_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura minima esterna (climatica)</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2308"/>
+	</var>
+	<var name="spKMinTExtr_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura massima esterna (climatica)</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2310"/>
+	</var>
+	<var name="spKFsErInte_dK" type="UINT" attribute="retain">
+		<descr>sp temperatura errore reg. interna</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2312"/>
+	</var>
+	<var name="spKFsCorMan_dK" type="UINT" attribute="retain">
+		<descr>sp temperatura fondo scala correzione mandata</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2314"/>
+	</var>
+	<var name="spRPresFiam_pm" type="UINT" attribute="retain">
+		<descr>sp perc. radiaz. pres. fiamma</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2316"/>
+	</var>
+	<var name="spKCampRidu_dk" type="UINT" attribute="retain">
+		<descr>sp campo riduzione potenza</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2318"/>
+	</var>
+	<var name="regPars" type="UINT" dim0="5" dim1="2" attribute="retain">
+		<address type="M" typeVar="X" index="100" subIndex="2320"/>
+	</var>
+	<var name="spTMandRisc_dC" type="UINT" attribute="retain">
+		<descr>sp temperatura mandata riscaldamento</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2340"/>
+	</var>
+	<var name="spTVentInBu_pc" type="UINT" attribute="retain">
+		<descr>sp tempo accensione ventilata iniziale</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2342"/>
+	</var>
+	<var name="spKMaxErrMa_cK" type="UINT" attribute="retain">
+		<descr>sp tempo accensione ventilata iniziale</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2344"/>
+	</var>
+	<var name="spTHtngPmp_dC" type="UINT" attribute="retain">
+		<descr>####################################</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2346"/>
+	</var>
+	<var name="spTDhwPump_dC" type="UINT" attribute="retain">
+		<descr>####################################</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2348"/>
+	</var>
+	<var name="cnNAvviamen" type="UDINT" attribute="retain">
+		<descr>contatore avviamenti</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2376"/>
+	</var>
+	<var name="cnNCariEste" type="UDINT" attribute="retain">
+		<descr>contatore caricamenti esterni</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2380"/>
+	</var>
+	<var name="cnNCariBruc" type="UDINT" attribute="retain">
+		<descr>contatore caricamenti bruciatore</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2384"/>
+	</var>
+	<var name="cnMFunzMini" type="UDINT" attribute="retain">
+		<descr>contatore funzionamento minimo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2388"/>
+	</var>
+	<var name="cnMFunzMedi" type="UDINT" attribute="retain">
+		<descr>contatore funzionamento medio</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2392"/>
+	</var>
+	<var name="cnMFunzMaxi" type="UDINT" attribute="retain">
+		<descr>contatore funzionamento massimo</descr>
+		<address type="M" typeVar="X" index="100" subIndex="2396"/>
+	</var>
+	<var name="cmd0" type="WORD" attribute="retain">
+		<descr>comandi operativi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402"/>
+	</var>
+	<var name="cmdReset" type="BOOL" attribute="retain">
+		<descr>comando reset</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="0"/>
+	</var>
+	<var name="cmdRstAl" type="BOOL" attribute="retain">
+		<descr>comando reset allarmi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="3"/>
+	</var>
+	<var name="cmdRiserva" type="BOOL" attribute="retain">
+		<descr>era gas sel. R1234yf</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="5"/>
+	</var>
+	<var name="cmdAbort" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 8</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="8"/>
+	</var>
+	<var name="cmd0_B" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 11</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="11"/>
+	</var>
+	<var name="cmd0_C" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 12</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="12"/>
+	</var>
+	<var name="cmd0_D" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 13</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="13"/>
+	</var>
+	<var name="cmd0_E" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 14</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="14"/>
+	</var>
+	<var name="cmd0_F" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 15</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2400" bitIndex="15"/>
+	</var>
+	<var name="cmd1" type="WORD" attribute="retain">
+		<descr>comandi operativi</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402"/>
+	</var>
+	<var name="cmd1_0" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="0"/>
+	</var>
+	<var name="cmd1_1" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="1"/>
+	</var>
+	<var name="cmd1_2" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="2"/>
+	</var>
+	<var name="cmd1_3" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="3"/>
+	</var>
+	<var name="cmd1_4" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="4"/>
+	</var>
+	<var name="cmd1_5" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="5"/>
+	</var>
+	<var name="cmd1_6" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="6"/>
+	</var>
+	<var name="cmd1_7" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="7"/>
+	</var>
+	<var name="cmd1_8" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="8"/>
+	</var>
+	<var name="cmd1_9" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 9</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="9"/>
+	</var>
+	<var name="cmd1_A" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 10</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="10"/>
+	</var>
+	<var name="cmd1_B" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 11</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="11"/>
+	</var>
+	<var name="cmd1_C" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 12</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="12"/>
+	</var>
+	<var name="cmd1_D" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 13</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="13"/>
+	</var>
+	<var name="cmd1_E" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 14</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="14"/>
+	</var>
+	<var name="cmd1_F" type="BOOL" attribute="retain">
+		<descr>cmdRiserva 15</descr>
+		<address type="M" typeVar="W" index="100" subIndex="2402" bitIndex="15"/>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL
+	diImgFf AT %MW100.400 : UDINT;	(* valore forzatura input *)
+	diImgFm AT %MW100.404 : UDINT;	(* stato forzatura input *)
+	doImgFf AT %MW100.408 : UDINT;	(* valore forzatura output *)
+	doImgFm AT %MW100.412 : UDINT;	(* stato forzatura output *)
+	doImgV AT %MW100.416 : UDINT;	(* proposta output *)
+
+//###################################################################
+//
+//		Tempi di funzionamento
+//
+//###################################################################
+	
+	TS2plc_sec 		AT %MW100.432 : UDINT;	(* ora UTC in secondi *)
+	wDog2plc 		AT %MW100.436 : UINT;	(* watch dog dal server al PLC *)
+END_VAR
+
+VAR_GLOBAL RETAIN
+	spTAlWOvert_dC AT %MX100.440 : UINT;	(* sp surrisc warning dC *)
+	spTAlAOvert_dC AT %MX100.442 : UINT;	(* sp surrisc allarme dC *)
+	spTmVent_s AT %MX100.444 : UINT;	(* sp ritardo spegn. ventilazione sec. *)
+	xpTLock_dC AT %MX100.446 : UINT;	(* sp temp blocco scarica dC *)
+	spTmWdog_mS AT %MX100.448 : UINT;	(* sp tempo insens. watchDog com mS *)
+	spTBomSP_dC AT %MX100.450 : UINT;	(* sp temp. gas (bombola) dC *)
+	spTBomP_d AT %MX100.452 : UINT;	(* sp P bombola dec. *)
+	spTBomI_c AT %MX100.454 : UINT;	(* sp I bombola cent. *)
+	spTBomD_c AT %MX100.456 : UINT;	(* sp D bombola cent. *)
+	spTRisSP_dC AT %MX100.458 : UINT;	(* sp fs sovratemp riscald. dC *)
+	spTRisP_d AT %MX100.460 : UINT;	(* sp P riscald. dec. *)
+	spTRisI_c AT %MX100.462 : UINT;	(* sp I riscald. cent. *)
+	spTRisD_c AT %MX100.464 : UINT;	(* sp D riscald. cent. *)
+	spQCar_dg AT %MX100.466 : UINT;	(* sp grammi da caricare (td) dg *)
+	spNUtil468 AT %MX100.468 : UINT;	(* sp durata imp. fisso erogazione mS *)
+	spTSoc_dC AT %MX100.470 : UINT;	(* sp temper. variaz. minima nel tempo, dC *)
+	spTmSoc_s AT %MX100.472 : UINT;	(* sp tempo analisi cambio temper., Sec *)
+	spDtBt_dC AT %MX100.474 : UINT;	(* sp dT max tra sonde risc/bomb dC *)
+	spDpBtBp_dB AT %MX100.476 : UINT;	(* sp Dt misurata e teorica f(P) dB *)
+	spQRiserva_g	AT %MX100.478 : UINT;	(* #################################### *)
+	//spTHtngPmp_dC	AT %MX100.480 : UINT;	(* #################################### *)
+	//spTDhwPump_dC	AT %MX100.482 : UINT;	(* #################################### *)
+	
+	//geAnomRec	
+	aiCfg AT %MX100.2048 : ARRAY[0..9] OF t_tara; // 200 bytes
+	
+//###################################################################
+//
+//		Impostazioni di funzionamento
+//
+//###################################################################
+
+	spTCariFred_s		AT 	%MX100.2248 	: 	UINT;	(* sp tempo caric. pellet per acc. fredda *)
+	spTRiVeIgni_s		AT 	%MX100.2250 	: 	UINT;	(* sp tempo ritardo ventilazione e ignitore *)
+	spQVentIgni_pc		AT 	%MX100.2252 	:	UINT;	(* sp portata ventilazione in accensione *)
+	spQVentInBu_pc		AT 	%MX100.2254 	:	UINT;	(* sp ventilazione iniziale propagazione fiamma *)
+	spTVentIdle_s		AT 	%MX100.2256 	:	UINT;	(* sp tempo vent. prep. idle focolare *)
+	spQIdleBurn_pc		AT 	%MX100.2258 	:	UINT;	(* sp ventilazione in fase di messa a riposo *)
+	spTCariRipr_s		AT 	%MX100.2260 	: 	UINT;	(* sp tempo caric. pellet per ripresa focolare *)
+	spTVentRipr_s		AT 	%MX100.2262 	:	UINT;	(* sp tempo ventilazione per ripresa focolare *)
+	spQVentRipr_pc		AT 	%MX100.2264 	:	UINT;	(* sp portata ventilazione per ripresa focolare *)
+	spTPeriCocl_ds		AT 	%MX100.2266 	: 	UINT;	(* sp tempo periodo PWM coclea *)
+	spTToutFiam_s		AT 	%MX100.2268 	: 	UINT;	(* sp tempo timeout manc. fiamma *)
+	spTMancAcce_s		AT 	%MX100.2270 	: 	UINT;	(* sp tempo timeout manc. accensione *)
+	spTVentAcce_s		AT 	%MX100.2272 	: 	UINT;	(* sp tempo preventilazione accensione *)
+	spTPropFiam_s		AT 	%MX100.2274 	: 	UINT;	(* sp tempo pausa propagazione fiamma *)
+	spTFunzMinI_s		AT 	%MX100.2276 	: 	UINT;	(* sp tempo funz. al minimo prima di run pieno *)
+	spTVeSpInTe_s		AT 	%MX100.2278 	: 	UINT;	(* sp tempo vent. per spegn se in temperatura *)
+	spTVentPuli_s		AT 	%MX100.2280 	: 	UINT;	(* sp tempo pausa ventilazione di pulizia *)
+	spQVentPuli_pc		AT 	%MX100.2282 	:	UINT;	(* sp portata ventilazione durante pulizia *)
+	spTDuraPuli_s		AT 	%MX100.2284 	: 	UINT;	(* sp tempo durata ventilazione di pulizia *)
+	spTDuraLava_ds		AT 	%MX100.2286 	: 	UINT;	(* sp tempo durata lavaggio per sovratemp *)
+	spTCariCExt_s		AT 	%MX100.2288	: 	UINT;	(* sp tempo carico coclea esterna *)
+
+	spKTempCald_dC		AT 	%MX100.2290	 	: 	UINT;	(* sp temperatura caldaia *)
+	spKIsteCald_dK		AT 	%MX100.2292	 	: 	UINT;	(* sp isteresi ripartenza bruciatore *)
+	spKLavTCald_dC		AT 	%MX100.2294	 	: 	UINT;	(* sp temperatura lavaggio caldaia (pompa riscald.) *)
+	spKMaxTCald_dC		AT 	%MX100.2296	 	: 	UINT;	(* sp temperatura massima caldaia *)
+	spKMaxTFumi_dC		AT 	%MX100.2298	 	: 	UINT;	(* sp temperatura max fumi *)
+	spKMinTFumi_dC		AT 	%MX100.2300	 	: 	UINT;	(* sp temperatura minima fumi in funzionamento *)
+	spKMxDeTCal_dK		AT 	%MX100.2302	 	: 	UINT;	(* sp delta T max tra sonde caldaia *)
+	spKMinTMand_dC		AT 	%MX100.2304	 	: 	UINT;	(* sp temperatura minima mandata (climatica) *)
+	spKMaxTMand_dC		AT 	%MX100.2306	 	: 	UINT;	(* sp temperatura massima mandata (climatica) *)
+	spKMaxTExtr_dC		AT 	%MX100.2308	 	: 	UINT;	(* sp temperatura minima esterna (climatica) *)
+	spKMinTExtr_dC		AT 	%MX100.2310	 	: 	UINT;	(* sp temperatura massima esterna (climatica) *)
+	spKFsErInte_dK		AT 	%MX100.2312	 	: 	UINT;	(* sp temperatura errore reg. interna *)
+	spKFsCorMan_dK		AT 	%MX100.2314	 	: 	UINT;	(* sp temperatura fondo scala correzione mandata *)
+
+	spRPresFiam_pm		AT 	%MX100.2316 	: 	UINT;	(* sp perc. radiaz. pres. fiamma *)
+	spKCampRidu_dk		AT 	%MX100.2318 	: 	UINT;	(* sp campo riduzione potenza *)
+
+	regPars		AT	%MX100.2320	:	ARRAY[0..4, 0..1] OF	UINT;
+	
+	spTMandRisc_dC		AT 	%MX100.2340 	: 	UINT;	(* sp temperatura mandata riscaldamento *)
+	spTVentInBu_pc		AT 	%MX100.2342 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
+	spKMaxErrMa_cK		AT 	%MX100.2344 	: 	UINT;	(* sp tempo accensione ventilata iniziale *)
+
+	spTHtngPmp_dC	AT %MX100.2346 : UINT;	(* #################################### *)
+	spTDhwPump_dC	AT %MX100.2348 : UINT;	(* #################################### *)
+	
+//###################################################################
+//
+//		Contatori
+//
+//###################################################################
+
+	cnNAvviamen		AT 	%MX100.2376 	: 	UDINT;	(* contatore avviamenti *)
+	cnNCariEste		AT 	%MX100.2380 	: 	UDINT;	(* contatore caricamenti esterni *)
+	cnNCariBruc		AT 	%MX100.2384 	: 	UDINT;	(* contatore caricamenti bruciatore *)
+	cnMFunzMini		AT 	%MX100.2388 	: 	UDINT;	(* contatore funzionamento minimo *)
+	cnMFunzMedi		AT 	%MX100.2392 	: 	UDINT;	(* contatore funzionamento medio *)
+	cnMFunzMaxi		AT 	%MX100.2396 	: 	UDINT;	(* contatore funzionamento massimo *)
+
+
+//###################################################################
+//
+//		Bit di comando
+//
+//###################################################################
+	
+	cmd0 AT %MW100.2402 : WORD;	(* comandi operativi *)
+		cmdReset 	AT %MW100.2400.0 : BOOL;	(* comando reset *)
+
+
+		cmdRstAl 	AT %MW100.2400.3 : BOOL;	(* comando reset allarmi *)
+
+		cmdRiserva 	AT %MW100.2400.5 : BOOL;	(* era gas sel. R1234yf *)
+
+
+		cmdAbort 	AT %MW100.2400.8 : BOOL;	(* cmdRiserva 8 *)
+
+
+		cmd0_B 		AT %MW100.2400.11 : BOOL;	(* cmdRiserva 11 *)
+		cmd0_C		AT %MW100.2400.12 : BOOL;	(* cmdRiserva 12 *)
+		cmd0_D		AT %MW100.2400.13 : BOOL;	(* cmdRiserva 13 *)
+		cmd0_E		AT %MW100.2400.14 : BOOL;	(* cmdRiserva 14 *)
+		cmd0_F		AT %MW100.2400.15 : BOOL;	(* cmdRiserva 15 *)
+	
+	cmd1 AT %MW100.2402 : WORD;	(* comandi operativi *)
+		cmd1_0 	AT %MW100.2402.0 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_1 	AT %MW100.2402.1 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_2 	AT %MW100.2402.2 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_3 	AT %MW100.2402.3 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_4 	AT %MW100.2402.4 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_5 	AT %MW100.2402.5 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_6 	AT %MW100.2402.6 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_7 	AT %MW100.2402.7 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_8 	AT %MW100.2402.8 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_9	AT %MW100.2402.9 : BOOL;	(* cmdRiserva 9 *)
+		cmd1_A	AT %MW100.2402.10 : BOOL;	(* cmdRiserva 10 *)
+		cmd1_B	AT %MW100.2402.11 : BOOL;	(* cmdRiserva 11 *)
+		cmd1_C	AT %MW100.2402.12 : BOOL;	(* cmdRiserva 12 *)
+		cmd1_D 	AT %MW100.2402.13 : BOOL;	(* cmdRiserva 13 *)
+		cmd1_E 	AT %MW100.2402.14 : BOOL;	(* cmdRiserva 14 *)
+		cmd1_F 	AT %MW100.2402.15 : BOOL;	(* cmdRiserva 15 *)
+	
+
+END_VAR
+
+]]>
+	</iecDeclaration>
+</group>

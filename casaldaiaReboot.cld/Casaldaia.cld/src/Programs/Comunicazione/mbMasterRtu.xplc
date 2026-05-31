@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="mbMasterRtu" version="1.0.0" creationDate="1728845703" lastModifiedDate="1731364317">
+	<vars>
+		<localVars>
+			<var name="i" type="UDINT">
+				<descr>Aux counter</descr>
+			</var>
+			<var name="n" type="INT">
+				<descr>Aux pointer</descr>
+			</var>
+			<var name="ptrMod" type="INT">
+				<descr>Puntatore modulo Pt100</descr>
+				<initValue>2</initValue>
+			</var>
+			<var name="done" type="BOOL">
+				<descr>esito d'appoggio</descr>
+			</var>
+			<var name="SerialOrTCP" type="BOOL">
+				<descr>FALSE:Serial, TRUE:TCP communication</descr>
+				<initValue>FALSE</initValue>
+			</var>
+			<var name="CaseNr" type="USINT">
+				<descr>Program case</descr>
+			</var>
+			<var name="Sp" type="SysSerialPort">
+				<descr>Serial port</descr>
+			</var>
+			<var name="TCPClient" type="SysTCPClient">
+				<descr>TCP client management</descr>
+			</var>
+			<var name="RCoils" type="BOOL" dim0="16">
+				<descr>Coil status (Read)</descr>
+			</var>
+			<var name="WCoils" type="BOOL" dim0="16">
+				<descr>Coil status (Write)</descr>
+			</var>
+			<var name="MMdb" type="ModbusMaster_v3">
+				<descr>Modbus master FB</descr>
+			</var>
+		</localVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[PROGRAM mbMasterRtu
+
+VAR
+	i 			: UDINT;				(* Aux counter *)
+	n			: INT;					(* Aux pointer *)
+	ptrMod		: INT := 2;					(* Puntatore modulo Pt100 *)
+	done		: BOOL;					(* esito d'appoggio *)
+	SerialOrTCP : BOOL := FALSE;		(* FALSE:Serial, TRUE:TCP communication *)
+	CaseNr 		: USINT;				(* Program case *)
+	Sp 			: SysSerialPort;		(* Serial port *)
+	TCPClient 	: SysTCPClient;			(* TCP client management *)
+	RCoils 		: ARRAY[0..15] OF BOOL;	(* Coil status (Read) *)
+	WCoils 		: ARRAY[0..15] OF BOOL;	(* Coil status (Write) *)
+    MMdb 		: ModbusMaster_v3; 		(* Modbus master FB *)
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[// *****************************************************************************
+// PROGRAM "ST_ModbusMaster"
+// *****************************************************************************
+// Are executed all possible Modbus commands with a connection over another
+// SlimLine. It's possible to test all the three possible Modbus types (Serial
+// RTU, serial ascii, TCP).
+// -----------------------------------------------------------------------------
+
+    // -------------------------------------------------------------------------
+    // INITIALIZATION
+    // -------------------------------------------------------------------------
+    // Program initializations.
+
+    IF (SysFirstLoop) THEN
+
+        // Serial port settings.
+
+        Sp.COM:=ADR('COM2'); //COM port definition
+        Sp.Baudrate:=9600; //Baudrate
+        Sp.Parity:='N'; //Parity
+        Sp.DataBits:=8; //Data bits
+        Sp.StopBits:=1; //Stop bits
+        Sp.DTRManagement:=DTR_AUTO_WO_TIMES; //DTR management
+        Sp.DTRComplement:=FALSE; //DTR complement
+        Sp.EchoFlush:=FALSE; //Received echo flush
+        Sp.DTROnTime:=0; //DTR On time delay (mS)
+        Sp.DTROffTime:=0; //DTR Off time delay (mS)
+        Sp.FlushTm:=0; //Flush time (mS)
+        Sp.RxSize:=0; //Rx buffer size
+        Sp.TxSize:=0; //Tx buffer size
+
+        // Modbus master settings.
+
+        MMdb.Absolute:=FALSE; //Absolute addressing
+        MMdb.Node:=1; //Node number
+        MMdb.Timeout:=T#1s; //Timeout time
+        MMdb.Delay:=T#100ms; //Delay time
+	    MMdb.Address:=1; //Modbus register address
+	    MMdb.Points:=SIZEOF(RHRegs)/2; //Modbus register points
+    END_IF;
+
+    // -------------------------------------------------------------------------
+    // MODBUS MANAGEMENT
+    // -------------------------------------------------------------------------
+    // Eseguo selezione canale comunicazione.
+
+        Sp(Open:=TRUE); //Serial port management
+        MMdb.File:=Sp.File; //File pointer
+        MMdb.Type:=MODBUS_PROTOCOL#MDB_RTU; //Modbus protocol type
+
+    // Manage the modbus master communication.
+
+    MMdb(); //Modbus master
+    IF NOT(SysFIsOpen(MMdb.File)) THEN MMdb.Enable:=FALSE; CaseNr:=0; RETURN; END_IF;
+
+	IF ptrMod > 3 THEN
+		ptrMod := 2;	
+	END_IF;
+	
+    // ---------------------------------------------------------------------
+    // Execute a Read holding registers.
+		
+	MMdb.Enable		:= TRUE; 	//Modbus enable
+    MMdb.FCode		:= 16#03; 	//Modbus function code
+    MMdb.Address	:= 1; 		//Modbus register address
+    MMdb.Node		:= TO_USINT(ptrMod); 	//Node number
+    MMdb.Points		:= 4; 		//Modbus register points
+	MMdb.Buffer		:= ADR(RHRegs[ptrMod - 2, 0]); //Memory buffer address
+	
+    IF NOT(MMdb.Done) THEN RETURN; END_IF;
+    
+
+	ptrMod := ptrMod + 1;
+
+    
+    MMdb.Enable		:=FALSE; //Modbus enable
+    
+	b.ai[tCaldaia].valInp 	:= TO_REAL(TO_INT(RHRegsInt[0])) / 10.0;
+    b.ai[tFumi].valInp 	 	:= TO_REAL(TO_INT(RHRegsInt[1])) / 10.0;
+    b.ai[tMandata].valInp 	:= TO_REAL(TO_INT(RHRegsInt[2])) / 10.0;
+    b.ai[tRitorno].valInp 	:= TO_REAL(TO_INT(RHRegsInt[3])) / 10.0;
+    b.ai[tEsterna].valInp 	:= TO_REAL(TO_INT(RHRegsInt[4])) / 10.0;
+    b.ai[tInterna].valInp 	:= TO_REAL(TO_INT(RHRegsInt[5])) / 10.0;
+    b.ai[tAriaComb].valInp 	:= TO_REAL(TO_INT(RHRegsInt[6])) / 10.0;
+    b.ai[tCaldaia2].valInp 	:= TO_REAL(TO_INT(RHRegsInt[7])) / 10.0;
+	
+	FOR n := 0 TO lastCh DO
+		done := ripara(ADR(b.ai[n]));
+	END_FOR;
+	
+	b.pv.tCaldaia 	:= b.ai[tCaldaia].valEng;
+	b.pv.tFumi 		:= b.ai[tFumi].valEng;
+	b.pv.tMandata 	:= b.ai[tMandata].valEng;
+	b.pv.tRitorno 	:= b.ai[tRitorno].valEng;
+	b.pv.tEsterna 	:= b.ai[tEsterna].valEng;
+	b.pv.tInterna 	:= b.ai[tInterna].valEng;
+	b.pv.tAriaComb	:= b.ai[tAriaComb].valEng;
+	b.pv.tCaldaia2 	:= b.ai[tCaldaia2].valEng;
+	
+]]>
+	</sourceCode>
+</program>

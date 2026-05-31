@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="aiRd" version="1.0.0" creationDate="1681392613" lastModifiedDate="1731361163">
+	<vars>
+		<localVars>
+			<var name="running" type="BOOL"/>
+			<var name="chPt" type="INT"/>
+			<var name="done" type="BOOL"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[PROGRAM aiRd
+
+VAR
+	running : BOOL;
+	chPt : INT;
+	done : BOOL;
+END_VAR
+
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[IF NOT running THEN
+	b.ai[rFiamma].fbRd(Address := 1, Channel := 0, Mode:= AD_VOLT_0_10_COMMON);
+(*	b.aiCh[1].fbRd(Address := 1, Channel := 1, Mode:= AD_IDLE); 	//AD_CURR_0_20_COMMON);
+	b.aiCh[2].fbRd(Address := 1, Channel := 2, Mode:= AD_IDLE); 	//AD_CURR_0_20_COMMON);
+	b.aiCh[3].fbRd(Address := 1, Channel := 3, Mode:= AD_IDLE); 	//AD_THERMOCOUPLE_K);
+	b.aiCh[4].fbRd(Address := 1, Channel := 4, Mode:= AD_IDLE);
+	
+	b.aiCh[5].fbRd(Address := 1, Channel := 5, Mode:= AD_IDLE); 	//AD_THERMOCOUPLE_K);
+	b.aiCh[6].fbRd(Address := 1, Channel := 6, Mode:= AD_IDLE); 	//AD_THERMOCOUPLE_K);
+	b.aiCh[7].fbRd(Address := 1, Channel := 7, Mode:= AD_IDLE); 	//AD_THERMOCOUPLE_K);
+	b.aiCh[8].fbRd(Address := 1, Channel := 8, Mode:= AD_IDLE); 	//AD_THERMOCOUPLE_K);
+	b.aiCh[9].fbRd(Address := 1, Channel := 9, Mode:= AD_IDLE);
+*)	
+	running := TRUE;
+END_IF;
+
+
+
+// -------------------------------------------------------------------------
+// ANALOG INPUT ACQUISITION
+// -------------------------------------------------------------------------
+// Analog input multiplexing.
+
+(*
+chPt := chPt + 1; //Channel index
+
+IF (chPt > 9) THEN 
+	chPt := 0; 
+END_IF;
+
+IF chPt <> r4 AND chPt <> r9 THEN*)
+chPt := rFiamma;
+
+	b.ai[chPt].fbRd(); //Analog input acquisition
+	
+	IF (b.ai[chPt].fbRd.Done) THEN 
+		done := ripara(ADR(b.ai[chPt]));
+	END_IF;
+	
+	
+	//.valSym <> 0 per simulare input analogico
+	//ripara(ADR(b.aiCh[chPt]));
+
+	b.pv.pFiamma := b.ai[chPt].valEng;
+
+(*END_IF;
+*)
+
+
+(*
+b.pv.tCaldaia 	:= b.aiCh[pTGas].anVal;
+b.pv.tFumi 		:= b.aiCh[pTLiq].anVal;
+b.pv.tMandata 	:= b.aiCh[THLow].anVal;
+b.pv.tRitorno 	:= b.aiCh[THHigh1].anVal;
+*)
+]]>
+	</sourceCode>
+</program>

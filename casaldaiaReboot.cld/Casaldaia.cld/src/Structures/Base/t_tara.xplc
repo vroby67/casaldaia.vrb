@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_tara" version="1.0.0">
+	<vars>
+		<var name="tmist" type="INT">
+			<descr>Minimo punti (inizio scala) fixP .01</descr>
+			<initValue>0</initValue>
+		</var>
+		<var name="tmast" type="INT">
+			<descr>Massimo punti (fondo scala)  fixP .01</descr>
+			<initValue>1000</initValue>
+		</var>
+		<var name="tmiFlt" type="INT">
+			<descr>Minimo punti (inizio scala) fixP .01</descr>
+			<initValue>-32768</initValue>
+		</var>
+		<var name="tmaFlt" type="INT">
+			<descr>Massimo punti (fondo scala)  fixP .01</descr>
+			<initValue>32767</initValue>
+		</var>
+		<var name="itmist" type="INT">
+			<descr>Minimo ingegneristico (inizio scala) fixP .1</descr>
+			<initValue>0</initValue>
+		</var>
+		<var name="itmast" type="INT">
+			<descr>Massimo ingegneristico (fondo scala) fixP .1</descr>
+			<initValue>1000</initValue>
+		</var>
+		<var name="kNuovo" type="INT">
+			<descr>0&lt;k&lt;=1 frazione di nuovo valore. K piccolo, molto filtrato,  fixP .001</descr>
+			<initValue>250</initValue>
+		</var>
+		<var name="kInp" type="INT">
+			<descr>Fattore scala punti (verso HMI)</descr>
+			<initValue>10</initValue>
+		</var>
+		<var name="kEng" type="INT">
+			<descr>Fattore scala ingegneristico (verso HMI)</descr>
+			<initValue>10</initValue>
+		</var>
+		<var name="memAllocDummy" type="INT">
+			<descr>Tappo per allineamento allocazione oggetti a ind. x4</descr>
+			<initValue>0</initValue>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_tara: STRUCT
+	tmist : INT := 0;	(* Minimo punti (inizio scala) fixP .01 *)
+	tmast : INT := 1000;	(* Massimo punti (fondo scala)  fixP .01 *)
+	tmiFlt : INT := -32768;	(* Minimo punti (inizio scala) fixP .01 *)
+	tmaFlt : INT := 32767;	(* Massimo punti (fondo scala)  fixP .01 *)
+	itmist : INT := 0;	(* Minimo ingegneristico (inizio scala) fixP .1 *)
+	itmast : INT := 1000;	(* Massimo ingegneristico (fondo scala) fixP .1 *)
+	kNuovo : INT := 250;	(* 0<k<=1 frazione di nuovo valore. K piccolo, molto filtrato,  fixP .001 *)
+	kInp : INT := 10;	(* Fattore scala punti (verso HMI)*)
+	kEng : INT := 10;	(* Fattore scala ingegneristico (verso HMI)*)	
+	memAllocDummy : INT := 0; (* Tappo per allineamento allocazione oggetti a ind. x4 *)
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

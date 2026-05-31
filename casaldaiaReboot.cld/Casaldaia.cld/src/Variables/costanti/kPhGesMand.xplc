@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="kPhGesMand" version="1.0.0">
+	<var name="mgNotRdy" type="INT" attribute="constant">
+		<descr>Attesa approntamento</descr>
+		<initValue>0</initValue>
+	</var>
+	<var name="mgCmdWait" type="INT" attribute="constant">
+		<descr>Attesa comandi</descr>
+		<initValue>5</initValue>
+	</var>
+	<var name="mgTempEval" type="INT" attribute="constant">
+		<descr>Caricamento iniziale</descr>
+		<initValue>10</initValue>
+	</var>
+	<var name="mgClosProp" type="INT" attribute="constant">
+		<descr>Attesa segnale rilevatore fiamma</descr>
+		<initValue>15</initValue>
+	</var>
+	<var name="mgOpenProp" type="INT" attribute="constant">
+		<descr>Combustione iniziale</descr>
+		<initValue>20</initValue>
+	</var>
+	<var name="mgLoopBack" type="INT" attribute="constant">
+		<descr>Propagazione fiamma s/ventilazione</descr>
+		<initValue>25</initValue>
+	</var>
+	<var name="mgANotRdy" type="INT" attribute="constant">
+		<descr>Anomalia da attesa iniziale</descr>
+		<initValue>100</initValue>
+	</var>
+	<var name="mgACmdWait" type="INT" attribute="constant">
+		<descr>Anomalia da attesa comando</descr>
+		<initValue>105</initValue>
+	</var>
+	<var name="mgATempEval" type="INT" attribute="constant">
+		<descr>Anomalia da caricamento iniziale</descr>
+		<initValue>110</initValue>
+	</var>
+	<var name="mgAClosProp" type="INT" attribute="constant">
+		<descr>Anomalia da attesa rilevatore fiamma</descr>
+		<initValue>115</initValue>
+	</var>
+	<var name="mgAOpenProp" type="INT" attribute="constant">
+		<descr>Anomalia da combustione iniziale</descr>
+		<initValue>120</initValue>
+	</var>
+	<var name="mgALoopBack" type="INT" attribute="constant">
+		<descr>Anomalia da propagazione fiamma s/ventilazione</descr>
+		<initValue>125</initValue>
+	</var>
+	<var name="mgAResTot" type="INT" attribute="constant">
+		<descr>Anomalia generale totale</descr>
+		<initValue>180</initValue>
+	</var>
+	<var name="mgAnomRec" type="INT" attribute="constant">
+		<descr>Stato di recupero anomalie</descr>
+		<initValue>200</initValue>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL CONSTANT
+	mgNotRdy  		: INT := 	 0 ;   // Attesa approntamento
+	mgCmdWait 		: INT := 	 5 ;   // Attesa comandi
+	mgTempEval 		: INT := 	10 ;   // Caricamento iniziale
+	mgClosProp 	: INT := 	15 ;   // Attesa segnale rilevatore fiamma
+	mgOpenProp 		: INT := 	20 ;   // Combustione iniziale
+	mgLoopBack		: INT := 	25 ;   // Propagazione fiamma s/ventilazione
+
+	mgANotRdy  		: INT := 	100 ;  // Anomalia da attesa iniziale
+	mgACmdWait 		: INT := 	105 ;  // Anomalia da attesa comando
+	mgATempEval 	: INT := 	110 ;  // Anomalia da caricamento iniziale
+	mgAClosProp 	: INT := 	115 ;  // Anomalia da attesa rilevatore fiamma
+	mgAOpenProp 	: INT := 	120 ;  // Anomalia da combustione iniziale
+	mgALoopBack	: INT := 	125 ;  // Anomalia da propagazione fiamma s/ventilazione
+
+	mgAResTot 		: INT := 	180 ;  // Anomalia generale totale
+
+	mgAnomRec 		: INT := 	200 ;  // Stato di recupero anomalie
+END_VAR
+]]>
+	</iecDeclaration>
+</group>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="diRd" version="1.0.0" creationDate="1681466982" lastModifiedDate="1731361502">
+	<vars>
+		<localVars>
+			<var name="tmpInt" type="INT"/>
+			<var name="n" type="INT"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[// lettura ingressi fisici, virtualizzazione
+
+(* trasporta bit virtuali su word*)
+appWeh := 0;
+
+//passa array di bool a int
+FOR n := 0 TO 23 DO
+	appWeh := appWeh + SHL(TO_UDINT(di0h[n]), n);
+//	di0f[n] := TO_BOOL(SHR(TO_UDINT(diImgFf), n) AND 1);
+//	di0m[n] := TO_BOOL(SHR(TO_UDINT(diImgFm), n) AND 1);
+END_FOR;
+
+(* Applica condizioni di forzatura o passaggio libero tra INT*)
+appWeh := (appWeh OR (diImgFf AND diImgFm)) AND NOT (NOT diImgFf AND diImgFm);
+
+FOR n := 0 TO 23 DO
+	di0v[n] := TO_BOOL(SHR(TO_UDINT(appWeh), n) AND 1);
+END_FOR;
+
+b.al.reset := (*PUeRESEALLAv OR *)cmdRstAl;
+
+
+]]>
+	</sourceCode>
+</program>

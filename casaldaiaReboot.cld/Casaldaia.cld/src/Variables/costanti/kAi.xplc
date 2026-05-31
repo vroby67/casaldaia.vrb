@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="kAi" version="1.0.0">
+	<var name="tCaldaia" type="INT" attribute="constant">
+		<initValue>0</initValue>
+	</var>
+	<var name="tFumi" type="INT" attribute="constant">
+		<initValue>1</initValue>
+	</var>
+	<var name="tMandata" type="INT" attribute="constant">
+		<initValue>2</initValue>
+	</var>
+	<var name="tRitorno" type="INT" attribute="constant">
+		<initValue>3</initValue>
+	</var>
+	<var name="tEsterna" type="INT" attribute="constant">
+		<initValue>4</initValue>
+	</var>
+	<var name="tInterna" type="INT" attribute="constant">
+		<initValue>5</initValue>
+	</var>
+	<var name="tAriaComb" type="INT" attribute="constant">
+		<initValue>6</initValue>
+	</var>
+	<var name="tCaldaia2" type="INT" attribute="constant">
+		<initValue>7</initValue>
+	</var>
+	<var name="rFiamma" type="INT" attribute="constant">
+		<initValue>8</initValue>
+	</var>
+	<var name="r9" type="INT" attribute="constant">
+		<initValue>9</initValue>
+	</var>
+	<var name="lastCh" type="INT" attribute="constant">
+		<initValue>9</initValue>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL CONSTANT
+	tCaldaia 	: INT := 0;
+	tFumi 		: INT := 1;
+	tMandata 	: INT := 2;
+	tRitorno 	: INT := 3;
+	tEsterna	: INT := 4;
+	tInterna	: INT := 5;
+	tAriaComb	: INT := 6;
+	tCaldaia2 	: INT := 7;
+	rFiamma	 	: INT := 8;
+	r9 			: INT := 9;
+	lastCh		: INT := 9;
+END_VAR
+
+]]>
+	</iecDeclaration>
+</group>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_burner" version="1.0.0">
+	<title>Parametri operativi bruciatore</title>
+	<vars>
+		<var name="phMaCy" type="t_ph">
+			<descr>puntatore fase operativa</descr>
+		</var>
+		<var name="phFlSt" type="t_ph">
+			<descr>puntatore fase operativa</descr>
+		</var>
+		<var name="phCari" type="t_ph">
+			<descr>puntatore fase operativa</descr>
+		</var>
+		<var name="phRefi" type="t_ph">
+			<descr>puntatore fase operativa</descr>
+		</var>
+		<var name="regPar" type="t_pwrStep" dim0="4">
+			<descr>config avviamento</descr>
+		</var>
+		<var name="phStarting" type="t_pwrStep">
+			<descr>config avviamento</descr>
+		</var>
+		<var name="phLowPwr" type="t_pwrStep">
+			<descr>conf. bassa potenza</descr>
+		</var>
+		<var name="phMidPwr" type="t_pwrStep">
+			<descr>conf. media potenza</descr>
+		</var>
+		<var name="phHighPwr" type="t_pwrStep">
+			<descr>conf. alta potenza</descr>
+		</var>
+		<var name="ventDuty" type="INT">
+			<descr>percentuale (inversa) comando ventilazione)</descr>
+		</var>
+		<var name="tmInitLoad" type="UINT">
+			<descr>tempo caricamento iniziale pellet da spento</descr>
+		</var>
+		<var name="tmRitVent" type="UINT">
+			<descr>ritardo avvio ventilazione in avviamento</descr>
+		</var>
+		<var name="toFlame" type="UINT">
+			<descr>allarme mancata accensione (pres. fiamma)</descr>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_burner: STRUCT
+	phMaCy		:	t_ph;		(* puntatore fase operativa *)
+	phFlSt 		:	t_ph;		(* puntatore fase operativa *)
+	phCari 		:	t_ph;		(* puntatore fase operativa *)
+	phRefi 		:	t_ph;		(* puntatore fase operativa *)
+	regPar 		:	ARRAY[0..3] OF t_pwrStep;	(* config avviamento *)
+	phStarting 	:	t_pwrStep;	(* config avviamento *)
+	phLowPwr 	:	t_pwrStep;	(* conf. bassa potenza *)
+	phMidPwr 	:	t_pwrStep;	(* conf. media potenza *)
+	phHighPwr 	:	t_pwrStep;	(* conf. alta potenza *)
+	ventDuty	:	INT;		(* percentuale (inversa) comando ventilazione) *)
+	tmInitLoad 	:	UINT;		(* tempo caricamento iniziale pellet da spento *)
+	tmRitVent 	:	UINT;		(* ritardo avvio ventilazione in avviamento *)
+	toFlame 	:	UINT;		(* allarme mancata accensione (pres. fiamma) *)
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

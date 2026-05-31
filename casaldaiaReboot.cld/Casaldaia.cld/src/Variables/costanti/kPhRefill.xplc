@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="kPhRefill" version="1.0.0">
+	<var name="rfNotRdy" type="INT" attribute="constant">
+		<descr>Attesa approntamento</descr>
+		<initValue>0</initValue>
+	</var>
+	<var name="rfWaitEmpt" type="INT" attribute="constant">
+		<descr>Attesa richiesta rifornimento</descr>
+		<initValue>10</initValue>
+	</var>
+	<var name="rfChekEmpt" type="INT" attribute="constant">
+		<descr>Verifica reale mancanza pellet</descr>
+		<initValue>20</initValue>
+	</var>
+	<var name="rfLoad" type="INT" attribute="constant">
+		<descr>Caricamento attivo</descr>
+		<initValue>30</initValue>
+	</var>
+	<var name="rfCkFull" type="INT" attribute="constant">
+		<descr>Controllo rifornimento avvenuto</descr>
+		<initValue>40</initValue>
+	</var>
+	<var name="rfCkNoPlt" type="INT" attribute="constant">
+		<descr>Controllo che davvero sia fallito il carico</descr>
+		<initValue>50</initValue>
+	</var>
+	<var name="rfLoop" type="INT" attribute="constant">
+		<descr>Ricicla</descr>
+		<initValue>60</initValue>
+	</var>
+	<var name="rfANotRdy" type="INT" attribute="constant">
+		<descr>Anomalia da Attesa approntamento</descr>
+		<initValue>100</initValue>
+	</var>
+	<var name="rfAWaitEmpt" type="INT" attribute="constant">
+		<descr>Anomalia da Attesa richiesta rifornimento</descr>
+		<initValue>110</initValue>
+	</var>
+	<var name="rfAChekEmpt" type="INT" attribute="constant">
+		<descr>Anomalia da Verifica reale mancanza pellet</descr>
+		<initValue>120</initValue>
+	</var>
+	<var name="rfALoad" type="INT" attribute="constant">
+		<descr>Anomalia da Caricamento attivo</descr>
+		<initValue>130</initValue>
+	</var>
+	<var name="rfACkFull" type="INT" attribute="constant">
+		<descr>Anomalia da Controllo rifornimento avvenuto</descr>
+		<initValue>140</initValue>
+	</var>
+	<var name="rfACkNoPlt" type="INT" attribute="constant">
+		<descr>Anomalia da Controllo che davvero sia fallito il carico</descr>
+		<initValue>150</initValue>
+	</var>
+	<var name="rfALoop" type="INT" attribute="constant">
+		<descr>Anomalia da Ricicla</descr>
+		<initValue>160</initValue>
+	</var>
+	<var name="rfAResTot" type="INT" attribute="constant">
+		<descr>Anomalia generale totale</descr>
+		<initValue>200</initValue>
+	</var>
+	<var name="rfAnomRec" type="INT" attribute="constant">
+		<descr>Stato di recupero anomalie</descr>
+		<initValue>210</initValue>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL CONSTANT
+	rfNotRdy        : INT :=      0 ;   (* Attesa approntamento*)
+	rfWaitEmpt      : INT :=     10 ;   (* Attesa richiesta rifornimento*)
+	rfChekEmpt      : INT :=     20 ;   (* Verifica reale mancanza pellet*)
+	rfLoad          : INT :=     30 ;   (* Caricamento attivo*)
+	rfCkFull        : INT :=     40 ;   (* Controllo rifornimento avvenuto*)
+	rfCkNoPlt       : INT :=     50 ;   (* Controllo che davvero sia fallito il carico*)
+	rfLoop          : INT :=     60 ;   (* Ricicla*)
+
+	rfANotRdy       : INT :=    100 ;  (* Anomalia da Attesa approntamento*)
+	rfAWaitEmpt     : INT :=    110 ;  (* Anomalia da Attesa richiesta rifornimento*)
+	rfAChekEmpt     : INT :=    120 ;  (* Anomalia da Verifica reale mancanza pellet*)
+	rfALoad         : INT :=    130 ;  (* Anomalia da Caricamento attivo*)
+	rfACkFull       : INT :=    140 ;  (* Anomalia da Controllo rifornimento avvenuto*)
+	rfACkNoPlt      : INT :=    150 ;  (* Anomalia da Controllo che davvero sia fallito il carico*)
+	rfALoop         : INT :=    160 ;  (* Anomalia da Ricicla*)
+
+	rfAResTot       : INT :=    200 ;  (* Anomalia generale totale*)
+
+	rfAnomRec       : INT :=    210 ;  (* Stato di recupero anomalie*)
+END_VAR
+]]>
+	</iecDeclaration>
+</group>

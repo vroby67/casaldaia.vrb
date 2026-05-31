@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="bkCalc" version="1.0.0" creationDate="1691316530" lastModifiedDate="1734289426">
+	<vars>
+		<localVars>
+			<var name="ph" type="@t_ph"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[PROGRAM bkCalc
+
+VAR
+	ph : @t_ph;
+END_VAR
+]]>
+	</iecDeclaration>
+	<sourceCode type="ST">
+		<![CDATA[//se lavoro con 134:
+ph := ?b.au.phSD;
+ptTm(ph, SysTime);
+
+CASE @ph.ptr OF
+	0: // 0 - pausa
+		IF @ph.tmmElap >= 60000 THEN
+			ptSet(ph, 10);
+		END_IF;
+	10: // 10 - salva dati in tamponata
+		cnNAvviamen := mbCnNAvviamen;
+		cnNCariEste := mbCnNCariEste;
+		cnNCariBruc := mbCnNCariBruc;
+		cnMFunzMini := mbCnMFunzMini;
+		cnMFunzMedi := mbCnMFunzMedi;
+		cnMFunzMaxi := mbCnMFunzMaxi;
+		ptSet(ph, 0);
+END_CASE;
+]]>
+	</sourceCode>
+</program>

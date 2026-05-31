@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="logiGen" version="1.0.0" creationDate="1683565104" lastModifiedDate="1757169959">
+	<vars>
+		<localVars>
+			<var name="phPw" type="t_ph"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[//Comando spie segnalazione
+//LSuPRESANOMv := cmdHlAnomBlink AND SysClock1000 OR cmdHlAnomOnFix;
+//LSuCICLATTIv := cmdHlStrtBlink AND SysClock1000 OR cmdHlStrtOnFix;
+//LSuSISTPRONv := cmdHlStopBlink AND SysClock1000 OR cmdHlStopOnFix;
+//LSuCARICOMPv := cmdHlDoneBlink AND SysClock1000 OR cmdHlDoneOnFix;
+
+
+//CTuVAUXSUPPv := cmdAuxSupplyOn;
+
+// Gestione tempo permanenza in fase
+ptTm(?phPw, SysTime);
+
+CTuHtngPump_v := b.pv.tCaldaia > b.gm.spTHtngPmp AND b.cm.ru0nRisc;
+CTuDhwPump_v := b.pv.tCaldaia >  b.gm.spTDhwPump AND b.cm.ru1nAcs;
+
+
+(*
+CASE phPw.ptr OF
+
+	0:
+		IF wDog2plc > 1000 THEN
+			ptSet(?phPw, 10);
+		END_IF;
+	
+	10:
+		IF PUeSTARCICLv AND PUeSTOPCICLv THEN
+			//SNuPWRCYCPCv := TRUE;
+			ptSet(?phPw, 20);
+		END_IF;
+
+		IF wDog2plc < 1000 THEN
+			ptSet(?phPw, 0);
+		END_IF;
+	
+	20:
+		IF phPw.tmmElap > 1000 THEN
+			//SNuPWRCYCPCv := FALSE;
+			ptSet(?phPw, 30);
+		END_IF;
+	
+	30:
+		IF phPw.tmmElap > 120000 OR wDog2plc < 1000 THEN
+			ptSet(?phPw, 0);
+		END_IF;
+	
+END_CASE;
+
+*)
+// Gestione start/stop/pausa ciclo
+
+
+
+
+]]>
+	</sourceCode>
+</program>

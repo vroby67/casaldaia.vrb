@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_gesMand" version="1.0.0">
+	<vars>
+		<var name="i" type="INT">
+			<descr>Auxiliary variable</descr>
+		</var>
+		<var name="ph" type="t_ph"/>
+		<var name="tMandReq" type="REAL"/>
+		<var name="tmCiclo" type="REAL"/>
+		<var name="tMandReqMax" type="REAL"/>
+		<var name="errTMand" type="REAL"/>
+		<var name="spMaxErr" type="REAL"/>
+		<var name="spTHtngPmp" type="REAL"/>
+		<var name="spTDhwPump" type="REAL"/>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_gesMand: STRUCT
+
+	i : INT; (* Auxiliary variable *)
+	ph			:	t_ph;	
+	tMandReq	:	REAL;
+	tmCiclo		:	REAL;
+	tMandReqMax	:	REAL;
+	errTMand	:	REAL;
+	spMaxErr	:	REAL;
+	spTHtngPmp	:	REAL;
+	spTDhwPump	:	REAL;
+
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

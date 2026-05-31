@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="gesCom2hmi" version="1.0.0" creationDate="1681979160" lastModifiedDate="1732989059">
+	<vars/>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[TmTimeStamp := SysTime;
+//diImg := appWeh;
+//doImg := appWuh;
+
+//Copia allarmi
+//alarms := 0;
+//FOR b.bk.i := 0 TO 27 DO
+//	alarms := alarms OR SHL(TO_DINT(b.al.a[b.bk.i].b.mem),b.bk.i);
+//END_FOR;
+//alarms := result;
+
+
+
+	pvTCaldaia	:=  TO_INT(b.pv.tCaldaia * 10.0);	(*  *)
+	pvTFumi		:=  TO_INT(b.pv.tFumi	 * 10.0);	(*  *)
+	pvTMandata	:=  TO_INT(b.pv.tMandata * 10.0);	(*  *)
+	pvTRitorno	:=  TO_INT(b.pv.tRitorno * 10.0);	(*  *)
+	pvTEsterna	:=  TO_INT(b.pv.tEsterna * 10.0);	(*  *)
+	pvTInterna	:=  TO_INT(b.pv.tInterna * 10.0);	(*  *)
+	pvTAriaComb	:=  TO_INT(b.pv.tAriaComb * 10.0);	(*  *)
+	pvTCaldaia2	:=  TO_INT(b.pv.tCaldaia2 * 10.0);	(*  *)
+	pvPFiamma	:= TO_INT(b.pv.pFiamma	 * 10.0);	(*  *)
+	phMaCy		:= TO_UINT(b.bp.phMaCy.ptr);	(*  *)
+	phMaCyT		:= TO_UINT(b.bp.phMaCy.tmmElap);	(*  *)
+	phFlSt		:= TO_UINT(b.bp.phFlSt.ptr);	(*  *)
+	phFlStT		:= TO_UINT(b.bp.phFlSt.tmmElap);	(*  *)
+	phCari		:= TO_UINT(b.bp.phCari.ptr);	(*  *)
+	phCariT		:= TO_UINT(b.bp.phCari.tmmElap);	(*  *)
+	phRefi		:= TO_UINT(b.bp.phRefi.ptr);	(*  *)
+	phRefiT		:= TO_UINT(b.bp.phRefi.tmmElap);	(*  *)
+	phGeMa		:= TO_UINT(b.gm.ph.ptr);	(*  *)
+	phGeMaT		:= TO_UINT(b.gm.ph.tmmElap);	(*  *)
+	ventDuty	:= TO_UINT(b.tr.regPar.ventPerc);	(*  *)
+	PellDuty	:= TO_UINT(b.tr.regPar.pelletPerc);	(*  *)
+
+	
+]]>
+	</sourceCode>
+</program>

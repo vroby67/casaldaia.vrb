@@ -1,0 +1,296 @@
+﻿	(******************************)
+	(*                            *)
+	(*     EXPORTED VARIABLES     *)
+	(*                            *)
+	(******************************)
+
+	VAR_GLOBAL
+	{G:"vGlobal"}
+		RHRegs AT %MW100.800 : ARRAY[0..1, 0..3] OF WORD;	{ DE:"Holding registers (Read)" }
+		RHRegsInt AT %MW100.800 : ARRAY[0..15] OF INT;
+	{G:"vInputs"}
+		di0h AT %IX2.0 : ARRAY[0..23] OF BOOL;	{ DE:"Ingressi fisici, array bool" }
+		SIeTutto_OK_h AT %IX2.0 : BOOL;	{ DE:"Comandi inseriti" }
+		SNePltLevOK_h AT %IX2.1 : BOOL;	{ DE:"Livello pellet nel bruciatore: OK" }
+		TSeOverTemp_h AT %IX2.2 : BOOL;	{ DE:"Termostato caldaia: sovratemperatura" }
+		SNeBurnConn_h AT %IX2.3 : BOOL;	{ DE:"Bruciatore connesso" }
+		FCeValvOpen_h AT %IX2.4 : BOOL;	{ DE:"Valvola aperta" }
+		FCeValvClos_h AT %IX2.5 : BOOL;	{ DE:"Valvola chiusa" }
+		SNeSpare_6_h AT %IX2.6 : BOOL;	{ DE:"Riserva e6" }
+		SNeSpare_7_h AT %IX2.7 : BOOL;	{ DE:"Riserva e7" }
+		SNeSpare_8_h AT %IX2.8 : BOOL;	{ DE:"Riserva e8" }
+		SNeSpare_9_h AT %IX2.9 : BOOL;	{ DE:"Riserva e9" }
+		SNeSpare_10_h AT %IX2.10 : BOOL;	{ DE:"Riserva e10" }
+		SNeSpare_11_h AT %IX2.11 : BOOL;	{ DE:"Riserva e11" }
+		SNeSpare_12_h AT %IX2.12 : BOOL;	{ DE:"Riserva e12" }
+		SNeSpare_13_h AT %IX2.13 : BOOL;	{ DE:"Riserva e13" }
+		SNeSpare_14_h AT %IX2.14 : BOOL;	{ DE:"Riserva e14" }
+		SNeSpare_15_h AT %IX2.15 : BOOL;	{ DE:"Riserva e15" }
+		SNeSpare_16_h AT %IX2.16 : BOOL;	{ DE:"Riserva e16" }
+		SNeSpare_17_h AT %IX2.17 : BOOL;	{ DE:"Riserva e17" }
+		SNeSpare_18_h AT %IX2.18 : BOOL;	{ DE:"Riserva e18" }
+		SNeSpare_19_h AT %IX2.19 : BOOL;	{ DE:"Riserva e19" }
+		SNeSpare_20_h AT %IX2.20 : BOOL;	{ DE:"Riserva e20" }
+		SNeSpare_21_h AT %IX2.21 : BOOL;	{ DE:"Riserva e21" }
+		SNeSpare_22_h AT %IX2.22 : BOOL;	{ DE:"Riserva e22" }
+		SNeSpare_23_h AT %IX2.23 : BOOL;	{ DE:"Riserva e23" }
+		di0v AT %MX100.3900 : ARRAY[0..23] OF BOOL;	{ DE:"Ingressi virtuali, array bool" }
+		SIeTutto_OK_v AT %MX100.3900 : BOOL;	{ DE:"Comandi inseriti" }
+		SNePltLevOK_v AT %MX100.3901 : BOOL;	{ DE:"Livello pellet nel bruciatore: OK" }
+		TSeOverTemp_v AT %MX100.3902 : BOOL;	{ DE:"Termostato caldaia: sovratemperatura" }
+		SNeBurnConn_v AT %MX100.3903 : BOOL;	{ DE:"Bruciatore connesso" }
+		FCeValvOpen_v AT %MX100.3904 : BOOL;	{ DE:"Valvola aperta" }
+		FCeValvClos_v AT %MX100.3905 : BOOL;	{ DE:"Valvola chiusa" }
+		SNeSpare_6_v AT %MX100.3906 : BOOL;	{ DE:"Riserva e6" }
+		SNeSpare_7_v AT %MX100.3907 : BOOL;	{ DE:"Riserva e7" }
+		SNeSpare_8_v AT %MX100.3908 : BOOL;	{ DE:"Riserva e8" }
+		SNeSpare_9_v AT %MX100.3909 : BOOL;	{ DE:"Riserva e9" }
+		SNeSpare_10_v AT %MX100.3910 : BOOL;	{ DE:"Riserva e10" }
+		SNeSpare_11_v AT %MX100.3911 : BOOL;	{ DE:"Riserva e11" }
+		SNeSpare_12_v AT %MX100.3912 : BOOL;	{ DE:"Riserva e12" }
+		SNeSpare_13_v AT %MX100.3913 : BOOL;	{ DE:"Riserva e13" }
+		SNeSpare_14_v AT %MX100.3914 : BOOL;	{ DE:"Riserva e14" }
+		SNeSpare_15_v AT %MX100.3915 : BOOL;	{ DE:"Riserva e15" }
+		SNeSpare_16_v AT %MX100.3916 : BOOL;	{ DE:"Riserva e16" }
+		SNeSpare_17_v AT %MX100.3917 : BOOL;	{ DE:"Riserva e17" }
+		SNeSpare_18_v AT %MX100.3918 : BOOL;	{ DE:"Riserva e18" }
+		SNeSpare_19_v AT %MX100.3919 : BOOL;	{ DE:"Riserva e19" }
+		SNeSpare_20_v AT %MX100.3920 : BOOL;	{ DE:"Riserva e20" }
+		SNeSpare_21_v AT %MX100.3921 : BOOL;	{ DE:"Riserva e21" }
+		SNeSpare_22_v AT %MX100.3922 : BOOL;	{ DE:"Riserva e22" }
+		SNeSpare_23_v AT %MX100.3923 : BOOL;	{ DE:"Riserva e23" }
+		di0f AT %MX100.3924 : ARRAY[0..23] OF BOOL;	{ DE:"Forzatura valore ingressi virtuali, array bool" }
+		SIeTutto_OK_f AT %MX100.3924 : BOOL;	{ DE:"Comandi inseriti" }
+		SNePltLevOK_f AT %MX100.3925 : BOOL;	{ DE:"Livello pellet nel bruciatore: OK" }
+		TSeOverTemp_f AT %MX100.3926 : BOOL;	{ DE:"Termostato caldaia: sovratemperatura" }
+		SNeBurnConn_f AT %MX100.3927 : BOOL;	{ DE:"Bruciatore connesso" }
+		FCeValvOpen_f AT %MX100.3928 : BOOL;	{ DE:"Valvola aperta" }
+		FCeValvClos_f AT %MX100.3929 : BOOL;	{ DE:"Valvola chiusa" }
+		SNeSpare_6_f AT %MX100.3930 : BOOL;	{ DE:"Riserva e6" }
+		SNeSpare_7_f AT %MX100.3931 : BOOL;	{ DE:"Riserva e7" }
+		SNeSpare_8_f AT %MX100.3932 : BOOL;	{ DE:"Riserva e8" }
+		SNeSpare_9_f AT %MX100.3933 : BOOL;	{ DE:"Riserva e9" }
+		SNeSpare_10_f AT %MX100.3934 : BOOL;	{ DE:"Riserva e10" }
+		SNeSpare_11_f AT %MX100.3935 : BOOL;	{ DE:"Riserva e11" }
+		SNeSpare_12_f AT %MX100.3936 : BOOL;	{ DE:"Riserva e12" }
+		SNeSpare_13_f AT %MX100.3937 : BOOL;	{ DE:"Riserva e13" }
+		SNeSpare_14_f AT %MX100.3938 : BOOL;	{ DE:"Riserva e14" }
+		SNeSpare_15_f AT %MX100.3939 : BOOL;	{ DE:"Riserva e15" }
+		SNeSpare_16_f AT %MX100.3940 : BOOL;	{ DE:"Riserva e16" }
+		SNeSpare_17_f AT %MX100.3941 : BOOL;	{ DE:"Riserva e17" }
+		SNeSpare_18_f AT %MX100.3942 : BOOL;	{ DE:"Riserva e18" }
+		SNeSpare_19_f AT %MX100.3943 : BOOL;	{ DE:"Riserva e19" }
+		SNeSpare_20_f AT %MX100.3944 : BOOL;	{ DE:"Riserva e20" }
+		SNeSpare_21_f AT %MX100.3945 : BOOL;	{ DE:"Riserva e21" }
+		SNeSpare_22_f AT %MX100.3946 : BOOL;	{ DE:"Riserva e22" }
+		SNeSpare_23_f AT %MX100.3947 : BOOL;	{ DE:"Riserva e23" }
+		di0m AT %MX100.3948 : ARRAY[0..23] OF BOOL;	{ DE:"Forzatura stato ingressi virtuali, array bool" }
+		SIeTutto_OK_m AT %MX100.3948 : BOOL;	{ DE:"Comandi inseriti" }
+		SNePltLevOK_m AT %MX100.3949 : BOOL;	{ DE:"Livello pellet nel bruciatore: OK" }
+		TSeOverTemp_m AT %MX100.3950 : BOOL;	{ DE:"Termostato caldaia: sovratemperatura" }
+		SNeBurnConn_m AT %MX100.3951 : BOOL;	{ DE:"Bruciatore connesso" }
+		FCeValvOpen_m AT %MX100.3952 : BOOL;	{ DE:"Valvola aperta" }
+		FCeValvClos_m AT %MX100.3953 : BOOL;	{ DE:"Valvola chiusa" }
+		SNeSpare_6_m AT %MX100.3954 : BOOL;	{ DE:"Riserva e6" }
+		SNeSpare_7_m AT %MX100.3955 : BOOL;	{ DE:"Riserva e7" }
+		SNeSpare_8_m AT %MX100.3956 : BOOL;	{ DE:"Riserva e8" }
+		SNeSpare_9_m AT %MX100.3957 : BOOL;	{ DE:"Riserva e9" }
+		SNeSpare_10_m AT %MX100.3958 : BOOL;	{ DE:"Riserva e10" }
+		SNeSpare_11_m AT %MX100.3959 : BOOL;	{ DE:"Riserva e11" }
+		SNeSpare_12_m AT %MX100.3960 : BOOL;	{ DE:"Riserva e12" }
+		SNeSpare_13_m AT %MX100.3961 : BOOL;	{ DE:"Riserva e13" }
+		SNeSpare_14_m AT %MX100.3962 : BOOL;	{ DE:"Riserva e14" }
+		SNeSpare_15_m AT %MX100.3963 : BOOL;	{ DE:"Riserva e15" }
+		SNeSpare_16_m AT %MX100.3964 : BOOL;	{ DE:"Riserva e16" }
+		SNeSpare_17_m AT %MX100.3965 : BOOL;	{ DE:"Riserva e17" }
+		SNeSpare_18_m AT %MX100.3966 : BOOL;	{ DE:"Riserva e18" }
+		SNeSpare_19_m AT %MX100.3967 : BOOL;	{ DE:"Riserva e19" }
+		SNeSpare_20_m AT %MX100.3968 : BOOL;	{ DE:"Riserva e20" }
+		SNeSpare_21_m AT %MX100.3969 : BOOL;	{ DE:"Riserva e21" }
+		SNeSpare_22_m AT %MX100.3970 : BOOL;	{ DE:"Riserva e22" }
+		SNeSpare_23_m AT %MX100.3971 : BOOL;	{ DE:"Riserva e23" }
+		appWeSeq AT %MX100.3972 : UDINT;	{ DE:"Ingressi virtuali, array bool" }
+		appWeh AT %MX100.3976 : UDINT;	{ DE:"appoggio intermedio dei bool in virt" }
+	{G:"vOutputs"}
+		SNuRis255_0h AT %QX255.0 : BOOL;
+		SNuRis255_1h AT %QX255.1 : BOOL;
+		do0h AT %QX2.0 : ARRAY[0..7] OF BOOL;	{ DE:"Uscite fisiche, array bool" }
+		CTuExtAuger_h AT %QX2.0 : BOOL;	{ DE:"Contattore comando coclea esterna" }
+		CTuBrnAuger_h AT %QX2.1 : BOOL;	{ DE:"Contattore coclea bruciatore" }
+		CTuIgnHeatr_h AT %QX2.2 : BOOL;	{ DE:"Contattore resistenza (candeletta) accensione" }
+		CTuHtngPump_h AT %QX2.3 : BOOL;	{ DE:"Contattore pompa riscaldamento" }
+		CTuDhwPump_h AT %QX2.4 : BOOL;	{ DE:"Contattore pompa acqua calda sanitaria" }
+		FCuMixVOpen_h AT %QX2.5 : BOOL;	{ DE:"Apertura valvola miscelatrice" }
+		FCuMixVClse_h AT %QX2.6 : BOOL;	{ DE:"Chiusura valvola miscelatrice" }
+		CTuVentCmd_h AT %QX2.7 : BOOL;	{ DE:"Contattore ventilazione" }
+		do0v AT %MX100.3808 : ARRAY[0..7] OF BOOL;	{ DE:"Uscite virtuali, array bool" }
+		CTuExtAuger_v AT %MX100.3808 : BOOL;	{ DE:"Contattore comando coclea esterna" }
+		CTuBrnAuger_v AT %MX100.3809 : BOOL;	{ DE:"Contattore coclea bruciatore" }
+		CTuIgnHeatr_v AT %MX100.3810 : BOOL;	{ DE:"Contattore resistenza accensione" }
+		CTuHtngPump_v AT %MX100.3811 : BOOL;	{ DE:"Contattore pompa riscaldamento" }
+		CTuDhwPump_v AT %MX100.3812 : BOOL;	{ DE:"Contattore pompa acqua calda sanitaria" }
+		FCuMixVOpen_v AT %MX100.3813 : BOOL;	{ DE:"Apertura valvola miscelatrice" }
+		FCuMixVClse_v AT %MX100.3814 : BOOL;	{ DE:"Chiusura valvola miscelatrice" }
+		CTuVentCmd_v AT %MX100.3815 : BOOL;	{ DE:"Contattore ventilazione" }
+		do0f AT %MX100.3816 : ARRAY[0..7] OF BOOL;	{ DE:"Forzatura valore uscite virtuali, array bool" }
+		CTuExtAuger_f AT %MX100.3816 : BOOL;	{ DE:"Contattore comando coclea esterna" }
+		CTuBrnAuger_f AT %MX100.3817 : BOOL;	{ DE:"Contattore coclea bruciatore" }
+		CTuIgnHeatr_f AT %MX100.3818 : BOOL;	{ DE:"Contattore resistenza accensione" }
+		CTuHtngPump_f AT %MX100.3819 : BOOL;	{ DE:"Contattore pompa riscaldamento" }
+		CTuDhwPump_f AT %MX100.3820 : BOOL;	{ DE:"Contattore pompa acqua calda sanitaria" }
+		FCuMixVOpen_f AT %MX100.3821 : BOOL;	{ DE:"Apertura valvola miscelatrice" }
+		FCuMixVClse_f AT %MX100.3822 : BOOL;	{ DE:"Chiusura valvola miscelatrice" }
+		CTuVentCmd_f AT %MX100.3823 : BOOL;	{ DE:"Contattore ventilazione" }
+		do0m AT %MX100.3824 : ARRAY[0..7] OF BOOL;	{ DE:"Forzatura stato uscite virtuali, array bool" }
+		CTuExtAuger_m AT %MX100.3824 : BOOL;	{ DE:"Contattore comando coclea esterna" }
+		CTuBrnAuger_m AT %MX100.3825 : BOOL;	{ DE:"Contattore coclea bruciatore" }
+		CTuIgnHeatr_m AT %MX100.3826 : BOOL;	{ DE:"Contattore resistenza accensione" }
+		CTuHtngPump_m AT %MX100.3827 : BOOL;	{ DE:"Contattore pompa riscaldamento" }
+		CTuDhwPump_m AT %MX100.3828 : BOOL;	{ DE:"Contattore pompa acqua calda sanitaria" }
+		FCuMixVOpen_m AT %MX100.3829 : BOOL;	{ DE:"Apertura valvola miscelatrice" }
+		FCuMixVClse_m AT %MX100.3830 : BOOL;	{ DE:"Chiusura valvola miscelatrice" }
+		CTuVentCmd_m AT %MX100.3831 : BOOL;	{ DE:"Contattore ventilazione" }
+	{G:"vRt2hmi"}
+		TmTimeStamp AT %MW100.200 : UDINT;
+		diImg AT %MW100.204 : UDINT;	{ DE:"immagine input per hmi" }
+		doImg AT %MW100.208 : UDINT;	{ DE:"immagine output per hmi" }
+		pvTCaldaia AT %MW100.212 : INT;
+		pvTFumi AT %MW100.214 : INT;
+		pvTMandata AT %MW100.216 : INT;
+		pvTRitorno AT %MW100.218 : INT;
+		pvTEsterna AT %MW100.220 : INT;
+		pvTInterna AT %MW100.222 : INT;
+		pvTAriaComb AT %MW100.224 : INT;
+		pvTCaldaia2 AT %MW100.226 : INT;
+		pvPFiamma AT %MW100.228 : INT;
+		phMaCy AT %MW100.230 : UINT;
+		phMaCyT AT %MW100.232 : UINT;
+		phFlSt AT %MW100.234 : UINT;
+		phFlStT AT %MW100.236 : UINT;
+		phCari AT %MW100.238 : UINT;
+		phCariT AT %MW100.240 : UINT;
+		phRefi AT %MW100.242 : UINT;
+		phRefiT AT %MW100.244 : UINT;
+		phGeMa AT %MW100.246 : UINT;
+		phGeMaT AT %MW100.248 : UINT;
+		ventDuty AT %MW100.250 : UINT;
+		PellDuty AT %MW100.252 : UINT;
+		alarms AT %MW100.256 : DINT;	{ DE:"allarmi" }
+		alarms0 AT %MW100.256 : INT;	{ DE:"allarmi" }
+		SIaTUTTONOK AT %MW100.256.0 : BOOL;	{ DE:"Allarme ausiliari non inseriti" }
+		TTaSOC_TH1_ AT %MW100.256.1 : BOOL;	{ DE:"Allarme sonda in corto alta 1" }
+		alarms1 AT %MW100.258 : INT;	{ DE:"allarmi" }
+		PTaPGASFAIL AT %MW100.258.0 : BOOL;	{ DE:"Allarme trasd. press. gas" }
+		mbCnNAvviamen AT %MX100.260 : UDINT;	{ DE:"contatore avviamenti" }
+		mbCnNCariEste AT %MX100.264 : UDINT;	{ DE:"contatore caricamenti esterni" }
+		mbCnNCariBruc AT %MX100.268 : UDINT;	{ DE:"contatore caricamenti bruciatore" }
+		mbCnMFunz AT %MX100.272 : ARRAY[0..2] OF UDINT;	{ DE:"contatore funzionamento minimo" }
+		mbCnMFunzMini AT %MX100.272 : UDINT;	{ DE:"contatore funzionamento minimo" }
+		mbCnMFunzMedi AT %MX100.276 : UDINT;	{ DE:"contatore funzionamento medio" }
+		mbCnMFunzMaxi AT %MX100.280 : UDINT;	{ DE:"contatore funzionamento massimo" }
+	{G:"vRt2plc"}
+		diImgFf AT %MW100.400 : UDINT;	{ DE:"valore forzatura input" }
+		diImgFm AT %MW100.404 : UDINT;	{ DE:"stato forzatura input" }
+		doImgFf AT %MW100.408 : UDINT;	{ DE:"valore forzatura output" }
+		doImgFm AT %MW100.412 : UDINT;	{ DE:"stato forzatura output" }
+		doImgV AT %MW100.416 : UDINT;	{ DE:"proposta output" }
+		TS2plc_sec AT %MW100.432 : UDINT;	{ DE:"ora UTC in secondi" }
+		wDog2plc AT %MW100.436 : UINT;	{ DE:"watch dog dal server al PLC" }
+		spTAlWOvert_dC AT %MX100.440 : UINT;	{ DE:"sp surrisc warning dC" }
+		spTAlAOvert_dC AT %MX100.442 : UINT;	{ DE:"sp surrisc allarme dC" }
+		spTmVent_s AT %MX100.444 : UINT;	{ DE:"sp ritardo spegn. ventilazione sec." }
+		xpTLock_dC AT %MX100.446 : UINT;	{ DE:"sp temp blocco scarica dC" }
+		spTmWdog_mS AT %MX100.448 : UINT;	{ DE:"sp tempo insens. watchDog com mS" }
+		spTBomSP_dC AT %MX100.450 : UINT;	{ DE:"sp temp. gas (bombola) dC" }
+		spTBomP_d AT %MX100.452 : UINT;	{ DE:"sp P bombola dec." }
+		spTBomI_c AT %MX100.454 : UINT;	{ DE:"sp I bombola cent." }
+		spTBomD_c AT %MX100.456 : UINT;	{ DE:"sp D bombola cent." }
+		spTRisSP_dC AT %MX100.458 : UINT;	{ DE:"sp fs sovratemp riscald. dC" }
+		spTRisP_d AT %MX100.460 : UINT;	{ DE:"sp P riscald. dec." }
+		spTRisI_c AT %MX100.462 : UINT;	{ DE:"sp I riscald. cent." }
+		spTRisD_c AT %MX100.464 : UINT;	{ DE:"sp D riscald. cent." }
+		spQCar_dg AT %MX100.466 : UINT;	{ DE:"sp grammi da caricare (td) dg" }
+		spNUtil468 AT %MX100.468 : UINT;	{ DE:"sp durata imp. fisso erogazione mS" }
+		spTSoc_dC AT %MX100.470 : UINT;	{ DE:"sp temper. variaz. minima nel tempo, dC" }
+		spTmSoc_s AT %MX100.472 : UINT;	{ DE:"sp tempo analisi cambio temper., Sec" }
+		spDtBt_dC AT %MX100.474 : UINT;	{ DE:"sp dT max tra sonde risc/bomb dC" }
+		spDpBtBp_dB AT %MX100.476 : UINT;	{ DE:"sp Dt misurata e teorica f(P) dB" }
+		spQRiserva_g AT %MX100.478 : UINT;	{ DE:"####################################" }
+		aiCfg AT %MX100.2048 : ARRAY[0..9] OF t_tara;	{ DE:"200 bytes" }
+		spTCariFred_s AT %MX100.2248 : UINT;	{ DE:"sp tempo caric. pellet per acc. fredda" }
+		spTRiVeIgni_s AT %MX100.2250 : UINT;	{ DE:"sp tempo ritardo ventilazione e ignitore" }
+		spQVentIgni_pc AT %MX100.2252 : UINT;	{ DE:"sp portata ventilazione in accensione" }
+		spQVentInBu_pc AT %MX100.2254 : UINT;	{ DE:"sp ventilazione iniziale propagazione fiamma" }
+		spTVentIdle_s AT %MX100.2256 : UINT;	{ DE:"sp tempo vent. prep. idle focolare" }
+		spQIdleBurn_pc AT %MX100.2258 : UINT;	{ DE:"sp ventilazione in fase di messa a riposo" }
+		spTCariRipr_s AT %MX100.2260 : UINT;	{ DE:"sp tempo caric. pellet per ripresa focolare" }
+		spTVentRipr_s AT %MX100.2262 : UINT;	{ DE:"sp tempo ventilazione per ripresa focolare" }
+		spQVentRipr_pc AT %MX100.2264 : UINT;	{ DE:"sp portata ventilazione per ripresa focolare" }
+		spTPeriCocl_ds AT %MX100.2266 : UINT;	{ DE:"sp tempo periodo PWM coclea" }
+		spTToutFiam_s AT %MX100.2268 : UINT;	{ DE:"sp tempo timeout manc. fiamma" }
+		spTMancAcce_s AT %MX100.2270 : UINT;	{ DE:"sp tempo timeout manc. accensione" }
+		spTVentAcce_s AT %MX100.2272 : UINT;	{ DE:"sp tempo preventilazione accensione" }
+		spTPropFiam_s AT %MX100.2274 : UINT;	{ DE:"sp tempo pausa propagazione fiamma" }
+		spTFunzMinI_s AT %MX100.2276 : UINT;	{ DE:"sp tempo funz. al minimo prima di run pieno" }
+		spTVeSpInTe_s AT %MX100.2278 : UINT;	{ DE:"sp tempo vent. per spegn se in temperatura" }
+		spTVentPuli_s AT %MX100.2280 : UINT;	{ DE:"sp tempo pausa ventilazione di pulizia" }
+		spQVentPuli_pc AT %MX100.2282 : UINT;	{ DE:"sp portata ventilazione durante pulizia" }
+		spTDuraPuli_s AT %MX100.2284 : UINT;	{ DE:"sp tempo durata ventilazione di pulizia" }
+		spTDuraLava_ds AT %MX100.2286 : UINT;	{ DE:"sp tempo durata lavaggio per sovratemp" }
+		spTCariCExt_s AT %MX100.2288 : UINT;	{ DE:"sp tempo carico coclea esterna" }
+		spKTempCald_dC AT %MX100.2290 : UINT;	{ DE:"sp temperatura caldaia" }
+		spKIsteCald_dK AT %MX100.2292 : UINT;	{ DE:"sp isteresi ripartenza bruciatore" }
+		spKLavTCald_dC AT %MX100.2294 : UINT;	{ DE:"sp temperatura lavaggio caldaia (pompa riscald.)" }
+		spKMaxTCald_dC AT %MX100.2296 : UINT;	{ DE:"sp temperatura massima caldaia" }
+		spKMaxTFumi_dC AT %MX100.2298 : UINT;	{ DE:"sp temperatura max fumi" }
+		spKMinTFumi_dC AT %MX100.2300 : UINT;	{ DE:"sp temperatura minima fumi in funzionamento" }
+		spKMxDeTCal_dK AT %MX100.2302 : UINT;	{ DE:"sp delta T max tra sonde caldaia" }
+		spKMinTMand_dC AT %MX100.2304 : UINT;	{ DE:"sp temperatura minima mandata (climatica)" }
+		spKMaxTMand_dC AT %MX100.2306 : UINT;	{ DE:"sp temperatura massima mandata (climatica)" }
+		spKMaxTExtr_dC AT %MX100.2308 : UINT;	{ DE:"sp temperatura minima esterna (climatica)" }
+		spKMinTExtr_dC AT %MX100.2310 : UINT;	{ DE:"sp temperatura massima esterna (climatica)" }
+		spKFsErInte_dK AT %MX100.2312 : UINT;	{ DE:"sp temperatura errore reg. interna" }
+		spKFsCorMan_dK AT %MX100.2314 : UINT;	{ DE:"sp temperatura fondo scala correzione mandata" }
+		spRPresFiam_pm AT %MX100.2316 : UINT;	{ DE:"sp perc. radiaz. pres. fiamma" }
+		spKCampRidu_dk AT %MX100.2318 : UINT;	{ DE:"sp campo riduzione potenza" }
+		regPars AT %MX100.2320 : ARRAY[0..4, 0..1] OF UINT;
+		spTMandRisc_dC AT %MX100.2340 : UINT;	{ DE:"sp temperatura mandata riscaldamento" }
+		spTVentInBu_pc AT %MX100.2342 : UINT;	{ DE:"sp tempo accensione ventilata iniziale" }
+		spKMaxErrMa_cK AT %MX100.2344 : UINT;	{ DE:"sp tempo accensione ventilata iniziale" }
+		spTHtngPmp_dC AT %MX100.2346 : UINT;	{ DE:"####################################" }
+		spTDhwPump_dC AT %MX100.2348 : UINT;	{ DE:"####################################" }
+		cnNAvviamen AT %MX100.2376 : UDINT;	{ DE:"contatore avviamenti" }
+		cnNCariEste AT %MX100.2380 : UDINT;	{ DE:"contatore caricamenti esterni" }
+		cnNCariBruc AT %MX100.2384 : UDINT;	{ DE:"contatore caricamenti bruciatore" }
+		cnMFunzMini AT %MX100.2388 : UDINT;	{ DE:"contatore funzionamento minimo" }
+		cnMFunzMedi AT %MX100.2392 : UDINT;	{ DE:"contatore funzionamento medio" }
+		cnMFunzMaxi AT %MX100.2396 : UDINT;	{ DE:"contatore funzionamento massimo" }
+		cmd0 AT %MW100.2402 : WORD;	{ DE:"comandi operativi" }
+		cmdReset AT %MW100.2400.0 : BOOL;	{ DE:"comando reset" }
+		cmdRstAl AT %MW100.2400.3 : BOOL;	{ DE:"comando reset allarmi" }
+		cmdRiserva AT %MW100.2400.5 : BOOL;	{ DE:"era gas sel. R1234yf" }
+		cmdAbort AT %MW100.2400.8 : BOOL;	{ DE:"cmdRiserva 8" }
+		cmd0_B AT %MW100.2400.11 : BOOL;	{ DE:"cmdRiserva 11" }
+		cmd0_C AT %MW100.2400.12 : BOOL;	{ DE:"cmdRiserva 12" }
+		cmd0_D AT %MW100.2400.13 : BOOL;	{ DE:"cmdRiserva 13" }
+		cmd0_E AT %MW100.2400.14 : BOOL;	{ DE:"cmdRiserva 14" }
+		cmd0_F AT %MW100.2400.15 : BOOL;	{ DE:"cmdRiserva 15" }
+		cmd1 AT %MW100.2402 : WORD;	{ DE:"comandi operativi" }
+		cmd1_0 AT %MW100.2402.0 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_1 AT %MW100.2402.1 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_2 AT %MW100.2402.2 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_3 AT %MW100.2402.3 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_4 AT %MW100.2402.4 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_5 AT %MW100.2402.5 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_6 AT %MW100.2402.6 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_7 AT %MW100.2402.7 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_8 AT %MW100.2402.8 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_9 AT %MW100.2402.9 : BOOL;	{ DE:"cmdRiserva 9" }
+		cmd1_A AT %MW100.2402.10 : BOOL;	{ DE:"cmdRiserva 10" }
+		cmd1_B AT %MW100.2402.11 : BOOL;	{ DE:"cmdRiserva 11" }
+		cmd1_C AT %MW100.2402.12 : BOOL;	{ DE:"cmdRiserva 12" }
+		cmd1_D AT %MW100.2402.13 : BOOL;	{ DE:"cmdRiserva 13" }
+		cmd1_E AT %MW100.2402.14 : BOOL;	{ DE:"cmdRiserva 14" }
+		cmd1_F AT %MW100.2402.15 : BOOL;	{ DE:"cmdRiserva 15" }
+	END_VAR
+

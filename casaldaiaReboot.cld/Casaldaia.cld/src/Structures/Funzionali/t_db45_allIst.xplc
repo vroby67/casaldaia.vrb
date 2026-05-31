@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_db45_allIst" version="1.0.0">
+	<title>Istanze allarmi</title>
+	<vars>
+		<var name="SIaTUTTONOK" type="BOOL">
+			<descr>Allarme ausiliari non inseriti</descr>
+		</var>
+		<var name="TSaSONDCALD" type="BOOL">
+			<descr>Allarme parità sonde alte</descr>
+		</var>
+		<var name="TSaHIGHTEMP" type="BOOL">
+			<descr>Warning alta temperatura</descr>
+		</var>
+		<var name="TSaOVERTEMP" type="BOOL">
+			<descr>Allarme alta temperatura</descr>
+		</var>
+		<var name="TOaACCEFALL" type="BOOL">
+			<descr>Allarme accensione fallita</descr>
+		</var>
+		<var name="TOaMANCFIAM" type="BOOL">
+			<descr>Allarme spegnimento fiamma</descr>
+		</var>
+		<var name="SNaMANCPELL" type="BOOL">
+			<descr>Allarme mancanza pellet</descr>
+		</var>
+		<var name="TTaFUMICALD" type="BOOL">
+			<descr>Allarme fumi surriscaldati</descr>
+		</var>
+		<var name="TTaFUMIFRED" type="BOOL">
+			<descr>Allarme fumi troppo freddi</descr>
+		</var>
+		<var name="TSaTEMPCALD" type="BOOL">
+			<descr>Allarme surriscaldamento caldaia</descr>
+		</var>
+		<var name="TSaCHEKFIAM" type="BOOL">
+			<descr>Allarme sensore fiamma</descr>
+		</var>
+		<var name="TSwPULICENE" type="BOOL">
+			<descr>Avviso svuotamento cenere</descr>
+		</var>
+		<var name="TSwPULICALD" type="BOOL">
+			<descr>Avviso pulizia caldaia/camino</descr>
+		</var>
+		<var name="WDaMBPCSERV" type="BOOL">
+			<descr>Allarme watch dog comunicazione server</descr>
+		</var>
+		<var name="WDaMBMODRAD" type="BOOL">
+			<descr>Allarme watch dog comunicazione mod. radio</descr>
+		</var>
+		<var name="TSaSYSTNRDY" type="BOOL">
+			<descr>Allarme sistema non pronto ad erogare</descr>
+		</var>
+		<var name="ack" type="BOOL">
+			<descr>Riconoscimento allarme</descr>
+		</var>
+		<var name="ackOld" type="BOOL">
+			<descr>App. Riconoscimento allarme</descr>
+		</var>
+		<var name="reset" type="BOOL">
+			<descr>Reset allarme</descr>
+		</var>
+		<var name="resetOld" type="BOOL">
+			<descr>App. Reset allarme</descr>
+		</var>
+		<var name="flSpiaOn" type="BOOL">
+			<descr>Aux. com. spia allarme</descr>
+		</var>
+		<var name="flSpiaBlink" type="BOOL">
+			<descr>Aux. com. spia allarme lampeggiante</descr>
+		</var>
+		<var name="flSonoro" type="BOOL">
+			<descr>Aux. com. allarme acustico</descr>
+		</var>
+		<var name="ptrAl" type="UINT">
+			<descr>Puntatore di servizio</descr>
+		</var>
+		<var name="a" type="t_alStr" dim0="32">
+			<descr>Vettore allarmi</descr>
+		</var>
+		<var name="SInTUTTONOK" type="INT">
+			<descr>Allarme ausiliari non inseriti</descr>
+			<initValue>0</initValue>
+		</var>
+		<var name="TSnSONDCALD" type="INT">
+			<descr>Allarme sonda in corto alta 1</descr>
+			<initValue>1</initValue>
+		</var>
+		<var name="TSnHIGHTEMP" type="INT">
+			<descr>Allarme sonda in corto alta 2</descr>
+			<initValue>2</initValue>
+		</var>
+		<var name="TSnOVERTEMP" type="INT">
+			<descr>Allarme sonda in corto bassa 1</descr>
+			<initValue>3</initValue>
+		</var>
+		<var name="TOnACCEFALL" type="INT">
+			<descr>Allarme sonda in corto serbatoio</descr>
+			<initValue>4</initValue>
+		</var>
+		<var name="TOnMANCFIAM" type="INT">
+			<descr>Allarme parità sonde alte</descr>
+			<initValue>5</initValue>
+		</var>
+		<var name="SNnMANCPELL" type="INT">
+			<descr>Allarme parità sonde alte/bassa</descr>
+			<initValue>6</initValue>
+		</var>
+		<var name="TTnFUMICALD" type="INT">
+			<descr>Allarme parità sonde temp./press.</descr>
+			<initValue>7</initValue>
+		</var>
+		<var name="TTnFUMIFRED" type="INT">
+			<descr>Warning alta temperatura</descr>
+			<initValue>8</initValue>
+		</var>
+		<var name="TSnTEMPCALD" type="INT">
+			<descr>Allarme alta temperatura</descr>
+			<initValue>9</initValue>
+		</var>
+		<var name="TSnCHEKFIAM" type="INT">
+			<descr>Warning low voltage vehicle box</descr>
+			<initValue>10</initValue>
+		</var>
+		<var name="TSnPULICENE" type="INT">
+			<descr>Allarme bilancia non disponibile</descr>
+			<initValue>11</initValue>
+		</var>
+		<var name="TSnPULICALD" type="INT">
+			<descr>Allarme vehicle box not reachable</descr>
+			<initValue>12</initValue>
+		</var>
+		<var name="WDnMBPCSERV" type="INT">
+			<descr>Allarme watch dog comunicazione server</descr>
+			<initValue>25</initValue>
+		</var>
+		<var name="WDnMBMODRAD" type="INT">
+			<descr>Allarme watch dog comunicazione mod. radio</descr>
+			<initValue>26</initValue>
+		</var>
+		<var name="TSnSYSTNRDY" type="INT">
+			<descr>Allarme sistema non pronto</descr>
+			<initValue>27</initValue>
+		</var>
+		<var name="phRiposo" type="INT">
+			<initValue>0</initValue>
+		</var>
+		<var name="ph05RitAttivaz" type="INT">
+			<initValue>5</initValue>
+		</var>
+		<var name="ph10AlSonLamp" type="INT">
+			<initValue>10</initValue>
+		</var>
+		<var name="ph20AlLamp" type="INT">
+			<initValue>20</initValue>
+		</var>
+		<var name="ph30Lamp" type="INT">
+			<initValue>30</initValue>
+		</var>
+		<var name="ph35RitRiattivaz" type="INT">
+			<initValue>35</initValue>
+		</var>
+		<var name="ph40AlLampLowP" type="INT">
+			<initValue>40</initValue>
+		</var>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_db45_allIst: STRUCT
+	SIaTUTTONOK : BOOL;	(* Allarme ausiliari non inseriti *)
+	TSaSONDCALD : BOOL;	(* Allarme parità sonde alte *)
+	TSaHIGHTEMP : BOOL;	(* Warning alta temperatura *)
+	TSaOVERTEMP : BOOL;	(* Allarme alta temperatura *)
+
+	TOaACCEFALL : BOOL;	(* Allarme accensione fallita *)
+	TOaMANCFIAM : BOOL;	(* Allarme spegnimento fiamma *)
+	SNaMANCPELL : BOOL;	(* Allarme mancanza pellet *)
+	TTaFUMICALD : BOOL;	(* Allarme fumi surriscaldati *)
+
+	TTaFUMIFRED : BOOL;	(* Allarme fumi troppo freddi *)
+	TSaTEMPCALD : BOOL;	(* Allarme surriscaldamento caldaia *)
+	TSaCHEKFIAM : BOOL;	(* Allarme sensore fiamma *)
+ 	TSwPULICENE : BOOL;	(* Avviso svuotamento cenere *)
+
+ 	TSwPULICALD : BOOL;	(* Avviso pulizia caldaia/camino *)
+	WDaMBPCSERV : BOOL;	(* Allarme watch dog comunicazione server *)
+	WDaMBMODRAD : BOOL;	(* Allarme watch dog comunicazione mod. radio *)
+	TSaSYSTNRDY : BOOL;	(* Allarme sistema non pronto ad erogare *)
+
+	ack 				: BOOL;	(* Riconoscimento allarme *)
+	ackOld 		: BOOL;	(* App. Riconoscimento allarme *)
+	reset 		: BOOL;	(* Reset allarme *)
+	resetOld 	: BOOL;	(* App. Reset allarme *)
+	flSpiaOn 	: BOOL;	(* Aux. com. spia allarme *)
+	flSpiaBlink : BOOL;	(* Aux. com. spia allarme lampeggiante *)
+	flSonoro 	: BOOL;	(* Aux. com. allarme acustico *)
+	ptrAl 		: UINT;	(* Puntatore di servizio *)
+
+	a 			: ARRAY[0..31] OF t_alStr;	(* Vettore allarmi *)
+
+	SInTUTTONOK  : INT := 0;	(* Allarme ausiliari non inseriti *)
+	TSnSONDCALD  : INT := 1;	(* Allarme sonda in corto alta 1 *)
+	TSnHIGHTEMP  : INT := 2;	(* Allarme sonda in corto alta 2 *)
+	TSnOVERTEMP  : INT := 3;	(* Allarme sonda in corto bassa 1 *)
+		
+	TOnACCEFALL  : INT := 4;	(* Allarme sonda in corto serbatoio *)
+	TOnMANCFIAM  : INT := 5;	(* Allarme parità sonde alte *)
+	SNnMANCPELL  : INT := 6;	(* Allarme parità sonde alte/bassa *)
+	TTnFUMICALD  : INT := 7;	(* Allarme parità sonde temp./press. *)
+		
+	TTnFUMIFRED  : INT := 8;	(* Warning alta temperatura *)
+	TSnTEMPCALD  : INT := 9;	(* Allarme alta temperatura *)
+	TSnCHEKFIAM  : INT := 10;	(* Warning low voltage vehicle box *)
+	TSnPULICENE  : INT := 11;	(* Allarme bilancia non disponibile *)
+		
+	TSnPULICALD  : INT := 12;	(* Allarme vehicle box not reachable *)
+//....
+	WDnMBPCSERV : INT := 25;	(* Allarme watch dog comunicazione server *)
+	WDnMBMODRAD : INT := 26;	(* Allarme watch dog comunicazione mod. radio *)
+	TSnSYSTNRDY : INT := 27;	(* Allarme sistema non pronto *)
+
+	phRiposo 			: INT := 0;
+	ph05RitAttivaz 		: INT := 5;
+	ph10AlSonLamp 		: INT := 10;
+	ph20AlLamp 			: INT := 20;
+	ph30Lamp 			: INT := 30;
+	ph35RitRiattivaz 	: INT := 35;
+	ph40AlLampLowP 		: INT := 40;
+END_STRUCT;
+
+]]>
+	</iecDeclaration>
+</struct>

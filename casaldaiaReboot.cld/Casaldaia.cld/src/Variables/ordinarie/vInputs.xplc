@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<group name="vInputs" version="1.0.0">
+	<var name="di0h" type="BOOL" dim0="24">
+		<descr>Ingressi fisici, array bool</descr>
+		<address type="I" typeVar="X" index="2" subIndex="0"/>
+	</var>
+	<var name="SIeTutto_OK_h" type="BOOL">
+		<descr>Comandi inseriti</descr>
+		<address type="I" typeVar="X" index="2" subIndex="0"/>
+	</var>
+	<var name="SNePltLevOK_h" type="BOOL">
+		<descr>Livello pellet nel bruciatore: OK</descr>
+		<address type="I" typeVar="X" index="2" subIndex="1"/>
+	</var>
+	<var name="TSeOverTemp_h" type="BOOL">
+		<descr>Termostato caldaia: sovratemperatura</descr>
+		<address type="I" typeVar="X" index="2" subIndex="2"/>
+	</var>
+	<var name="SNeBurnConn_h" type="BOOL">
+		<descr>Bruciatore connesso</descr>
+		<address type="I" typeVar="X" index="2" subIndex="3"/>
+	</var>
+	<var name="FCeValvOpen_h" type="BOOL">
+		<descr>Valvola aperta</descr>
+		<address type="I" typeVar="X" index="2" subIndex="4"/>
+	</var>
+	<var name="FCeValvClos_h" type="BOOL">
+		<descr>Valvola chiusa</descr>
+		<address type="I" typeVar="X" index="2" subIndex="5"/>
+	</var>
+	<var name="SNeSpare_6_h" type="BOOL">
+		<descr>Riserva e6</descr>
+		<address type="I" typeVar="X" index="2" subIndex="6"/>
+	</var>
+	<var name="SNeSpare_7_h" type="BOOL">
+		<descr>Riserva e7</descr>
+		<address type="I" typeVar="X" index="2" subIndex="7"/>
+	</var>
+	<var name="SNeSpare_8_h" type="BOOL">
+		<descr>Riserva e8</descr>
+		<address type="I" typeVar="X" index="2" subIndex="8"/>
+	</var>
+	<var name="SNeSpare_9_h" type="BOOL">
+		<descr>Riserva e9</descr>
+		<address type="I" typeVar="X" index="2" subIndex="9"/>
+	</var>
+	<var name="SNeSpare_10_h" type="BOOL">
+		<descr>Riserva e10</descr>
+		<address type="I" typeVar="X" index="2" subIndex="10"/>
+	</var>
+	<var name="SNeSpare_11_h" type="BOOL">
+		<descr>Riserva e11</descr>
+		<address type="I" typeVar="X" index="2" subIndex="11"/>
+	</var>
+	<var name="SNeSpare_12_h" type="BOOL">
+		<descr>Riserva e12</descr>
+		<address type="I" typeVar="X" index="2" subIndex="12"/>
+	</var>
+	<var name="SNeSpare_13_h" type="BOOL">
+		<descr>Riserva e13</descr>
+		<address type="I" typeVar="X" index="2" subIndex="13"/>
+	</var>
+	<var name="SNeSpare_14_h" type="BOOL">
+		<descr>Riserva e14</descr>
+		<address type="I" typeVar="X" index="2" subIndex="14"/>
+	</var>
+	<var name="SNeSpare_15_h" type="BOOL">
+		<descr>Riserva e15</descr>
+		<address type="I" typeVar="X" index="2" subIndex="15"/>
+	</var>
+	<var name="SNeSpare_16_h" type="BOOL">
+		<descr>Riserva e16</descr>
+		<address type="I" typeVar="X" index="2" subIndex="16"/>
+	</var>
+	<var name="SNeSpare_17_h" type="BOOL">
+		<descr>Riserva e17</descr>
+		<address type="I" typeVar="X" index="2" subIndex="17"/>
+	</var>
+	<var name="SNeSpare_18_h" type="BOOL">
+		<descr>Riserva e18</descr>
+		<address type="I" typeVar="X" index="2" subIndex="18"/>
+	</var>
+	<var name="SNeSpare_19_h" type="BOOL">
+		<descr>Riserva e19</descr>
+		<address type="I" typeVar="X" index="2" subIndex="19"/>
+	</var>
+	<var name="SNeSpare_20_h" type="BOOL">
+		<descr>Riserva e20</descr>
+		<address type="I" typeVar="X" index="2" subIndex="20"/>
+	</var>
+	<var name="SNeSpare_21_h" type="BOOL">
+		<descr>Riserva e21</descr>
+		<address type="I" typeVar="X" index="2" subIndex="21"/>
+	</var>
+	<var name="SNeSpare_22_h" type="BOOL">
+		<descr>Riserva e22</descr>
+		<address type="I" typeVar="X" index="2" subIndex="22"/>
+	</var>
+	<var name="SNeSpare_23_h" type="BOOL">
+		<descr>Riserva e23</descr>
+		<address type="I" typeVar="X" index="2" subIndex="23"/>
+	</var>
+	<var name="di0v" type="BOOL" dim0="24">
+		<descr>Ingressi virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3900"/>
+	</var>
+	<var name="SIeTutto_OK_v" type="BOOL">
+		<descr>Comandi inseriti</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3900"/>
+	</var>
+	<var name="SNePltLevOK_v" type="BOOL">
+		<descr>Livello pellet nel bruciatore: OK</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3901"/>
+	</var>
+	<var name="TSeOverTemp_v" type="BOOL">
+		<descr>Termostato caldaia: sovratemperatura</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3902"/>
+	</var>
+	<var name="SNeBurnConn_v" type="BOOL">
+		<descr>Bruciatore connesso</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3903"/>
+	</var>
+	<var name="FCeValvOpen_v" type="BOOL">
+		<descr>Valvola aperta</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3904"/>
+	</var>
+	<var name="FCeValvClos_v" type="BOOL">
+		<descr>Valvola chiusa</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3905"/>
+	</var>
+	<var name="SNeSpare_6_v" type="BOOL">
+		<descr>Riserva e6</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3906"/>
+	</var>
+	<var name="SNeSpare_7_v" type="BOOL">
+		<descr>Riserva e7</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3907"/>
+	</var>
+	<var name="SNeSpare_8_v" type="BOOL">
+		<descr>Riserva e8</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3908"/>
+	</var>
+	<var name="SNeSpare_9_v" type="BOOL">
+		<descr>Riserva e9</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3909"/>
+	</var>
+	<var name="SNeSpare_10_v" type="BOOL">
+		<descr>Riserva e10</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3910"/>
+	</var>
+	<var name="SNeSpare_11_v" type="BOOL">
+		<descr>Riserva e11</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3911"/>
+	</var>
+	<var name="SNeSpare_12_v" type="BOOL">
+		<descr>Riserva e12</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3912"/>
+	</var>
+	<var name="SNeSpare_13_v" type="BOOL">
+		<descr>Riserva e13</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3913"/>
+	</var>
+	<var name="SNeSpare_14_v" type="BOOL">
+		<descr>Riserva e14</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3914"/>
+	</var>
+	<var name="SNeSpare_15_v" type="BOOL">
+		<descr>Riserva e15</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3915"/>
+	</var>
+	<var name="SNeSpare_16_v" type="BOOL">
+		<descr>Riserva e16</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3916"/>
+	</var>
+	<var name="SNeSpare_17_v" type="BOOL">
+		<descr>Riserva e17</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3917"/>
+	</var>
+	<var name="SNeSpare_18_v" type="BOOL">
+		<descr>Riserva e18</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3918"/>
+	</var>
+	<var name="SNeSpare_19_v" type="BOOL">
+		<descr>Riserva e19</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3919"/>
+	</var>
+	<var name="SNeSpare_20_v" type="BOOL">
+		<descr>Riserva e20</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3920"/>
+	</var>
+	<var name="SNeSpare_21_v" type="BOOL">
+		<descr>Riserva e21</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3921"/>
+	</var>
+	<var name="SNeSpare_22_v" type="BOOL">
+		<descr>Riserva e22</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3922"/>
+	</var>
+	<var name="SNeSpare_23_v" type="BOOL">
+		<descr>Riserva e23</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3923"/>
+	</var>
+	<var name="di0f" type="BOOL" dim0="24">
+		<descr>Forzatura valore ingressi virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3924"/>
+	</var>
+	<var name="SIeTutto_OK_f" type="BOOL">
+		<descr>Comandi inseriti</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3924"/>
+	</var>
+	<var name="SNePltLevOK_f" type="BOOL">
+		<descr>Livello pellet nel bruciatore: OK</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3925"/>
+	</var>
+	<var name="TSeOverTemp_f" type="BOOL">
+		<descr>Termostato caldaia: sovratemperatura</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3926"/>
+	</var>
+	<var name="SNeBurnConn_f" type="BOOL">
+		<descr>Bruciatore connesso</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3927"/>
+	</var>
+	<var name="FCeValvOpen_f" type="BOOL">
+		<descr>Valvola aperta</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3928"/>
+	</var>
+	<var name="FCeValvClos_f" type="BOOL">
+		<descr>Valvola chiusa</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3929"/>
+	</var>
+	<var name="SNeSpare_6_f" type="BOOL">
+		<descr>Riserva e6</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3930"/>
+	</var>
+	<var name="SNeSpare_7_f" type="BOOL">
+		<descr>Riserva e7</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3931"/>
+	</var>
+	<var name="SNeSpare_8_f" type="BOOL">
+		<descr>Riserva e8</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3932"/>
+	</var>
+	<var name="SNeSpare_9_f" type="BOOL">
+		<descr>Riserva e9</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3933"/>
+	</var>
+	<var name="SNeSpare_10_f" type="BOOL">
+		<descr>Riserva e10</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3934"/>
+	</var>
+	<var name="SNeSpare_11_f" type="BOOL">
+		<descr>Riserva e11</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3935"/>
+	</var>
+	<var name="SNeSpare_12_f" type="BOOL">
+		<descr>Riserva e12</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3936"/>
+	</var>
+	<var name="SNeSpare_13_f" type="BOOL">
+		<descr>Riserva e13</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3937"/>
+	</var>
+	<var name="SNeSpare_14_f" type="BOOL">
+		<descr>Riserva e14</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3938"/>
+	</var>
+	<var name="SNeSpare_15_f" type="BOOL">
+		<descr>Riserva e15</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3939"/>
+	</var>
+	<var name="SNeSpare_16_f" type="BOOL">
+		<descr>Riserva e16</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3940"/>
+	</var>
+	<var name="SNeSpare_17_f" type="BOOL">
+		<descr>Riserva e17</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3941"/>
+	</var>
+	<var name="SNeSpare_18_f" type="BOOL">
+		<descr>Riserva e18</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3942"/>
+	</var>
+	<var name="SNeSpare_19_f" type="BOOL">
+		<descr>Riserva e19</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3943"/>
+	</var>
+	<var name="SNeSpare_20_f" type="BOOL">
+		<descr>Riserva e20</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3944"/>
+	</var>
+	<var name="SNeSpare_21_f" type="BOOL">
+		<descr>Riserva e21</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3945"/>
+	</var>
+	<var name="SNeSpare_22_f" type="BOOL">
+		<descr>Riserva e22</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3946"/>
+	</var>
+	<var name="SNeSpare_23_f" type="BOOL">
+		<descr>Riserva e23</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3947"/>
+	</var>
+	<var name="di0m" type="BOOL" dim0="24">
+		<descr>Forzatura stato ingressi virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3948"/>
+	</var>
+	<var name="SIeTutto_OK_m" type="BOOL">
+		<descr>Comandi inseriti</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3948"/>
+	</var>
+	<var name="SNePltLevOK_m" type="BOOL">
+		<descr>Livello pellet nel bruciatore: OK</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3949"/>
+	</var>
+	<var name="TSeOverTemp_m" type="BOOL">
+		<descr>Termostato caldaia: sovratemperatura</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3950"/>
+	</var>
+	<var name="SNeBurnConn_m" type="BOOL">
+		<descr>Bruciatore connesso</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3951"/>
+	</var>
+	<var name="FCeValvOpen_m" type="BOOL">
+		<descr>Valvola aperta</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3952"/>
+	</var>
+	<var name="FCeValvClos_m" type="BOOL">
+		<descr>Valvola chiusa</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3953"/>
+	</var>
+	<var name="SNeSpare_6_m" type="BOOL">
+		<descr>Riserva e6</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3954"/>
+	</var>
+	<var name="SNeSpare_7_m" type="BOOL">
+		<descr>Riserva e7</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3955"/>
+	</var>
+	<var name="SNeSpare_8_m" type="BOOL">
+		<descr>Riserva e8</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3956"/>
+	</var>
+	<var name="SNeSpare_9_m" type="BOOL">
+		<descr>Riserva e9</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3957"/>
+	</var>
+	<var name="SNeSpare_10_m" type="BOOL">
+		<descr>Riserva e10</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3958"/>
+	</var>
+	<var name="SNeSpare_11_m" type="BOOL">
+		<descr>Riserva e11</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3959"/>
+	</var>
+	<var name="SNeSpare_12_m" type="BOOL">
+		<descr>Riserva e12</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3960"/>
+	</var>
+	<var name="SNeSpare_13_m" type="BOOL">
+		<descr>Riserva e13</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3961"/>
+	</var>
+	<var name="SNeSpare_14_m" type="BOOL">
+		<descr>Riserva e14</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3962"/>
+	</var>
+	<var name="SNeSpare_15_m" type="BOOL">
+		<descr>Riserva e15</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3963"/>
+	</var>
+	<var name="SNeSpare_16_m" type="BOOL">
+		<descr>Riserva e16</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3964"/>
+	</var>
+	<var name="SNeSpare_17_m" type="BOOL">
+		<descr>Riserva e17</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3965"/>
+	</var>
+	<var name="SNeSpare_18_m" type="BOOL">
+		<descr>Riserva e18</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3966"/>
+	</var>
+	<var name="SNeSpare_19_m" type="BOOL">
+		<descr>Riserva e19</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3967"/>
+	</var>
+	<var name="SNeSpare_20_m" type="BOOL">
+		<descr>Riserva e20</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3968"/>
+	</var>
+	<var name="SNeSpare_21_m" type="BOOL">
+		<descr>Riserva e21</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3969"/>
+	</var>
+	<var name="SNeSpare_22_m" type="BOOL">
+		<descr>Riserva e22</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3970"/>
+	</var>
+	<var name="SNeSpare_23_m" type="BOOL">
+		<descr>Riserva e23</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3971"/>
+	</var>
+	<var name="appWeSeq" type="UDINT">
+		<descr>Ingressi virtuali, array bool</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3972"/>
+	</var>
+	<var name="appWeh" type="UDINT">
+		<descr>appoggio intermedio dei bool in virt</descr>
+		<address type="M" typeVar="X" index="100" subIndex="3976"/>
+	</var>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[VAR_GLOBAL
+	di0h AT %IX2.0 : ARRAY[0..23] OF BOOL;	(* Ingressi fisici, array bool *)
+	SIeTutto_OK_h 	AT %IX2.0 : BOOL;		(* Comandi inseriti *)
+	SNePltLevOK_h 	AT %IX2.1 : BOOL;		(* Livello pellet nel bruciatore: OK *)
+	TSeOverTemp_h 	AT %IX2.2 : BOOL;		(* Termostato caldaia: sovratemperatura *)
+	SNeBurnConn_h 	AT %IX2.3 : BOOL;		(* Bruciatore connesso *)
+	FCeValvOpen_h 	AT %IX2.4 : BOOL;		(* Valvola aperta *)
+	FCeValvClos_h 	AT %IX2.5 : BOOL;		(* Valvola chiusa *)
+	SNeSpare_6_h    AT %IX2.6 : BOOL;		(* Riserva e6 *)
+	SNeSpare_7_h    AT %IX2.7 : BOOL;		(* Riserva e7 *)
+	SNeSpare_8_h    AT %IX2.8 : BOOL;		(* Riserva e8 *)
+	SNeSpare_9_h    AT %IX2.9 : BOOL;		(* Riserva e9 *)
+	SNeSpare_10_h   AT %IX2.10 : BOOL;		(* Riserva e10 *)
+	SNeSpare_11_h   AT %IX2.11 : BOOL;		(* Riserva e11 *)
+	SNeSpare_12_h   AT %IX2.12 : BOOL;		(* Riserva e12 *)
+	SNeSpare_13_h   AT %IX2.13 : BOOL;		(* Riserva e13 *)
+	SNeSpare_14_h   AT %IX2.14 : BOOL;		(* Riserva e14 *)
+	SNeSpare_15_h   AT %IX2.15 : BOOL;		(* Riserva e15 *)
+	SNeSpare_16_h   AT %IX2.16 : BOOL;		(* Riserva e16 *)
+	SNeSpare_17_h   AT %IX2.17 : BOOL;		(* Riserva e17 *)
+	SNeSpare_18_h   AT %IX2.18 : BOOL;		(* Riserva e18 *)
+	SNeSpare_19_h   AT %IX2.19 : BOOL;		(* Riserva e19 *)
+	SNeSpare_20_h   AT %IX2.20 : BOOL;		(* Riserva e20 *)
+	SNeSpare_21_h   AT %IX2.21 : BOOL;		(* Riserva e21 *)
+	SNeSpare_22_h   AT %IX2.22 : BOOL;		(* Riserva e22 *)
+	SNeSpare_23_h   AT %IX2.23 : BOOL;		(* Riserva e23 *)
+	
+	di0v AT %MX100.3900 : ARRAY[0..23] OF BOOL;	(* Ingressi virtuali, array bool *)
+	SIeTutto_OK_v 	AT %MX100.3900 : BOOL;	(* Comandi inseriti *)
+	SNePltLevOK_v 	AT %MX100.3901 : BOOL;	(* Livello pellet nel bruciatore: OK *)
+	TSeOverTemp_v 	AT %MX100.3902 : BOOL;	(* Termostato caldaia: sovratemperatura *)
+	SNeBurnConn_v 	AT %MX100.3903 : BOOL;	(* Bruciatore connesso *)
+	FCeValvOpen_v 	AT %MX100.3904 : BOOL;	(* Valvola aperta *)
+	FCeValvClos_v 	AT %MX100.3905 : BOOL;	(* Valvola chiusa *)
+	SNeSpare_6_v    AT %MX100.3906 : BOOL;	(* Riserva e6 *)
+	SNeSpare_7_v    AT %MX100.3907 : BOOL;	(* Riserva e7 *)
+	SNeSpare_8_v    AT %MX100.3908 : BOOL;	(* Riserva e8 *)
+	SNeSpare_9_v    AT %MX100.3909 : BOOL;	(* Riserva e9 *)
+	SNeSpare_10_v   AT %MX100.3910 : BOOL;	(* Riserva e10 *)
+	SNeSpare_11_v   AT %MX100.3911 : BOOL;	(* Riserva e11 *)
+	SNeSpare_12_v   AT %MX100.3912 : BOOL;	(* Riserva e12 *)
+	SNeSpare_13_v   AT %MX100.3913 : BOOL;	(* Riserva e13 *)
+	SNeSpare_14_v   AT %MX100.3914 : BOOL;	(* Riserva e14 *)
+	SNeSpare_15_v   AT %MX100.3915 : BOOL;	(* Riserva e15 *)
+	SNeSpare_16_v   AT %MX100.3916 : BOOL;	(* Riserva e16 *)
+	SNeSpare_17_v   AT %MX100.3917 : BOOL;	(* Riserva e17 *)
+	SNeSpare_18_v   AT %MX100.3918 : BOOL;	(* Riserva e18 *)
+	SNeSpare_19_v   AT %MX100.3919 : BOOL;	(* Riserva e19 *)
+	SNeSpare_20_v   AT %MX100.3920 : BOOL;	(* Riserva e20 *)
+	SNeSpare_21_v   AT %MX100.3921 : BOOL;	(* Riserva e21 *)
+	SNeSpare_22_v   AT %MX100.3922 : BOOL;	(* Riserva e22 *)
+	SNeSpare_23_v   AT %MX100.3923 : BOOL;	(* Riserva e23 *)
+
+	di0f AT %MX100.3924 : ARRAY[0..23] OF BOOL;	(* Forzatura valore ingressi virtuali, array bool *)
+	SIeTutto_OK_f 	AT %MX100.3924 : BOOL;	(* Comandi inseriti *)
+	SNePltLevOK_f 	AT %MX100.3925 : BOOL;	(* Livello pellet nel bruciatore: OK *)
+	TSeOverTemp_f 	AT %MX100.3926 : BOOL;	(* Termostato caldaia: sovratemperatura *)
+	SNeBurnConn_f 	AT %MX100.3927 : BOOL;	(* Bruciatore connesso *)
+	FCeValvOpen_f 	AT %MX100.3928 : BOOL;	(* Valvola aperta *)
+	FCeValvClos_f 	AT %MX100.3929 : BOOL;	(* Valvola chiusa *)
+	SNeSpare_6_f    AT %MX100.3930 : BOOL;	(* Riserva e6 *)
+	SNeSpare_7_f    AT %MX100.3931 : BOOL;	(* Riserva e7 *)
+	SNeSpare_8_f    AT %MX100.3932 : BOOL;	(* Riserva e8 *)
+	SNeSpare_9_f    AT %MX100.3933 : BOOL;	(* Riserva e9 *)
+	SNeSpare_10_f   AT %MX100.3934 : BOOL;	(* Riserva e10 *)
+	SNeSpare_11_f   AT %MX100.3935 : BOOL;	(* Riserva e11 *)
+	SNeSpare_12_f   AT %MX100.3936 : BOOL;	(* Riserva e12 *)
+	SNeSpare_13_f   AT %MX100.3937 : BOOL;	(* Riserva e13 *)
+	SNeSpare_14_f   AT %MX100.3938 : BOOL;	(* Riserva e14 *)
+	SNeSpare_15_f   AT %MX100.3939 : BOOL;	(* Riserva e15 *)
+	SNeSpare_16_f   AT %MX100.3940 : BOOL;	(* Riserva e16 *)
+	SNeSpare_17_f   AT %MX100.3941 : BOOL;	(* Riserva e17 *)
+	SNeSpare_18_f   AT %MX100.3942 : BOOL;	(* Riserva e18 *)
+	SNeSpare_19_f   AT %MX100.3943 : BOOL;	(* Riserva e19 *)
+	SNeSpare_20_f   AT %MX100.3944 : BOOL;	(* Riserva e20 *)
+	SNeSpare_21_f   AT %MX100.3945 : BOOL;	(* Riserva e21 *)
+	SNeSpare_22_f   AT %MX100.3946 : BOOL;	(* Riserva e22 *)
+	SNeSpare_23_f   AT %MX100.3947 : BOOL;	(* Riserva e23 *)
+
+	di0m AT %MX100.3948 : ARRAY[0..23] OF BOOL;	(* Forzatura stato ingressi virtuali, array bool *)
+	SIeTutto_OK_m 	AT %MX100.3948 : BOOL;	(* Comandi inseriti *)
+	SNePltLevOK_m 	AT %MX100.3949 : BOOL;	(* Livello pellet nel bruciatore: OK *)
+	TSeOverTemp_m 	AT %MX100.3950 : BOOL;	(* Termostato caldaia: sovratemperatura *)
+	SNeBurnConn_m 	AT %MX100.3951 : BOOL;	(* Bruciatore connesso *)
+	FCeValvOpen_m 	AT %MX100.3952 : BOOL;	(* Valvola aperta *)
+	FCeValvClos_m 	AT %MX100.3953 : BOOL;	(* Valvola chiusa *)
+	SNeSpare_6_m    AT %MX100.3954 : BOOL;	(* Riserva e6 *)
+	SNeSpare_7_m    AT %MX100.3955 : BOOL;	(* Riserva e7 *)
+	SNeSpare_8_m    AT %MX100.3956 : BOOL;	(* Riserva e8 *)
+	SNeSpare_9_m    AT %MX100.3957 : BOOL;	(* Riserva e9 *)
+	SNeSpare_10_m   AT %MX100.3958 : BOOL;	(* Riserva e10 *)
+	SNeSpare_11_m   AT %MX100.3959 : BOOL;	(* Riserva e11 *)
+	SNeSpare_12_m   AT %MX100.3960 : BOOL;	(* Riserva e12 *)
+	SNeSpare_13_m   AT %MX100.3961 : BOOL;	(* Riserva e13 *)
+	SNeSpare_14_m   AT %MX100.3962 : BOOL;	(* Riserva e14 *)
+	SNeSpare_15_m   AT %MX100.3963 : BOOL;	(* Riserva e15 *)
+	SNeSpare_16_m   AT %MX100.3964 : BOOL;	(* Riserva e16 *)
+	SNeSpare_17_m   AT %MX100.3965 : BOOL;	(* Riserva e17 *)
+	SNeSpare_18_m   AT %MX100.3966 : BOOL;	(* Riserva e18 *)
+	SNeSpare_19_m   AT %MX100.3967 : BOOL;	(* Riserva e19 *)
+	SNeSpare_20_m   AT %MX100.3968 : BOOL;	(* Riserva e20 *)
+	SNeSpare_21_m   AT %MX100.3969 : BOOL;	(* Riserva e21 *)
+	SNeSpare_22_m   AT %MX100.3970 : BOOL;	(* Riserva e22 *)
+	SNeSpare_23_m   AT %MX100.3971 : BOOL;	(* Riserva e23 *)
+
+	                          
+	appWeSeq AT %MX100.3972 : UDINT;	(* Ingressi virtuali, array bool *)
+	appWeh AT %MX100.3976 : UDINT;	(* appoggio intermedio dei bool in virt *)
+END_VAR
+
+]]>
+	</iecDeclaration>
+</group>

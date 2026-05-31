@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<struct name="t_cenTerm" version="1.0.0">
+	<title>DB generale banco</title>
+	<vars>
+		<var name="pv" type="t_aiProc"/>
+		<var name="cm" type="t_cmdReq"/>
+		<var name="bp" type="t_burner"/>
+		<var name="tr" type="t_tRegT"/>
+		<var name="gm" type="t_gesMand"/>
+		<var name="au" type="t_auxGen"/>
+		<var name="bk" type="t_bkCalc"/>
+		<var name="al" type="t_db45_allIst"/>
+		<var name="ai" type="t_aiCh" dim0="10"/>
+	</vars>
+	<iecDeclaration active="TRUE" valid="TRUE">
+		<![CDATA[t_cenTerm: STRUCT
+	pv	: t_aiProc;
+	cm	: t_cmdReq;
+	bp	: t_burner;
+	tr	: t_tRegT;
+	gm	: t_gesMand;
+	au	: t_auxGen;
+	bk	: t_bkCalc;
+	al	: t_db45_allIst;
+	ai	:	ARRAY[0..9] OF t_aiCh;
+	//pippo : t_pwRes;
+	//WHRegs : ARRAY[0..15] OF WORD;	(* Holding registers (Write) *)
+
+END_STRUCT;
+
+
+]]>
+	</iecDeclaration>
+</struct>

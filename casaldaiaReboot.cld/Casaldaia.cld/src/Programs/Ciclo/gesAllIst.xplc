@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<program name="gesAllIst" version="1.0.0" creationDate="1682956916" lastModifiedDate="1731361396">
+	<vars>
+		<localVars>
+			<var name="n" type="INT"/>
+		</localVars>
+	</vars>
+	<iecDeclaration active="FALSE"/>
+	<sourceCode type="ST">
+		<![CDATA[//gestione wDog comunicazione in centesimi di secondo
+wDog2plc := wDog2plc + 1 - b.au.disWd;
+
+
+
+(* 0 Allarme ausiliari non inseriti *)
+b.al.SIaTUTTONOK := b.al.a[b.al.SInTUTTONOK].b.mem;  
+b.al.a[b.al.SInTUTTONOK].b.input := SIeTutto_OK_v;
+
+
+IF NOT b.al.SIaTUTTONOK THEN
+  
+	(* 1 Allarme sonda in corto alta 1 *)
+	b.al.TOaACCEFALL := b.al.a[b.al.TOnACCEFALL].b.mem;  
+//	b.al.a[b.al.TTnSOC_TH1_].b.input := b.tr.tcTH1.soc;
+	
+	
+
+ELSE
+
+	FOR n := 1 TO b.al.TSnSYSTNRDY DO
+		b.al.a[n].b.input := b.al.a[n].b.reqd;
+	END_FOR;
+
+	b.al.reset:= TRUE;
+
+END_IF;
+  
+]]>
+	</sourceCode>
+</program>
