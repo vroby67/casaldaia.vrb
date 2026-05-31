@@ -3196,7 +3196,7 @@ END_FOR;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1734288098" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="init" version="1.0.0" creationDate="1681726810" lastModifiedDate="1779037550" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="n" type="INT"/>
@@ -3320,7 +3320,7 @@ END_IF;
 n := rFiamma;
 IF aiCfg[n].tmast = 0 AND aiCfg[n].itmast = 0 THEN
 	aiCfg[n].tmist := 0;
-	aiCfg[n].tmast := 4465;
+	aiCfg[n].tmast := 4473;
 	aiCfg[n].tmiFlt := 0;
 	aiCfg[n].tmaFlt := 5000;
 	aiCfg[n].itmist := 10000;
@@ -4712,7 +4712,7 @@ END_CASE;
 ]]>
 					</sourceCode>
 				</program>
-				<program name="gesMand" version="1.0.0" creationDate="1731428838" lastModifiedDate="1731536734" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
+				<program name="gesMand" version="1.0.0" creationDate="1731428838" lastModifiedDate="1769013712" excludeFromBuild="FALSE" excludeFromBuildIfNotDef="">
 					<vars>
 						<localVars>
 							<var name="ph" type="@t_ph"/>
@@ -4743,7 +4743,7 @@ CASE @ph.ptr OF
 		END_IF;
 	mgCmdWait:
 		IF b.cm.ru0nRisc 
-				AND b.pv.tCaldaia > 55.0 
+				AND b.pv.tCaldaia > b.gm.spTHtngPmp 
 				AND @ph.tmmElap > 15000 THEN
 			ptSet(ph, mgTempEval);
 		END_IF;
@@ -5986,7 +5986,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="casaldaiaReboot" nextID="63309">
+			<root name="casaldaiaReboot" nextID="64644">
 				<folder name="Programs" id="1">
 					<folder name="Ciclo" id="26149">
 						<Pou name="aiRd" id="4246"/>
